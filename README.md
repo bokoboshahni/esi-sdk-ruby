@@ -51,7 +51,7 @@ response = client.get_character(character_id: 2113024536)
 }
 ```
 
-See the [API documentation](https://rubydoc.info/gems/esi-sdk) for detailed information on each endpoint.
+See the documentation for [ESI::Client](https://bokoboshahni.github.io/esi-sdk-ruby/ESI/Client.html) for detailed information on each endpoint.
 
 ## Development
 
