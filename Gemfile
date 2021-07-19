@@ -6,6 +6,7 @@ ruby "3.0.2"
 
 gemspec
 
+gem "activesupport", "~> 6.1"
 gem "rake", "~> 13.0"
 gem "rspec", "~> 3.10"
 gem "rubocop", "~> 1.18"
@@ -16,3 +17,8 @@ gem "simplecov", "~> 0.21"
 gem "simplecov_json_formatter", "~> 0.1", require: false
 gem "vcr", "~> 6.0"
 gem "webmock", "~> 3.13"
+gem "yard", "~> 0.9"
+
+gem "kramdown-parser-gfm", "~> 1.1"
+
+gem "rouge", "~> 3.26"

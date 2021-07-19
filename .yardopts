@@ -1,0 +1,17 @@
+--load .yardext.rb
+--embed-mixins
+--markup markdown
+--markup-provider kramdown-parser-gfm
+--no-private
+--protected
+--title "ESI SDK"
+--tag esi_scope:"Scopes"
+--tag esi_version:"Alternate Versions"
+lib/**/*.rb
+-
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE.txt
+README.md
+SECURITY.md

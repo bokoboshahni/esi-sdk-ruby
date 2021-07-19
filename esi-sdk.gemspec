@@ -4,7 +4,7 @@ require_relative "./lib/esi/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "esi-sdk"
-  spec.version       = Esi::VERSION
+  spec.version       = ESI::VERSION
   spec.authors       = ["Bokobo Shahni"]
   spec.email         = ["shahni@bokobo.space"]
 

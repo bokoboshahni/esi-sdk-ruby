@@ -12,6 +12,23 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+  Exclude:
+    - lib/esi/client/*.rb
+    - spec/lib/esi/client/*_spec.rb
+    - Rakefile
+
+Metrics/BlockLength:
+  Exclude:
+    - Rakefile
+    - spec/**/*_spec.rb
+
+Metrics/ModuleLength:
+  Exclude:
+    - lib/esi/client/*.rb
+
+Metrics/ParameterLists:
+  Exclude:
+    - lib/esi/client/*.rb
 
 Naming/FileName:
   Exclude:

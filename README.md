@@ -24,7 +24,34 @@ gem install esi-sdk
 
 ## Usage
 
-TODO: Write usage instructions here
+Create an instance of `ESI::Client` with your own `User-Agent`:
+
+```ruby
+require 'esi-sdk'
+
+client = ESI::Client.new(user_agent: 'My ESI Bot/1.0; +(https://example.com)')
+```
+
+Call an ESI endpoint:
+
+```ruby
+response = client.get_character(character_id: 2113024536)
+
+{
+  "alliance_id" => 99003214,
+  "ancestry_id" => 37,
+  "birthday" => "2017-07-20T16:28:17Z",
+  "bloodline_id" => 13,
+  "corporation_id" => 98169165,
+  "description" => "",
+  "gender" => "male",
+  "name" => "Bokobo Shahni",
+  "race_id" => 4,
+  "security_status" => 0.7826388230000001
+}
+```
+
+See the [API documentation](https://rubydoc.info/gems/esi-sdk) for detailed information on each endpoint.
 
 ## Development
 

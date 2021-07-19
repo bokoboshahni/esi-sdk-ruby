@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module Esi
+module ESI
   VERSION = "1.0.0"
 end
