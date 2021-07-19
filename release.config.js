@@ -21,10 +21,10 @@ module.exports = {
       changelogTitle: '# ESI SDK Changelog'
     }],
     ['@semantic-release/exec', {
-      prepareCmd: "VERSION=${nextRelease.version} bundle exec rake set_version"
+      prepareCmd: "VERSION=${nextRelease.version} bundle exec rake set_version && bundle install"
     }],
     ['@semantic-release/git', {
-      assets: ['CHANGELOG.md', 'lib/esi/version.rb']
+      assets: ['CHANGELOG.md', 'Gemfile.lock', 'lib/esi/version.rb']
     }],
     ['@semantic-release/exec', {
       publishCmd: "bundle exec rake build release:rubygem_push"
