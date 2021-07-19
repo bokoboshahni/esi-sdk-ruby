@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; ESI SDK
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><h1 id="eve-swagger-interface-esi-sdk">EVE Swagger Interface (ESI) SDK</h1>
+
+<p>ESI SDK is a Ruby API client for the EVE Swagger Interface (ESI), the official API for the <a href="https://eveonline.com">EVE Online</a> MMORPG.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Add this line to your application’s <code>Gemfile</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="code ruby"><code class="ruby"><span class="n">gem</span> <span class="s1">'esi-sdk'</span>
+</code></pre></div></div>
+
+<p>And then execute:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="code ruby"><code class="ruby">bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+</code></pre></div></div>
+
+<p>Or install it yourself with:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="code ruby"><code class="ruby">gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;esi-sdk
+</code></pre></div></div>
+
+<h2 id="usage">Usage</h2>
+
+<p>Create an instance of <code>ESI::Client</code> with your own <code>User-Agent</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="code ruby"><code class="ruby"><span class="nb">require</span> <span class="s1">'esi-sdk'</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="no">ESI</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">user_agent: </span><span class="s1">'My ESI Bot/1.0; +(https://example.com)'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Call an ESI endpoint:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="code ruby"><code class="ruby"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">get_character</span><span class="p">(</span><span class="ss">character_id: </span><span class="mi">2113024536</span><span class="p">)</span>
+
+<span class="p">{</span>
+  <span class="s2">"alliance_id"</span> <span class="o">=></span> <span class="mi">99003214</span><span class="p">,</span>
+  <span class="s2">"ancestry_id"</span> <span class="o">=></span> <span class="mi">37</span><span class="p">,</span>
+  <span class="s2">"birthday"</span> <span class="o">=></span> <span class="s2">"2017-07-20T16:28:17Z"</span><span class="p">,</span>
+  <span class="s2">"bloodline_id"</span> <span class="o">=></span> <span class="mi">13</span><span class="p">,</span>
+  <span class="s2">"corporation_id"</span> <span class="o">=></span> <span class="mi">98169165</span><span class="p">,</span>
+  <span class="s2">"description"</span> <span class="o">=></span> <span class="s2">""</span><span class="p">,</span>
+  <span class="s2">"gender"</span> <span class="o">=></span> <span class="s2">"male"</span><span class="p">,</span>
+  <span class="s2">"name"</span> <span class="o">=></span> <span class="s2">"Bokobo Shahni"</span><span class="p">,</span>
+  <span class="s2">"race_id"</span> <span class="o">=></span> <span class="mi">4</span><span class="p">,</span>
+  <span class="s2">"security_status"</span> <span class="o">=></span> <span class="mf">0.7826388230000001</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See the <a href="https://rubydoc.info/gems/esi-sdk">API documentation</a> for detailed information on each endpoint.</p>
+
+<h2 id="development">Development</h2>
+
+<p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
+
+<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and the created tag, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at https://github.com/bokoboshahni/esi-sdk. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github.com/bokoboshahni/esi-sdk/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+
+<h2 id="code-of-conduct">Code of Conduct</h2>
+
+<p>Everyone interacting in the ESI SDK’s project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/bokoboshahni/esi-sdk/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+
+<h2 id="license">License</h2>
+
+<p>Copyright © 2020 Bokobo Shahni <a href="mailto:shahni@bokobo.space">shahni@bokobo.space</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<h3 id="ccp-hf-developer-license-agreement">CCP hf. Developer License Agreement</h3>
+
+<p>This software is developed in accordance with the <a href="https://developers.eveonline.com/resource/license-agreement">CCP hf. Developer License Agreement</a>.</p>
+
+<p>CCP Tools and Game Data as defined by the CCP hf. Developer License Agreement © is 2014 CCP hf. All rights reserved.</p>
+
+<p>“EVE”, “EVE Online”, “CCP”, and all related logos and images are trademarks or registered trademarks of CCP hf.</p>
+</div></div>
+
+      <div id="footer">
+  Generated on Mon Jul 19 02:54:10 2021 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-3.0.2).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,3750 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: ESI::Client::Character
+  
+    &mdash; ESI SDK
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "ESI::Client::Character";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../ESI.html" title="ESI (module)">ESI</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Client.html" title="ESI::Client (class)">Client</a></span></span>
+     &raquo; 
+    <span class="title">Character</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: ESI::Client::Character
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="../Client.html" title="ESI::Client (class)">ESI::Client</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/esi/client/character.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>ESI character operations.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character-instance_method" title="#get_character (instance method)">#<strong>get_character</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Public information about a character.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_agents_research-instance_method" title="#get_character_agents_research (instance method)">#<strong>get_character_agents_research</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_agents_research)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return a list of agents research information for a character.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_blueprints-instance_method" title="#get_character_blueprints (instance method)">#<strong>get_character_blueprints</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_blueprints)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return a list of blueprints the character owns.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_corporationhistory-instance_method" title="#get_character_corporationhistory (instance method)">#<strong>get_character_corporationhistory</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_character_corporation_history, #get_characters_character_id_corporationhistory)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get a list of all the corporations a character has been a member of.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_fatigue-instance_method" title="#get_character_fatigue (instance method)">#<strong>get_character_fatigue</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_fatigue)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return a character’s jump activation and fatigue information.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_medals-instance_method" title="#get_character_medals (instance method)">#<strong>get_character_medals</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_medals)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return a list of medals the character has.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_notification_contacts-instance_method" title="#get_character_notification_contacts (instance method)">#<strong>get_character_notification_contacts</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_notifications_contacts)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return notifications about having been added to someone’s contact list.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_notifications-instance_method" title="#get_character_notifications (instance method)">#<strong>get_character_notifications</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_notifications)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return character notifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_portrait-instance_method" title="#get_character_portrait (instance method)">#<strong>get_character_portrait</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_portrait)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get portrait urls for a character.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_roles-instance_method" title="#get_character_roles (instance method)">#<strong>get_character_roles</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_roles)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns a character’s corporation roles.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_standings-instance_method" title="#get_character_standings (instance method)">#<strong>get_character_standings</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_standings)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return character standings from agents, NPC corporations, and factions.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_titles-instance_method" title="#get_character_titles (instance method)">#<strong>get_character_titles</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #get_characters_character_id_titles)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns a character’s titles.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#post_character_cspa-instance_method" title="#post_character_cspa (instance method)">#<strong>post_character_cspa</strong>(character_id:, characters:, headers: {})  &#x21d2; Object </a>
+    
+
+    
+      (also: #post_characters_character_id_cspa)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Takes a source character ID in the url and a set of target character ID’s in the body, returns a CSPA charge cost.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#post_characters_affiliation-instance_method" title="#post_characters_affiliation (instance method)">#<strong>post_characters_affiliation</strong>(characters:, headers: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Bulk lookup of character IDs to corporation, alliance and faction.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get_character-instance_method">
+  
+    #<strong>get_character</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id-instance_method'>get_characters_character_id</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Public information about a character.</p>
+
+<p>This endpoint is cached for up to 86400 seconds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/NotFoundError.html" title="ESI::Errors::NotFoundError (class)">ESI::Errors::NotFoundError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Character not found</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id">https://esi.evetech.net/ui/#/Character/get_characters_character_id</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v4</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character'>get_character</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_agents_research-instance_method">
+  
+    #<strong>get_character_agents_research</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_agents_research-instance_method'>get_characters_character_id_agents_research</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return a list of agents research information for a character. The formula for finding the current research points with an agent is: currentPoints = remainderPoints + pointsPerDay * days(currentTime - researchStartDate).</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_agents_research" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_agents_research">https://esi.evetech.net/ui/#/Character/get_characters_character_id_agents_research</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_agents_research.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_agents_research'>get_character_agents_research</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/agents_research/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_blueprints-instance_method">
+  
+    #<strong>get_character_blueprints</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_blueprints-instance_method'>get_characters_character_id_blueprints</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return a list of blueprints the character owns.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_blueprints" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_blueprints">https://esi.evetech.net/ui/#/Character/get_characters_character_id_blueprints</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_blueprints.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v3</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_blueprints'>get_character_blueprints</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/blueprints/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_corporationhistory-instance_method">
+  
+    #<strong>get_character_corporationhistory</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_character_corporation_history-instance_method'>get_character_corporation_history</span>, <span id='get_characters_character_id_corporationhistory-instance_method'>get_characters_character_id_corporationhistory</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get a list of all the corporations a character has been a member of.</p>
+
+<p>This endpoint is cached for up to 86400 seconds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_corporationhistory" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_corporationhistory">https://esi.evetech.net/ui/#/Character/get_characters_character_id_corporationhistory</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_corporationhistory'>get_character_corporationhistory</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/corporationhistory/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_fatigue-instance_method">
+  
+    #<strong>get_character_fatigue</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_fatigue-instance_method'>get_characters_character_id_fatigue</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return a character’s jump activation and fatigue information.</p>
+
+<p>This endpoint is cached for up to 300 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_fatigue" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_fatigue">https://esi.evetech.net/ui/#/Character/get_characters_character_id_fatigue</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_fatigue.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_fatigue'>get_character_fatigue</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/fatigue/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_medals-instance_method">
+  
+    #<strong>get_character_medals</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_medals-instance_method'>get_characters_character_id_medals</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return a list of medals the character has.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_medals" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_medals">https://esi.evetech.net/ui/#/Character/get_characters_character_id_medals</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_medals.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+166
+167
+168</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 166</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_medals'>get_character_medals</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/medals/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_notification_contacts-instance_method">
+  
+    #<strong>get_character_notification_contacts</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_notifications_contacts-instance_method'>get_characters_character_id_notifications_contacts</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return notifications about having been added to someone’s contact list.</p>
+
+<p>This endpoint is cached for up to 600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_notifications_contacts" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_notifications_contacts">https://esi.evetech.net/ui/#/Character/get_characters_character_id_notifications_contacts</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_notifications.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 195</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_notification_contacts'>get_character_notification_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/notifications/contacts/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_notifications-instance_method">
+  
+    #<strong>get_character_notifications</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_notifications-instance_method'>get_characters_character_id_notifications</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return character notifications.</p>
+
+<p>This endpoint is cached for up to 600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_notifications" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_notifications">https://esi.evetech.net/ui/#/Character/get_characters_character_id_notifications</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_notifications.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v5</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v6</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+225
+226
+227</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 225</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_notifications'>get_character_notifications</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/notifications/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_portrait-instance_method">
+  
+    #<strong>get_character_portrait</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_portrait-instance_method'>get_characters_character_id_portrait</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get portrait urls for a character.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/NotFoundError.html" title="ESI::Errors::NotFoundError (class)">ESI::Errors::NotFoundError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>No image server for this datasource</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_portrait" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_portrait">https://esi.evetech.net/ui/#/Character/get_characters_character_id_portrait</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v3</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+248
+249
+250</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 248</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_portrait'>get_character_portrait</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/portrait/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_roles-instance_method">
+  
+    #<strong>get_character_roles</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_roles-instance_method'>get_characters_character_id_roles</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a character’s corporation roles.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_roles" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_roles">https://esi.evetech.net/ui/#/Character/get_characters_character_id_roles</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_corporation_roles.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v3</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+277
+278
+279</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 277</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_roles'>get_character_roles</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/roles/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_standings-instance_method">
+  
+    #<strong>get_character_standings</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_standings-instance_method'>get_characters_character_id_standings</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return character standings from agents, NPC corporations, and factions.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_standings" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_standings">https://esi.evetech.net/ui/#/Character/get_characters_character_id_standings</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_standings.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+306
+307
+308</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 306</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_standings'>get_character_standings</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/standings/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_titles-instance_method">
+  
+    #<strong>get_character_titles</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='get_characters_character_id_titles-instance_method'>get_characters_character_id_titles</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a character’s titles.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/get_characters_character_id_titles" target="_parent" title="https://esi.evetech.net/ui/#/Character/get_characters_character_id_titles">https://esi.evetech.net/ui/#/Character/get_characters_character_id_titles</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_titles.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+335
+336
+337</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 335</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_titles'>get_character_titles</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/titles/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="post_character_cspa-instance_method">
+  
+    #<strong>post_character_cspa</strong>(character_id:, characters:, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='post_characters_character_id_cspa-instance_method'>post_characters_character_id_cspa</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Takes a source character ID in the url and a set of target character ID’s in the body, returns a CSPA charge cost.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>characters</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The target characters to calculate the charge for</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/post_characters_character_id_cspa" target="_parent" title="https://esi.evetech.net/ui/#/Character/post_characters_character_id_cspa">https://esi.evetech.net/ui/#/Character/post_characters_character_id_cspa</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-characters.read_contacts.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v5</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+362
+363
+364</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 362</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_post_character_cspa'>post_character_cspa</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>characters:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/cspa/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>payload:</span> <span class='id identifier rubyid_characters'>characters</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="post_characters_affiliation-instance_method">
+  
+    #<strong>post_characters_affiliation</strong>(characters:, headers: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Bulk lookup of character IDs to corporation, alliance and faction.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>characters</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The character IDs to fetch affiliations for. All characters must exist, or none will be returned</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Character/post_characters_affiliation" target="_parent" title="https://esi.evetech.net/ui/#/Character/post_characters_affiliation">https://esi.evetech.net/ui/#/Character/post_characters_affiliation</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+384
+385
+386</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/character.rb', line 384</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_post_characters_affiliation'>post_characters_affiliation</span><span class='lparen'>(</span><span class='label'>characters:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/affiliation/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>payload:</span> <span class='id identifier rubyid_characters'>characters</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Jul 19 02:54:13 2021 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-3.0.2).
+</div>
+
+    </div>
+  </body>
+</html>
