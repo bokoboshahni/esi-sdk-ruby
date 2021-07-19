@@ -1,5 +1,12 @@
 # ESI SDK Changelog
 
+## [1.1.3](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v1.1.2...v1.1.3) (2021-07-19)
+
+
+### Bug Fixes
+
+* Use double splat for cache options ([db32f35](https://github.com/bokoboshahni/esi-sdk-ruby/commit/db32f35fe1737af8a856720366829d2da8a036de))
+
 ## [1.1.2](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v1.1.1...v1.1.2) (2021-07-19)
 
 ## [1.1.1](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v1.1.0...v1.1.1) (2021-07-19)
