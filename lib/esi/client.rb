@@ -95,6 +95,9 @@ module ESI
 
     # Returns a new {ESI::Client}.
     #
+    # See the [faraday-http-cache](https://github.com/sourcelevel/faraday-http-cache) documentation for information on
+    # how to set up caching via the `cache` parameter.
+    #
     # @param user_agent [String] Value of the `User-Agent` header for HTTP calls
     # @param base_url [String] The base URL of the ESI API
     # @param version [String] The version of the ESI API
