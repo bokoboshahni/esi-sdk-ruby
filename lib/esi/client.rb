@@ -200,7 +200,7 @@ module ESI
 
     def url_encoded_connection
       @url_encoded_connection ||= Faraday.new(base_url, headers: default_headers) do |f|
-        f.use :http_cache, cache unless cache.empty?
+        f.use :http_cache, **cache unless cache.empty?
         f.request :url_encoded
         f.request :retry, { exceptions: ESI_RETRY_EXCEPTIONS }
         f.response :follow_redirects
@@ -210,7 +210,7 @@ module ESI
 
     def json_encoded_connection
       @json_encoded_connection ||= Faraday.new(base_url, headers: default_headers) do |f|
-        f.use :http_cache, cache unless cache.empty?
+        f.use :http_cache, **cache unless cache.empty?
         f.request :json
         f.request :retry, { exceptions: ESI_RETRY_EXCEPTIONS }
         f.response :follow_redirects
