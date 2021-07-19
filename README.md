@@ -1,3 +1,5 @@
+![Build images](https://github.com/bokoboshahni/esi-sdk-ruby/workflows/CICD/badge.svg)
+
 # EVE Swagger Interface (ESI) SDK
 
 ESI SDK is a Ruby API client for the EVE Swagger Interface (ESI), the official API for the [EVE Online](https://eveonline.com) MMORPG.
