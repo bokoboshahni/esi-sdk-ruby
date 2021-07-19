@@ -14,7 +14,9 @@ module.exports = {
         { type: 'docs', release: false },
       ]
     }],
-    '@semantic-release/release-notes-generator',
+    ['@semantic-release/release-notes-generator', {
+      preset: 'angular'
+    }],
     ['@semantic-release/changelog', {
       changelogTitle: '# ESI SDK Changelog'
     }],

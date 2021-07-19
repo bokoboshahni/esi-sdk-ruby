@@ -177,5 +177,5 @@ jobs:
           GIT_COMMITTER_EMAIL: "shahni@bokobo.space"
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          npm install -g @semantic-release/changelog @semantic-release/exec @semantic-release/git
+          npm install -g @semantic-release/changelog @semantic-release/exec @semantic-release/git conventional-changelog-angular
           npx semantic-release ${{ github.event_name == 'pull_request' && '--dry-run' || ' ' }}
