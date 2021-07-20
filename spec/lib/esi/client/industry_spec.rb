@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-RSpec.describe ESI::Client::Industry do
-  subject(:client) { ESI::Client.new(user_agent: "ESI SDK Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk)") }
+RSpec.describe ESI::Client::Industry, type: :stub do
+  subject(:client) { ESI::Client.new(user_agent: "esi-sdk-ruby Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk-ruby)") }
 
   describe "#get_character_industry_jobs" do
     context "when the response is 200" do
       let(:response) { [{ "activity_id" => 1, "blueprint_id" => 1_015_116_533_326, "blueprint_location_id" => 60_006_382, "blueprint_type_id" => 2047, "cost" => 118.01, "duration" => 548, "end_date" => "2014-07-19T15:56:14Z", "facility_id" => 60_006_382, "installer_id" => 498_338_451, "job_id" => 229_136_101, "licensed_runs" => 200, "output_location_id" => 60_006_382, "runs" => 1, "start_date" => "2014-07-19T15:47:06Z", "station_id" => 60_006_382, "status" => "active" }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,35 +68,11 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_character_industry_jobs(character_id: "1234567890", include_completed: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_industry_jobs(character_id: "1234567890", include_completed: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_industry_jobs(character_id: "1234567890", include_completed: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -173,30 +149,6 @@ RSpec.describe ESI::Client::Industry do
         expect { client.get_character_mining(character_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mining/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_mining(character_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mining/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_mining(character_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_corporation_industry_jobs" do
@@ -204,7 +156,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { [{ "activity_id" => 1, "blueprint_id" => 1_015_116_533_326, "blueprint_location_id" => 60_006_382, "blueprint_type_id" => 2047, "cost" => 118.01, "duration" => 548, "end_date" => "2014-07-19T15:56:14Z", "facility_id" => 60_006_382, "installer_id" => 498_338_451, "job_id" => 229_136_101, "licensed_runs" => 200, "location_id" => 60_006_382, "output_location_id" => 60_006_382, "runs" => 1, "start_date" => "2014-07-19T15:47:06Z", "status" => "active" }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -216,7 +168,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -228,7 +180,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -240,7 +192,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -252,7 +204,7 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -264,35 +216,11 @@ RSpec.describe ESI::Client::Industry do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/").with(query: { include_completed: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_corporation_industry_jobs(corporation_id: "1234567890", include_completed: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_corporation_industry_jobs(corporation_id: "1234567890", include_completed: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/industry/jobs/?include_completed=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_corporation_industry_jobs(corporation_id: "1234567890", include_completed: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -369,30 +297,6 @@ RSpec.describe ESI::Client::Industry do
         expect { client.get_corporation_mining_extractions(corporation_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporation/1234567890/mining/extractions/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_corporation_mining_extractions(corporation_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporation/1234567890/mining/extractions/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_corporation_mining_extractions(corporation_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_corporation_mining_observer" do
@@ -465,30 +369,6 @@ RSpec.describe ESI::Client::Industry do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_corporation_mining_observer(corporation_id: "1234567890", observer_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporation/1234567890/mining/observers/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_corporation_mining_observer(corporation_id: "1234567890", observer_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporation/1234567890/mining/observers/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_corporation_mining_observer(corporation_id: "1234567890", observer_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -565,30 +445,6 @@ RSpec.describe ESI::Client::Industry do
         expect { client.get_corporation_mining_observers(corporation_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporation/1234567890/mining/observers/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_corporation_mining_observers(corporation_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporation/1234567890/mining/observers/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_corporation_mining_observers(corporation_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_industry_facilities" do
@@ -639,30 +495,6 @@ RSpec.describe ESI::Client::Industry do
         expect { client.get_industry_facilities }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/industry/facilities/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_industry_facilities }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/industry/facilities/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_industry_facilities }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_industry_systems" do
@@ -711,30 +543,6 @@ RSpec.describe ESI::Client::Industry do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_industry_systems }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/industry/systems/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_industry_systems }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/industry/systems/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_industry_systems }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end

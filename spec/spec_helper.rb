@@ -14,6 +14,14 @@ SimpleCov.start
 require "webmock/rspec"
 WebMock.disable_net_connect!
 
+require "vcr"
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/cassettes"
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+  config.allow_http_connections_when_no_cassette = true
+end
+
 RSpec.configure do |config|
   config.disable_monkey_patching!
 
@@ -35,5 +43,11 @@ RSpec.configure do |config|
     WebMock.allow_net_connect!(net_http_connect_on_start: true)
     example.run
     WebMock.disable_net_connect!
+  end
+
+  config.around type: :stub do |example|
+    VCR.turn_off!
+    example.run
+    VCR.turn_on!
   end
 end

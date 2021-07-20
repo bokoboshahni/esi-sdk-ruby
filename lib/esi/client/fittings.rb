@@ -14,8 +14,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param fitting_id [Integer,String] ID for a fitting of this character
+      # @param character_id [Integer] An EVE character ID
+      # @param fitting_id [Integer] ID for a fitting of this character
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -28,7 +28,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Fittings/delete_characters_character_id_fittings_fitting_id
-      def delete_character_fitting(character_id:, fitting_id:, params: {}, headers: {})
+      def delete_character_fitting(character_id:, fitting_id:, headers: {}, params: {})
         delete("/characters/#{character_id}/fittings/#{fitting_id}/", headers: headers, params: params)
       end
       alias delete_characters_character_id_fittings_fitting_id delete_character_fitting
@@ -44,7 +44,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -57,7 +57,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Fittings/get_characters_character_id_fittings
-      def get_character_fittings(character_id:, params: {}, headers: {})
+      def get_character_fittings(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/fittings/", headers: headers, params: params)
       end
       alias get_characters_character_id_fittings get_character_fittings
@@ -71,8 +71,9 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param fitting [Hash] Details about the new fitting
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -84,8 +85,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Fittings/post_characters_character_id_fittings
-      def post_character_fittings(character_id:, fitting:, headers: {})
-        post("/characters/#{character_id}/fittings/", headers: headers, payload: fitting)
+      def post_character_fittings(character_id:, fitting:, headers: {}, params: {})
+        post("/characters/#{character_id}/fittings/", headers: headers, params: params, payload: fitting)
       end
       alias post_characters_character_id_fittings post_character_fittings
     end

@@ -22,7 +22,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Incursions/get_incursions
-      def get_incursions(params: {}, headers: {})
+      def get_incursions(headers: {}, params: {})
         get("/incursions/", headers: headers, params: params)
       end
     end

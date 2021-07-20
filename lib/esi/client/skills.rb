@@ -16,7 +16,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -29,7 +29,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_attributes
-      def get_character_attributes(character_id:, params: {}, headers: {})
+      def get_character_attributes(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/attributes/", headers: headers, params: params)
       end
       alias get_characters_character_id_attributes get_character_attributes
@@ -46,7 +46,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -59,7 +59,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skillqueue
-      def get_character_skillqueue(character_id:, params: {}, headers: {})
+      def get_character_skillqueue(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/skillqueue/", headers: headers, params: params)
       end
       alias get_characters_character_id_skillqueue get_character_skillqueue
@@ -75,7 +75,7 @@ module ESI
       # @esi_version dev
       # @esi_version v4
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -88,7 +88,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skills
-      def get_character_skills(character_id:, params: {}, headers: {})
+      def get_character_skills(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/skills/", headers: headers, params: params)
       end
       alias get_characters_character_id_skills get_character_skills

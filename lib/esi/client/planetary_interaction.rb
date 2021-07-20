@@ -13,8 +13,8 @@ module ESI
       # @esi_version dev
       # @esi_version v3
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param planet_id [Integer,String] Planet id of the target planet
+      # @param character_id [Integer] An EVE character ID
+      # @param planet_id [Integer] Planet id of the target planet
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -28,7 +28,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Planetary Interaction/get_characters_character_id_planets_planet_id
-      def get_character_planet(character_id:, planet_id:, params: {}, headers: {})
+      def get_character_planet(character_id:, planet_id:, headers: {}, params: {})
         get("/characters/#{character_id}/planets/#{planet_id}/", headers: headers, params: params)
       end
       alias get_characters_character_id_planets_planet_id get_character_planet
@@ -45,7 +45,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -58,7 +58,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Planetary Interaction/get_characters_character_id_planets
-      def get_character_planets(character_id:, params: {}, headers: {})
+      def get_character_planets(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/planets/", headers: headers, params: params)
       end
       alias get_characters_character_id_planets get_character_planets
@@ -75,7 +75,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -88,7 +88,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Planetary Interaction/get_corporations_corporation_id_customs_offices
-      def get_corporation_customs_offices(corporation_id:, params: {}, headers: {})
+      def get_corporation_customs_offices(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/customs_offices/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_customs_offices get_corporation_customs_offices
@@ -101,7 +101,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param schematic_id [Integer,String] A PI schematic ID
+      # @param schematic_id [Integer] A PI schematic ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -113,7 +113,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Planetary Interaction/get_universe_schematics_schematic_id
-      def get_universe_schematic(schematic_id:, params: {}, headers: {})
+      def get_universe_schematic(schematic_id:, headers: {}, params: {})
         get("/universe/schematics/#{schematic_id}/", headers: headers, params: params)
       end
       alias get_universe_schematics_schematic_id get_universe_schematic

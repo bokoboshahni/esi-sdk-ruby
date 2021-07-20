@@ -142,7 +142,7 @@ task :generate do
       end
 
       param_tags = operation[:params].map do |p|
-        "# @param #{p["name"]} [Integer,String] #{p["description"]}"
+        "# @param #{p["name"]} [#{p["type"].capitalize}] #{p["description"]}"
       end
 
       if operation[:body]
@@ -161,14 +161,26 @@ task :generate do
       end
 
       operation[:query]&.each do |p|
-        signature_params << "#{p["name"]}:"
-        param_tags << "# @param #{p["name"]} [#{p["type"].capitalize}] #{p["description"]}"
+        p_tag = "# @param #{p["name"]} [#{p["type"].capitalize}] "
+        p_tag += (p["description"]).to_s
+        p_tag += ". Must be one of: #{p["enum"].map { |e| "`#{e}`" }.join(", ")}" if p["enum"]
+        p_str = if p["default"] && p["type"] == "integer"
+                  "#{p["name"]}: #{p["default"]}"
+                elsif p["default"] && p["type"] == "string"
+                  "#{p["name"]}: \"#{p["default"]}\""
+                elsif !p["required"]
+                  "#{p["name"]}: nil"
+                else
+                  "#{p["name"]}:"
+                end
+        signature_params << p_str
+        param_tags << p_tag
       end
 
-      if %w[delete get].include?(operation[:method])
-        signature_params << "params: {}"
-        param_tags << "# @param params [Hash] Additional query string parameters"
+      signature_params += %w[headers params].map do |p|
+        "#{p}: {}"
       end
+      param_tags << "# @param params [Hash] Additional query string parameters"
 
       param_tags += [
         "# @param headers [Hash] Additional headers"
@@ -188,9 +200,6 @@ task :generate do
       description += "# @see https://esi.evetech.net/ui/#/#{operation[:tag]}/#{operation[:name]}"
       description.gsub!(/^$\n/m, "")
 
-      signature_params += %w[headers].map do |p|
-        "#{p}: {}"
-      end
       signature = "(#{signature_params.join(", ")})"
       path_parts = operation[:path].split("/")
       path_parts.map! do |p|
@@ -202,16 +211,12 @@ task :generate do
       end
       path = "#{path_parts.join("/")}/"
 
-      http_call_params = %w[headers].map { |p| "#{p}: #{p}" }
-      http_call_params << if %w[delete get].include?(operation[:method])
-                            "params: params"
-                          elsif operation[:body]
-                            "payload: #{body_param["name"]}"
-                          end
+      http_call_params = %w[headers params].map { |p| "#{p}: #{p}" }
+      http_call_params << ("payload: #{body_param["name"]}" if operation[:body])
 
       if operation[:query].any?
-        http_call = "query_string = URI.encode_www_form([#{operation[:query].map { |q| "['#{q["name"]}', #{q["name"]}]" }.join(", ")}])\n"
-        http_call += "#{operation[:method]}(\"#{path}?\#{query_string}\", #{http_call_params.join(", ")})"
+        http_call = "params.merge!(#{operation[:query].map { |q| "'#{q["name"]}' => #{q["name"]}" }.join(", ")})\n"
+        http_call += "#{operation[:method]}(\"#{path}\", #{http_call_params.join(", ")})"
       else
         http_call = "#{operation[:method]}(\"#{path}\", #{http_call_params.join(", ")})"
       end
@@ -269,11 +274,6 @@ task :generate do
       success_params = operation[:params].map { |p| "#{p["name"]}: \"1234567890\"" }
       success_params += operation[:query].map { |p| "#{p["name"]}: \"1234567890\"" }
 
-      if operation[:query].any?
-        query = URI.encode_www_form(operation[:query].map { |q| [q["name"], "1234567890"] })
-        success_path = "#{success_path}?#{query}"
-      end
-
       if operation[:body]
         body_param = operation[:body]
         body_name = body_param["name"]
@@ -287,12 +287,14 @@ task :generate do
         success_params << "#{body_name}: #{body_value}"
       end
 
+      with_query = operation[:query].any? ? ".with(query: { #{operation[:query].map { |p| "#{p["name"]}: \"1234567890\"" }.join(", ")} })" : ""
+
       describe = "  describe \"##{method_name}\" do\n"
       describe += "    context \"when the response is #{success_code}\" do\n"
       describe += "      let(:response) { #{success_response_body} }\n"
       describe += "\n"
       describe += "      before do\n"
-      describe += "        stub_request(:#{operation[:method]}, \"https://esi.evetech.net/latest#{success_path}\").to_return(body: response.to_json)\n"
+      describe += "        stub_request(:#{operation[:method]}, \"https://esi.evetech.net/latest#{success_path}\")#{with_query}.to_return(body: response.to_json)\n"
       describe += "      end\n"
       describe += "\n"
       describe += "      it \"returns the response\" do\n"
@@ -303,13 +305,15 @@ task :generate do
       describe += "\n"
 
       error_contexts = operation[:errors].map do |(code, error)|
+        next if %w[502 503 504].include?(code)
+
         error_response_body = error["examples"]["application/json"].inspect
 
         context = "    context \"when the response is #{code}\" do\n"
         context += "      let(:response) { #{error_response_body} }\n"
         context += "\n"
         context += "      before do\n"
-        context += "        stub_request(:#{operation[:method]}, \"https://esi.evetech.net/latest#{success_path}\").to_return(body: response.to_json, status: #{code})\n"
+        context += "        stub_request(:#{operation[:method]}, \"https://esi.evetech.net/latest#{success_path}\")#{with_query}.to_return(body: response.to_json, status: #{code})\n"
         context += "      end\n"
         context += "\n"
         context += "      it \"raises a #{error_mapping[code.to_i]} error\" do\n"
@@ -327,8 +331,8 @@ task :generate do
     spec_content = <<~SPEC_FILE
       # frozen_string_literal: true
 
-      RSpec.describe ESI::Client::#{module_name} do
-        subject(:client) { ESI::Client.new(user_agent: \"ESI SDK Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk)\") }
+      RSpec.describe ESI::Client::#{module_name}, type: :stub do
+        subject(:client) { ESI::Client.new(user_agent: \"esi-sdk-ruby Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk-ruby)\") }
 
       #{describe_blocks.join("\n\n")}
       end

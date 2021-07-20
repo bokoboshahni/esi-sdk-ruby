@@ -19,7 +19,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_ancestries
-      def get_universe_ancestries(params: {}, headers: {})
+      def get_universe_ancestries(headers: {}, params: {})
         get("/universe/ancestries/", headers: headers, params: params)
       end
 
@@ -28,7 +28,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param asteroid_belt_id [Integer,String] asteroid_belt_id integer
+      # @param asteroid_belt_id [Integer] asteroid_belt_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -40,7 +40,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_asteroid_belts_asteroid_belt_id
-      def get_universe_asteroid_belt(asteroid_belt_id:, params: {}, headers: {})
+      def get_universe_asteroid_belt(asteroid_belt_id:, headers: {}, params: {})
         get("/universe/asteroid_belts/#{asteroid_belt_id}/", headers: headers, params: params)
       end
       alias get_universe_asteroid_belts_asteroid_belt_id get_universe_asteroid_belt
@@ -60,7 +60,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_bloodlines
-      def get_universe_bloodlines(params: {}, headers: {})
+      def get_universe_bloodlines(headers: {}, params: {})
         get("/universe/bloodlines/", headers: headers, params: params)
       end
 
@@ -79,7 +79,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_categories
-      def get_universe_categories(params: {}, headers: {})
+      def get_universe_categories(headers: {}, params: {})
         get("/universe/categories/", headers: headers, params: params)
       end
 
@@ -88,7 +88,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param category_id [Integer,String] An Eve item category ID
+      # @param category_id [Integer] An Eve item category ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -100,7 +100,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_categories_category_id
-      def get_universe_categories_category(category_id:, params: {}, headers: {})
+      def get_universe_categories_category(category_id:, headers: {}, params: {})
         get("/universe/categories/#{category_id}/", headers: headers, params: params)
       end
       alias get_universe_categories_category_id get_universe_categories_category
@@ -110,7 +110,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param constellation_id [Integer,String] constellation_id integer
+      # @param constellation_id [Integer] constellation_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -122,7 +122,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_constellations_constellation_id
-      def get_universe_constellation(constellation_id:, params: {}, headers: {})
+      def get_universe_constellation(constellation_id:, headers: {}, params: {})
         get("/universe/constellations/#{constellation_id}/", headers: headers, params: params)
       end
       alias get_universe_constellations_constellation_id get_universe_constellation
@@ -142,7 +142,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_constellations
-      def get_universe_constellations(params: {}, headers: {})
+      def get_universe_constellations(headers: {}, params: {})
         get("/universe/constellations/", headers: headers, params: params)
       end
 
@@ -161,7 +161,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_factions
-      def get_universe_factions(params: {}, headers: {})
+      def get_universe_factions(headers: {}, params: {})
         get("/universe/factions/", headers: headers, params: params)
       end
 
@@ -171,7 +171,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param graphic_id [Integer,String] graphic_id integer
+      # @param graphic_id [Integer] graphic_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -183,7 +183,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_graphics_graphic_id
-      def get_universe_graphic(graphic_id:, params: {}, headers: {})
+      def get_universe_graphic(graphic_id:, headers: {}, params: {})
         get("/universe/graphics/#{graphic_id}/", headers: headers, params: params)
       end
       alias get_universe_graphics_graphic_id get_universe_graphic
@@ -203,7 +203,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_graphics
-      def get_universe_graphics(params: {}, headers: {})
+      def get_universe_graphics(headers: {}, params: {})
         get("/universe/graphics/", headers: headers, params: params)
       end
 
@@ -213,7 +213,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param group_id [Integer,String] An Eve item group ID
+      # @param group_id [Integer] An Eve item group ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -225,7 +225,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_groups_group_id
-      def get_universe_group(group_id:, params: {}, headers: {})
+      def get_universe_group(group_id:, headers: {}, params: {})
         get("/universe/groups/#{group_id}/", headers: headers, params: params)
       end
       alias get_universe_groups_group_id get_universe_group
@@ -245,7 +245,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_groups
-      def get_universe_groups(params: {}, headers: {})
+      def get_universe_groups(headers: {}, params: {})
         get("/universe/groups/", headers: headers, params: params)
       end
 
@@ -254,7 +254,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param moon_id [Integer,String] moon_id integer
+      # @param moon_id [Integer] moon_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -266,7 +266,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_moons_moon_id
-      def get_universe_moon(moon_id:, params: {}, headers: {})
+      def get_universe_moon(moon_id:, headers: {}, params: {})
         get("/universe/moons/#{moon_id}/", headers: headers, params: params)
       end
       alias get_universe_moons_moon_id get_universe_moon
@@ -276,7 +276,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param planet_id [Integer,String] planet_id integer
+      # @param planet_id [Integer] planet_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -288,7 +288,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_planets_planet_id
-      def get_universe_planet(planet_id:, params: {}, headers: {})
+      def get_universe_planet(planet_id:, headers: {}, params: {})
         get("/universe/planets/#{planet_id}/", headers: headers, params: params)
       end
       alias get_universe_planets_planet_id get_universe_planet
@@ -309,7 +309,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_races
-      def get_universe_races(params: {}, headers: {})
+      def get_universe_races(headers: {}, params: {})
         get("/universe/races/", headers: headers, params: params)
       end
 
@@ -318,7 +318,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param region_id [Integer,String] region_id integer
+      # @param region_id [Integer] region_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -330,7 +330,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_regions_region_id
-      def get_universe_region(region_id:, params: {}, headers: {})
+      def get_universe_region(region_id:, headers: {}, params: {})
         get("/universe/regions/#{region_id}/", headers: headers, params: params)
       end
       alias get_universe_regions_region_id get_universe_region
@@ -350,7 +350,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_regions
-      def get_universe_regions(params: {}, headers: {})
+      def get_universe_regions(headers: {}, params: {})
         get("/universe/regions/", headers: headers, params: params)
       end
 
@@ -359,7 +359,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param star_id [Integer,String] star_id integer
+      # @param star_id [Integer] star_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -370,7 +370,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_stars_star_id
-      def get_universe_star(star_id:, params: {}, headers: {})
+      def get_universe_star(star_id:, headers: {}, params: {})
         get("/universe/stars/#{star_id}/", headers: headers, params: params)
       end
       alias get_universe_stars_star_id get_universe_star
@@ -380,7 +380,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param stargate_id [Integer,String] stargate_id integer
+      # @param stargate_id [Integer] stargate_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -392,7 +392,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_stargates_stargate_id
-      def get_universe_stargate(stargate_id:, params: {}, headers: {})
+      def get_universe_stargate(stargate_id:, headers: {}, params: {})
         get("/universe/stargates/#{stargate_id}/", headers: headers, params: params)
       end
       alias get_universe_stargates_stargate_id get_universe_stargate
@@ -402,7 +402,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param station_id [Integer,String] station_id integer
+      # @param station_id [Integer] station_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -414,7 +414,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_stations_station_id
-      def get_universe_station(station_id:, params: {}, headers: {})
+      def get_universe_station(station_id:, headers: {}, params: {})
         get("/universe/stations/#{station_id}/", headers: headers, params: params)
       end
       alias get_universe_stations_station_id get_universe_station
@@ -429,7 +429,7 @@ module ESI
       #
       # @esi_version v2
       #
-      # @param structure_id [Integer,String] An Eve structure ID
+      # @param structure_id [Integer] An Eve structure ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -443,7 +443,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_structures_structure_id
-      def get_universe_structure(structure_id:, params: {}, headers: {})
+      def get_universe_structure(structure_id:, headers: {}, params: {})
         get("/universe/structures/#{structure_id}/", headers: headers, params: params)
       end
       alias get_universe_structures_structure_id get_universe_structure
@@ -456,7 +456,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param filter [String] Only list public structures that have this service online
+      # @param filter [String] Only list public structures that have this service online. Must be one of: `market`, `manufacturing_basic`
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -467,9 +467,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_structures
-      def get_universe_structures(filter:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["filter", filter]])
-        get("/universe/structures/?#{query_string}", headers: headers, params: params)
+      def get_universe_structures(filter: nil, headers: {}, params: {})
+        params.merge!("filter" => filter)
+        get("/universe/structures/", headers: headers, params: params)
       end
 
       # Get information on a solar system.
@@ -477,7 +477,7 @@ module ESI
       # @esi_version dev
       # @esi_version v4
       #
-      # @param system_id [Integer,String] system_id integer
+      # @param system_id [Integer] system_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -489,7 +489,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_systems_system_id
-      def get_universe_system(system_id:, params: {}, headers: {})
+      def get_universe_system(system_id:, headers: {}, params: {})
         get("/universe/systems/#{system_id}/", headers: headers, params: params)
       end
       alias get_universe_systems_system_id get_universe_system
@@ -511,7 +511,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_system_jumps
-      def get_universe_system_jumps(params: {}, headers: {})
+      def get_universe_system_jumps(headers: {}, params: {})
         get("/universe/system_jumps/", headers: headers, params: params)
       end
 
@@ -531,7 +531,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_system_kills
-      def get_universe_system_kills(params: {}, headers: {})
+      def get_universe_system_kills(headers: {}, params: {})
         get("/universe/system_kills/", headers: headers, params: params)
       end
 
@@ -551,7 +551,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_systems
-      def get_universe_systems(params: {}, headers: {})
+      def get_universe_systems(headers: {}, params: {})
         get("/universe/systems/", headers: headers, params: params)
       end
 
@@ -560,7 +560,7 @@ module ESI
       # @esi_version dev
       # @esi_version v3
       #
-      # @param type_id [Integer,String] An Eve item type ID
+      # @param type_id [Integer] An Eve item type ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -572,7 +572,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_types_type_id
-      def get_universe_type(type_id:, params: {}, headers: {})
+      def get_universe_type(type_id:, headers: {}, params: {})
         get("/universe/types/#{type_id}/", headers: headers, params: params)
       end
       alias get_universe_types_type_id get_universe_type
@@ -592,7 +592,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_types
-      def get_universe_types(params: {}, headers: {})
+      def get_universe_types(headers: {}, params: {})
         get("/universe/types/", headers: headers, params: params)
       end
 
@@ -603,6 +603,7 @@ module ESI
       # @esi_version v1
       #
       # @param names [Array] The names to resolve
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -612,8 +613,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/post_universe_ids
-      def post_universe_ids(names:, headers: {})
-        post("/universe/ids/", headers: headers, payload: names)
+      def post_universe_ids(names:, headers: {}, params: {})
+        post("/universe/ids/", headers: headers, params: params, payload: names)
       end
 
       # Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types, Factions.
@@ -622,6 +623,7 @@ module ESI
       # @esi_version v3
       #
       # @param ids [Array] The ids to resolve
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -632,8 +634,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Universe/post_universe_names
-      def post_universe_names(ids:, headers: {})
-        post("/universe/names/", headers: headers, payload: ids)
+      def post_universe_names(ids:, headers: {}, params: {})
+        post("/universe/names/", headers: headers, params: params, payload: ids)
       end
     end
   end

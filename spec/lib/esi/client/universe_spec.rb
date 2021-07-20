@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe ESI::Client::Universe do
-  subject(:client) { ESI::Client.new(user_agent: "ESI SDK Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk)") }
+RSpec.describe ESI::Client::Universe, type: :stub do
+  subject(:client) { ESI::Client.new(user_agent: "esi-sdk-ruby Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk-ruby)") }
 
   describe "#get_universe_ancestries" do
     context "when the response is 200" do
@@ -49,30 +49,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_ancestries }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/ancestries/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_ancestries }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/ancestries/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_ancestries }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -137,30 +113,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_asteroid_belt(asteroid_belt_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/asteroid_belts/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_asteroid_belt(asteroid_belt_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/asteroid_belts/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_asteroid_belt(asteroid_belt_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_bloodlines" do
@@ -211,30 +163,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_bloodlines }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/bloodlines/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_bloodlines }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/bloodlines/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_bloodlines }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_categories" do
@@ -283,30 +211,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_categories }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/categories/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_categories }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/categories/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_categories }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -371,30 +275,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_categories_category(category_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/categories/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_categories_category(category_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/categories/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_categories_category(category_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_constellation" do
@@ -457,30 +337,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_constellation(constellation_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/constellations/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_constellation(constellation_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/constellations/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_constellation(constellation_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_constellations" do
@@ -531,30 +387,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_constellations }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/constellations/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_constellations }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/constellations/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_constellations }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_factions" do
@@ -603,30 +435,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_factions }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/factions/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_factions }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/factions/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_factions }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -691,30 +499,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_graphic(graphic_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/graphics/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_graphic(graphic_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/graphics/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_graphic(graphic_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_graphics" do
@@ -763,30 +547,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_graphics }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/graphics/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_graphics }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/graphics/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_graphics }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -851,30 +611,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_group(group_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/groups/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_group(group_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/groups/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_group(group_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_groups" do
@@ -923,30 +659,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_groups }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/groups/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_groups }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/groups/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_groups }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -1011,30 +723,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_moon(moon_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/moons/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_moon(moon_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/moons/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_moon(moon_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_planet" do
@@ -1097,30 +785,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_planet(planet_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/planets/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_planet(planet_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/planets/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_planet(planet_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_races" do
@@ -1169,30 +833,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_races }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/races/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_races }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/races/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_races }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -1257,30 +897,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_region(region_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/regions/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_region(region_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/regions/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_region(region_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_regions" do
@@ -1331,30 +947,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_regions }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/regions/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_regions }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/regions/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_regions }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_star" do
@@ -1403,30 +995,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_star(star_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/stars/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_star(star_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/stars/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_star(star_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -1491,30 +1059,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_stargate(stargate_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/stargates/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_stargate(stargate_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/stargates/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_stargate(stargate_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_station" do
@@ -1575,30 +1119,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_station(station_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/stations/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_station(station_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/stations/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_station(station_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -1687,30 +1207,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_structure(structure_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_structure(structure_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_structure(structure_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_structures" do
@@ -1718,7 +1214,7 @@ RSpec.describe ESI::Client::Universe do
       let(:response) { [1_020_988_381_992, 1_020_988_381_991] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/?filter=1234567890").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/").with(query: { filter: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -1730,7 +1226,7 @@ RSpec.describe ESI::Client::Universe do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/?filter=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/").with(query: { filter: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -1742,7 +1238,7 @@ RSpec.describe ESI::Client::Universe do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/?filter=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/").with(query: { filter: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -1754,35 +1250,11 @@ RSpec.describe ESI::Client::Universe do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/?filter=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/").with(query: { filter: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_structures(filter: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/?filter=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_structures(filter: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/structures/?filter=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_structures(filter: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -1847,30 +1319,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_system(system_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/systems/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_system(system_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/systems/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_system(system_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_system_jumps" do
@@ -1919,30 +1367,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_system_jumps }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/system_jumps/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_system_jumps }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/system_jumps/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_system_jumps }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -1995,30 +1419,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_system_kills }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/system_kills/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_system_kills }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/system_kills/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_system_kills }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_systems" do
@@ -2067,30 +1467,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_universe_systems }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/systems/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_systems }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/systems/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_systems }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -2155,30 +1531,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_type(type_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/types/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_type(type_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/types/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_type(type_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_universe_types" do
@@ -2229,30 +1581,6 @@ RSpec.describe ESI::Client::Universe do
         expect { client.get_universe_types }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/types/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_universe_types }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/universe/types/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_universe_types }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#post_universe_ids" do
@@ -2301,30 +1629,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_universe_ids(names: [1, 2, 3]) }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/universe/ids/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_universe_ids(names: [1, 2, 3]) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/universe/ids/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_universe_ids(names: [1, 2, 3]) }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -2387,30 +1691,6 @@ RSpec.describe ESI::Client::Universe do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_universe_names(ids: [1, 2, 3]) }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/universe/names/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_universe_names(ids: [1, 2, 3]) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/universe/names/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_universe_names(ids: [1, 2, 3]) }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end

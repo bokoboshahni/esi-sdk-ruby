@@ -15,7 +15,7 @@ module ESI
       # @esi_version v1
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -28,7 +28,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_characters_character_id_fw_stats
-      def get_character_fw_stats(character_id:, params: {}, headers: {})
+      def get_character_fw_stats(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/fw/stats/", headers: headers, params: params)
       end
       alias get_characters_character_id_fw_stats get_character_fw_stats
@@ -44,7 +44,7 @@ module ESI
       # @esi_version v1
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -57,7 +57,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_corporations_corporation_id_fw_stats
-      def get_corporation_fw_stats(corporation_id:, params: {}, headers: {})
+      def get_corporation_fw_stats(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/fw/stats/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_fw_stats get_corporation_fw_stats
@@ -79,7 +79,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards_characters
-      def get_fw_leaderboard_characters(params: {}, headers: {})
+      def get_fw_leaderboard_characters(headers: {}, params: {})
         get("/fw/leaderboards/characters/", headers: headers, params: params)
       end
       alias get_fw_leaderboards_characters get_fw_leaderboard_characters
@@ -101,7 +101,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards_corporations
-      def get_fw_leaderboard_corporations(params: {}, headers: {})
+      def get_fw_leaderboard_corporations(headers: {}, params: {})
         get("/fw/leaderboards/corporations/", headers: headers, params: params)
       end
       alias get_fw_leaderboards_corporations get_fw_leaderboard_corporations
@@ -123,7 +123,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards
-      def get_fw_leaderboards(params: {}, headers: {})
+      def get_fw_leaderboards(headers: {}, params: {})
         get("/fw/leaderboards/", headers: headers, params: params)
       end
 
@@ -144,7 +144,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_stats
-      def get_fw_stats(params: {}, headers: {})
+      def get_fw_stats(headers: {}, params: {})
         get("/fw/stats/", headers: headers, params: params)
       end
 
@@ -167,7 +167,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_systems
-      def get_fw_systems(params: {}, headers: {})
+      def get_fw_systems(headers: {}, params: {})
         get("/fw/systems/", headers: headers, params: params)
       end
 
@@ -188,7 +188,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_wars
-      def get_fw_wars(params: {}, headers: {})
+      def get_fw_wars(headers: {}, params: {})
         get("/fw/wars/", headers: headers, params: params)
       end
     end

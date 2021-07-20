@@ -4,6 +4,8 @@ require "faraday"
 require "faraday-http-cache"
 require "faraday_middleware"
 require "timeout"
+require "typhoeus"
+require "typhoeus/adapters/faraday"
 
 require_relative "./errors"
 require_relative "./client/alliance"
@@ -102,14 +104,16 @@ module ESI
     # @param base_url [String] The base URL of the ESI API
     # @param version [String] The version of the ESI API
     # @param cache [Hash] The cache configuration to use
+    # @param max_concurrency [Integer] Maximum concurrent requests for pagination
     # @option cache [Object] :store The cache store (e.g. `Rails.cache`)
     # @option cache [Object] :logger The logger (e.g. `Rails.logger`)
     # @option cache [Object] :instrumenter The instrumenter (e.g. `ActiveSupport::Notifications`)
-    def initialize(user_agent:, base_url: DEFAULT_BASE_URL, version: DEFAULT_VERSION, cache: {})
+    def initialize(user_agent:, base_url: DEFAULT_BASE_URL, version: DEFAULT_VERSION, cache: {}, max_concurrency: 50)
       @base_url = base_url
       @cache = cache
       @user_agent = user_agent
       @version = version
+      @hydra = Typhoeus::Hydra.new(max_concurrency: max_concurrency)
     end
 
     # Set the `Authorization` header for subsequent requests.
@@ -125,89 +129,104 @@ module ESI
     ESI_RETRY_EXCEPTIONS = [Errno::ETIMEDOUT, Timeout::Error, Faraday::TimeoutError, Faraday::ConnectionFailed,
                             Faraday::ParsingError, SocketError].freeze
 
+    attr_reader :hydra
+
     def delete(path, params: {}, headers: {})
       response = make_delete_request(path, params: params, headers: headers)
+      raise_error(response) unless response.success?
       response.body
     end
 
     def get(path, params: {}, headers: {})
       response = make_get_request(path, params: params, headers: headers)
+      raise_error(response) unless response.success?
 
-      return paginate(response, params, headers) if paginated?(response)
+      response_headers = normalize_headers(response.headers)
+      return paginate(response, path, params, headers) if paginated?(response_headers)
 
       response.body
     end
 
-    def post(path, payload: {}, headers: {})
-      response = make_post_request(path, payload: payload, headers: headers)
+    def post(path, payload: {}, params: {}, headers: {})
+      response = make_post_request(path, payload: payload, params: params, headers: headers)
+      raise_error(response) unless response.success?
       response.body
     end
 
-    def put(path, payload: {}, headers: {})
-      response = make_put_request(path, payload: payload, headers: headers)
+    def put(path, payload: {}, params: {}, headers: {})
+      response = make_put_request(path, payload: payload, params: params, headers: headers)
+      raise_error(response) unless response.success?
       response.body
     end
 
-    def paginate(response, params, headers)
+    def paginate(response, path, params, headers) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
       all_items = response.body
-      page_count = response.headers["X-Pages"].to_i - 1
-      page_count.times do |n|
-        page_number = n + 1
-        params = params.merge(page: page_number)
-        page = make_get_request(path, params: params, headers: headers)
-        all_items += page.body
+      response_headers = normalize_headers(response.headers)
+      page_count = response_headers["x-pages"].to_i - 1
+
+      responses = []
+      url_encoded_connection.in_parallel(hydra) do
+        page_count.times do |n|
+          page_number = n + 2
+          params = params.merge(page: page_number)
+          responses << make_get_request(path, params: params, headers: headers)
+        end
+      end
+      unless responses.all?(&:success?)
+        raise ESI::Errors::PaginationError.new("Error paginating request", response: response,
+                                                                           responses: responses)
       end
 
-      all_items
+      all_items + responses.map(&:body).flatten
     end
 
     def make_delete_request(path, params: {}, headers: {})
-      res = url_encoded_connection.delete("/#{version}#{path}", params, headers)
-
-      raise_error(res) unless res.success?
-
-      res
+      params.delete_if { |_, v| v.nil? }
+      url_encoded_connection.delete("/#{version}#{path}", params, headers)
     end
 
     def make_get_request(path, params: {}, headers: {})
-      res = url_encoded_connection.get("/#{version}#{path}", params, headers)
-
-      raise_error(res) unless res.success?
-
-      res
+      params.delete_if { |_, v| v.nil? }
+      url_encoded_connection.get("/#{version}#{path}", params, headers)
     end
 
-    def make_post_request(path, payload: {}, headers: {})
-      res = json_encoded_connection.post("/#{version}#{path}", payload, headers)
-
-      raise_error(res) unless res.success?
-
-      res
+    def make_post_request(path, payload: {}, params: {}, headers: {})
+      params.delete_if { |_, v| v.nil? }
+      json_encoded_connection.post("/#{version}#{path}") do |req|
+        req.params = params
+        req.headers = req.headers.merge(headers)
+        req.body = payload.to_json
+      end
     end
 
-    def make_put_request(path, payload: {}, headers: {})
-      res = json_encoded_connection.put("/#{version}#{path}", payload, headers)
-
-      raise_error(res) unless res.success?
-
-      res
+    def make_put_request(path, payload: {}, params: {}, headers: {})
+      params.delete_if { |_, v| v.nil? }
+      json_encoded_connection.put("/#{version}#{path}") do |req|
+        req.params = params
+        req.headers = req.headers.merge(headers)
+        req.body = payload.to_json
+      end
     end
 
-    def paginated?(response)
-      response.headers["X-Pages"] && response.headers["X-Pages"].to_i <= 1
+    def paginated?(headers)
+      headers["x-pages"] && headers["x-pages"].to_i > 1
+    end
+
+    def normalize_headers(headers)
+      headers.transform_keys(&:downcase)
     end
 
     def raise_error(res)
-      raise (ERROR_MAPPING[res.status] || Error).new("(#{res.status}) #{res["error"]}", response: res)
+      raise (ERROR_MAPPING[res.status] || ESI::Errors::ClientError).new("(#{res.status}) #{res["error"]}",
+                                                                        response: res)
     end
 
     def url_encoded_connection
       @url_encoded_connection ||= Faraday.new(base_url, headers: default_headers) do |f|
         f.use :http_cache, **cache unless cache.empty?
-        f.request :url_encoded
-        f.request :retry, { exceptions: ESI_RETRY_EXCEPTIONS }
-        f.response :follow_redirects
+        f.request :retry, { exceptions: ESI_RETRY_EXCEPTIONS, max: 10, retry_statuses: [502, 503, 504] }
         f.response :json
+        f.adapter :typhoeus
       end
     end
 
@@ -215,14 +234,14 @@ module ESI
       @json_encoded_connection ||= Faraday.new(base_url, headers: default_headers) do |f|
         f.use :http_cache, **cache unless cache.empty?
         f.request :json
-        f.request :retry, { exceptions: ESI_RETRY_EXCEPTIONS }
-        f.response :follow_redirects
+        f.request :retry, { exceptions: ESI_RETRY_EXCEPTIONS, max: 10, retry_statuses: [502, 503, 504] }
         f.response :json
+        f.adapter :typhoeus
       end
     end
 
     def default_headers
-      { "User-Agent": user_agent }
+      { "User-Agent": user_agent, Accept: "application/json" }
     end
   end
 end

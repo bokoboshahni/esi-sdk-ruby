@@ -16,7 +16,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -29,7 +29,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Killmails/get_characters_character_id_killmails_recent
-      def get_character_killmails_recent(character_id:, params: {}, headers: {})
+      def get_character_killmails_recent(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/killmails/recent/", headers: headers, params: params)
       end
       alias get_characters_character_id_killmails_recent get_character_killmails_recent
@@ -46,7 +46,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -59,7 +59,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Killmails/get_corporations_corporation_id_killmails_recent
-      def get_corporation_killmails_recent(corporation_id:, params: {}, headers: {})
+      def get_corporation_killmails_recent(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/killmails/recent/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_killmails_recent get_corporation_killmails_recent
@@ -72,8 +72,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param killmail_hash [Integer,String] The killmail hash for verification
-      # @param killmail_id [Integer,String] The killmail ID to be queried
+      # @param killmail_hash [String] The killmail hash for verification
+      # @param killmail_id [Integer] The killmail ID to be queried
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -85,7 +85,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Killmails/get_killmails_killmail_id_killmail_hash
-      def get_killmail_killmail_hash(killmail_hash:, killmail_id:, params: {}, headers: {})
+      def get_killmail_killmail_hash(killmail_hash:, killmail_id:, headers: {}, params: {})
         get("/killmails/#{killmail_id}/#{killmail_hash}/", headers: headers, params: params)
       end
       alias get_killmail get_killmail_killmail_hash

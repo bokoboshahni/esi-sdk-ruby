@@ -10,7 +10,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param attribute_id [Integer,String] A dogma attribute ID
+      # @param attribute_id [Integer] A dogma attribute ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -22,7 +22,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes_attribute_id
-      def get_dogma_attribute(attribute_id:, params: {}, headers: {})
+      def get_dogma_attribute(attribute_id:, headers: {}, params: {})
         get("/dogma/attributes/#{attribute_id}/", headers: headers, params: params)
       end
       alias get_dogma_attributes_attribute_id get_dogma_attribute
@@ -43,7 +43,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes
-      def get_dogma_attributes(params: {}, headers: {})
+      def get_dogma_attributes(headers: {}, params: {})
         get("/dogma/attributes/", headers: headers, params: params)
       end
 
@@ -53,8 +53,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param item_id [Integer,String] item_id integer
-      # @param type_id [Integer,String] type_id integer
+      # @param item_id [Integer] item_id integer
+      # @param type_id [Integer] type_id integer
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -66,7 +66,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_dynamic_items_type_id_item_id
-      def get_dogma_dynamic_items_type_item(item_id:, type_id:, params: {}, headers: {})
+      def get_dogma_dynamic_items_type_item(item_id:, type_id:, headers: {}, params: {})
         get("/dogma/dynamic/items/#{type_id}/#{item_id}/", headers: headers, params: params)
       end
       alias get_dogma_dynamic_items_type_id_item_id get_dogma_dynamic_items_type_item
@@ -76,7 +76,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param effect_id [Integer,String] A dogma effect ID
+      # @param effect_id [Integer] A dogma effect ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -88,7 +88,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_effects_effect_id
-      def get_dogma_effect(effect_id:, params: {}, headers: {})
+      def get_dogma_effect(effect_id:, headers: {}, params: {})
         get("/dogma/effects/#{effect_id}/", headers: headers, params: params)
       end
       alias get_dogma_effects_effect_id get_dogma_effect
@@ -109,7 +109,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_effects
-      def get_dogma_effects(params: {}, headers: {})
+      def get_dogma_effects(headers: {}, params: {})
         get("/dogma/effects/", headers: headers, params: params)
       end
     end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe ESI::Client::Wallet do
-  subject(:client) { ESI::Client.new(user_agent: "ESI SDK Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk)") }
+RSpec.describe ESI::Client::Wallet, type: :stub do
+  subject(:client) { ESI::Client.new(user_agent: "esi-sdk-ruby Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk-ruby)") }
 
   describe "#get_character_wallet" do
     context "when the response is 200" do
@@ -73,30 +73,6 @@ RSpec.describe ESI::Client::Wallet do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_character_wallet(character_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_wallet(character_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_wallet(character_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -173,30 +149,6 @@ RSpec.describe ESI::Client::Wallet do
         expect { client.get_character_wallet_journal(character_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/journal/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_wallet_journal(character_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/journal/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_wallet_journal(character_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_character_wallet_transactions" do
@@ -204,7 +156,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { [{ "client_id" => 54_321, "date" => "2016-10-24T09:00:00Z", "is_buy" => true, "is_personal" => true, "journal_ref_id" => 67_890, "location_id" => 60_014_719, "quantity" => 1, "transaction_id" => 1_234_567_890, "type_id" => 587, "unit_price" => 1 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/?from_id=1234567890").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -216,7 +168,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -228,7 +180,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -240,7 +192,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -252,7 +204,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -264,35 +216,11 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_character_wallet_transactions(character_id: "1234567890", from_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_wallet_transactions(character_id: "1234567890", from_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/wallet/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_wallet_transactions(character_id: "1234567890", from_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -369,30 +297,6 @@ RSpec.describe ESI::Client::Wallet do
         expect { client.get_corporation_wallets(corporation_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_corporation_wallets(corporation_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_corporation_wallets(corporation_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_corporation_wallets_division_journal" do
@@ -467,30 +371,6 @@ RSpec.describe ESI::Client::Wallet do
         expect { client.get_corporation_wallets_division_journal(corporation_id: "1234567890", division: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/journal/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_corporation_wallets_division_journal(corporation_id: "1234567890", division: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/journal/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_corporation_wallets_division_journal(corporation_id: "1234567890", division: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_corporation_wallets_division_transactions" do
@@ -498,7 +378,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { [{ "client_id" => 54_321, "date" => "2016-10-24T09:00:00Z", "is_buy" => true, "journal_ref_id" => 67_890, "location_id" => 60_014_719, "quantity" => 1, "transaction_id" => 1_234_567_890, "type_id" => 587, "unit_price" => 1 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/?from_id=1234567890").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -510,7 +390,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -522,7 +402,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -534,7 +414,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -546,7 +426,7 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -558,35 +438,11 @@ RSpec.describe ESI::Client::Wallet do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/").with(query: { from_id: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_corporation_wallets_division_transactions(corporation_id: "1234567890", division: "1234567890", from_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_corporation_wallets_division_transactions(corporation_id: "1234567890", division: "1234567890", from_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/wallets/1234567890/transactions/?from_id=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_corporation_wallets_division_transactions(corporation_id: "1234567890", division: "1234567890", from_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end

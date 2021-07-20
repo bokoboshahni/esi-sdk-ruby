@@ -16,7 +16,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param include_completed [Boolean] Whether to retrieve completed character industry jobs. Only includes jobs from the past 90 days
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
@@ -30,9 +30,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_characters_character_id_industry_jobs
-      def get_character_industry_jobs(character_id:, include_completed:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["include_completed", include_completed]])
-        get("/characters/#{character_id}/industry/jobs/?#{query_string}", headers: headers, params: params)
+      def get_character_industry_jobs(character_id:, include_completed: nil, headers: {}, params: {})
+        params.merge!("include_completed" => include_completed)
+        get("/characters/#{character_id}/industry/jobs/", headers: headers, params: params)
       end
       alias get_characters_character_id_industry_jobs get_character_industry_jobs
 
@@ -48,7 +48,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -61,7 +61,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_characters_character_id_mining
-      def get_character_mining(character_id:, params: {}, headers: {})
+      def get_character_mining(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/mining/", headers: headers, params: params)
       end
       alias get_characters_character_id_mining get_character_mining
@@ -78,7 +78,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param include_completed [Boolean] Whether to retrieve completed corporation industry jobs. Only includes jobs from the past 90 days
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
@@ -92,9 +92,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporations_corporation_id_industry_jobs
-      def get_corporation_industry_jobs(corporation_id:, include_completed:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["include_completed", include_completed]])
-        get("/corporations/#{corporation_id}/industry/jobs/?#{query_string}", headers: headers, params: params)
+      def get_corporation_industry_jobs(corporation_id:, include_completed: nil, headers: {}, params: {})
+        params.merge!("include_completed" => include_completed)
+        get("/corporations/#{corporation_id}/industry/jobs/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_industry_jobs get_corporation_industry_jobs
 
@@ -110,7 +110,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -123,7 +123,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_extractions
-      def get_corporation_mining_extractions(corporation_id:, params: {}, headers: {})
+      def get_corporation_mining_extractions(corporation_id:, headers: {}, params: {})
         get("/corporation/#{corporation_id}/mining/extractions/", headers: headers, params: params)
       end
       alias get_corporation_corporation_id_mining_extractions get_corporation_mining_extractions
@@ -140,8 +140,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
-      # @param observer_id [Integer,String] A mining observer id
+      # @param corporation_id [Integer] An EVE corporation ID
+      # @param observer_id [Integer] A mining observer id
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -154,7 +154,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_observers_observer_id
-      def get_corporation_mining_observer(corporation_id:, observer_id:, params: {}, headers: {})
+      def get_corporation_mining_observer(corporation_id:, observer_id:, headers: {}, params: {})
         get("/corporation/#{corporation_id}/mining/observers/#{observer_id}/", headers: headers, params: params)
       end
       alias get_corporation_corporation_id_mining_observers_observer_id get_corporation_mining_observer
@@ -171,7 +171,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -184,7 +184,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_observers
-      def get_corporation_mining_observers(corporation_id:, params: {}, headers: {})
+      def get_corporation_mining_observers(corporation_id:, headers: {}, params: {})
         get("/corporation/#{corporation_id}/mining/observers/", headers: headers, params: params)
       end
       alias get_corporation_corporation_id_mining_observers get_corporation_mining_observers
@@ -207,7 +207,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_industry_facilities
-      def get_industry_facilities(params: {}, headers: {})
+      def get_industry_facilities(headers: {}, params: {})
         get("/industry/facilities/", headers: headers, params: params)
       end
 
@@ -229,7 +229,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_industry_systems
-      def get_industry_systems(params: {}, headers: {})
+      def get_industry_systems(headers: {}, params: {})
         get("/industry/systems/", headers: headers, params: params)
       end
     end

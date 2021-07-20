@@ -23,7 +23,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Status/get_status
-      def get_status(params: {}, headers: {})
+      def get_status(headers: {}, params: {})
         get("/status/", headers: headers, params: params)
       end
     end

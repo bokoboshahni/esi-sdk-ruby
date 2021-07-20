@@ -22,7 +22,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Insurance/get_insurance_prices
-      def get_insurance_prices(params: {}, headers: {})
+      def get_insurance_prices(headers: {}, params: {})
         get("/insurance/prices/", headers: headers, params: params)
       end
     end

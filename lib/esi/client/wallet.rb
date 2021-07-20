@@ -15,7 +15,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -28,7 +28,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet
-      def get_character_wallet(character_id:, params: {}, headers: {})
+      def get_character_wallet(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/wallet/", headers: headers, params: params)
       end
       alias get_characters_character_id_wallet get_character_wallet
@@ -44,7 +44,7 @@ module ESI
       # @esi_version dev
       # @esi_version v6
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -57,7 +57,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_journal
-      def get_character_wallet_journal(character_id:, params: {}, headers: {})
+      def get_character_wallet_journal(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/wallet/journal/", headers: headers, params: params)
       end
       alias get_characters_character_id_wallet_journal get_character_wallet_journal
@@ -74,7 +74,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param from_id [Integer] Only show transactions happened before the one referenced by this id
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
@@ -88,9 +88,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_transactions
-      def get_character_wallet_transactions(character_id:, from_id:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["from_id", from_id]])
-        get("/characters/#{character_id}/wallet/transactions/?#{query_string}", headers: headers, params: params)
+      def get_character_wallet_transactions(character_id:, from_id: nil, headers: {}, params: {})
+        params.merge!("from_id" => from_id)
+        get("/characters/#{character_id}/wallet/transactions/", headers: headers, params: params)
       end
       alias get_characters_character_id_wallet_transactions get_character_wallet_transactions
 
@@ -106,7 +106,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -119,7 +119,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets
-      def get_corporation_wallets(corporation_id:, params: {}, headers: {})
+      def get_corporation_wallets(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/wallets/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_wallets get_corporation_wallets
@@ -135,8 +135,8 @@ module ESI
       # @esi_version dev
       # @esi_version v4
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
-      # @param division [Integer,String] Wallet key of the division to fetch journals from
+      # @param corporation_id [Integer] An EVE corporation ID
+      # @param division [Integer] Wallet key of the division to fetch journals from
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -149,7 +149,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_journal
-      def get_corporation_wallets_division_journal(corporation_id:, division:, params: {}, headers: {})
+      def get_corporation_wallets_division_journal(corporation_id:, division:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/wallets/#{division}/journal/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_wallets_division_journal get_corporation_wallets_division_journal
@@ -166,8 +166,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
-      # @param division [Integer,String] Wallet key of the division to fetch journals from
+      # @param corporation_id [Integer] An EVE corporation ID
+      # @param division [Integer] Wallet key of the division to fetch journals from
       # @param from_id [Integer] Only show journal entries happened before the transaction referenced by this id
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
@@ -181,9 +181,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_transactions
-      def get_corporation_wallets_division_transactions(corporation_id:, division:, from_id:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["from_id", from_id]])
-        get("/corporations/#{corporation_id}/wallets/#{division}/transactions/?#{query_string}", headers: headers, params: params)
+      def get_corporation_wallets_division_transactions(corporation_id:, division:, from_id: nil, headers: {}, params: {})
+        params.merge!("from_id" => from_id)
+        get("/corporations/#{corporation_id}/wallets/#{division}/transactions/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_wallets_division_transactions get_corporation_wallets_division_transactions
     end

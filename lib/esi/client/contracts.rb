@@ -16,8 +16,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param contract_id [Integer,String] ID of a contract
+      # @param character_id [Integer] An EVE character ID
+      # @param contract_id [Integer] ID of a contract
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -31,7 +31,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_characters_character_id_contracts_contract_id_bids
-      def get_character_contract_bids(character_id:, contract_id:, params: {}, headers: {})
+      def get_character_contract_bids(character_id:, contract_id:, headers: {}, params: {})
         get("/characters/#{character_id}/contracts/#{contract_id}/bids/", headers: headers, params: params)
       end
       alias get_characters_character_id_contracts_contract_id_bids get_character_contract_bids
@@ -48,8 +48,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param contract_id [Integer,String] ID of a contract
+      # @param character_id [Integer] An EVE character ID
+      # @param contract_id [Integer] ID of a contract
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -63,7 +63,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_characters_character_id_contracts_contract_id_items
-      def get_character_contract_items(character_id:, contract_id:, params: {}, headers: {})
+      def get_character_contract_items(character_id:, contract_id:, headers: {}, params: {})
         get("/characters/#{character_id}/contracts/#{contract_id}/items/", headers: headers, params: params)
       end
       alias get_characters_character_id_contracts_contract_id_items get_character_contract_items
@@ -80,7 +80,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -93,7 +93,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_characters_character_id_contracts
-      def get_character_contracts(character_id:, params: {}, headers: {})
+      def get_character_contracts(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/contracts/", headers: headers, params: params)
       end
       alias get_characters_character_id_contracts get_character_contracts
@@ -106,7 +106,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param contract_id [Integer,String] ID of a contract
+      # @param contract_id [Integer] ID of a contract
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -119,7 +119,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_contracts_public_bids_contract_id
-      def get_contracts_public_bids_contract(contract_id:, params: {}, headers: {})
+      def get_contracts_public_bids_contract(contract_id:, headers: {}, params: {})
         get("/contracts/public/bids/#{contract_id}/", headers: headers, params: params)
       end
       alias get_contracts_public_bids_contract_id get_contracts_public_bids_contract
@@ -132,7 +132,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param contract_id [Integer,String] ID of a contract
+      # @param contract_id [Integer] ID of a contract
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -145,7 +145,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_contracts_public_items_contract_id
-      def get_contracts_public_items_contract(contract_id:, params: {}, headers: {})
+      def get_contracts_public_items_contract(contract_id:, headers: {}, params: {})
         get("/contracts/public/items/#{contract_id}/", headers: headers, params: params)
       end
       alias get_contracts_public_items_contract_id get_contracts_public_items_contract
@@ -158,7 +158,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param region_id [Integer,String] An EVE region id
+      # @param region_id [Integer] An EVE region id
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -170,7 +170,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_contracts_public_region_id
-      def get_contracts_public_region(region_id:, params: {}, headers: {})
+      def get_contracts_public_region(region_id:, headers: {}, params: {})
         get("/contracts/public/#{region_id}/", headers: headers, params: params)
       end
       alias get_contracts_public_region_id get_contracts_public_region
@@ -187,8 +187,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param contract_id [Integer,String] ID of a contract
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param contract_id [Integer] ID of a contract
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -202,7 +202,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_corporations_corporation_id_contracts_contract_id_bids
-      def get_corporation_contract_bids(contract_id:, corporation_id:, params: {}, headers: {})
+      def get_corporation_contract_bids(contract_id:, corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/contracts/#{contract_id}/bids/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_contracts_contract_id_bids get_corporation_contract_bids
@@ -219,8 +219,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param contract_id [Integer,String] ID of a contract
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param contract_id [Integer] ID of a contract
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -235,7 +235,7 @@ module ESI
       # @raise [ESI::Errors::EveServerError] Internal error thrown from the EVE server. Most of the time this means you have hit an EVE server rate limit
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_corporations_corporation_id_contracts_contract_id_items
-      def get_corporation_contract_items(contract_id:, corporation_id:, params: {}, headers: {})
+      def get_corporation_contract_items(contract_id:, corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/contracts/#{contract_id}/items/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_contracts_contract_id_items get_corporation_contract_items
@@ -252,7 +252,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -265,7 +265,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_corporations_corporation_id_contracts
-      def get_corporation_contracts(corporation_id:, params: {}, headers: {})
+      def get_corporation_contracts(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/contracts/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_contracts get_corporation_contracts

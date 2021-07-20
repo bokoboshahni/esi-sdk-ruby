@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-RSpec.describe ESI::Client::UserInterface do
-  subject(:client) { ESI::Client.new(user_agent: "ESI SDK Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk)") }
+RSpec.describe ESI::Client::UserInterface, type: :stub do
+  subject(:client) { ESI::Client.new(user_agent: "esi-sdk-ruby Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk-ruby)") }
 
   describe "#post_ui_autopilot_waypoint" do
     context "when the response is 204" do
       let(:response) { nil }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/?add_to_beginning=1234567890&clear_other_waypoints=1234567890&destination_id=1234567890").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/").with(query: { add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/?add_to_beginning=1234567890&clear_other_waypoints=1234567890&destination_id=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/").with(query: { add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/?add_to_beginning=1234567890&clear_other_waypoints=1234567890&destination_id=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/").with(query: { add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/?add_to_beginning=1234567890&clear_other_waypoints=1234567890&destination_id=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/").with(query: { add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/?add_to_beginning=1234567890&clear_other_waypoints=1234567890&destination_id=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/").with(query: { add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,35 +68,11 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/?add_to_beginning=1234567890&clear_other_waypoints=1234567890&destination_id=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/").with(query: { add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_ui_autopilot_waypoint(add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/?add_to_beginning=1234567890&clear_other_waypoints=1234567890&destination_id=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_ui_autopilot_waypoint(add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/autopilot/waypoint/?add_to_beginning=1234567890&clear_other_waypoints=1234567890&destination_id=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_ui_autopilot_waypoint(add_to_beginning: "1234567890", clear_other_waypoints: "1234567890", destination_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -106,7 +82,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { nil }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/?contract_id=1234567890").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/").with(query: { contract_id: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -118,7 +94,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/?contract_id=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/").with(query: { contract_id: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -130,7 +106,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/?contract_id=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/").with(query: { contract_id: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -142,7 +118,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/?contract_id=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/").with(query: { contract_id: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -154,7 +130,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/?contract_id=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/").with(query: { contract_id: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -166,35 +142,11 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/?contract_id=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/").with(query: { contract_id: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_ui_openwindow_contract(contract_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/?contract_id=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_ui_openwindow_contract(contract_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/contract/?contract_id=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_ui_openwindow_contract(contract_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -204,7 +156,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { nil }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/?target_id=1234567890").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/").with(query: { target_id: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -216,7 +168,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/?target_id=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/").with(query: { target_id: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -228,7 +180,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/?target_id=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/").with(query: { target_id: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -240,7 +192,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/?target_id=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/").with(query: { target_id: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -252,7 +204,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/?target_id=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/").with(query: { target_id: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -264,35 +216,11 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/?target_id=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/").with(query: { target_id: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_ui_openwindow_information(target_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/?target_id=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_ui_openwindow_information(target_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/information/?target_id=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_ui_openwindow_information(target_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -302,7 +230,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { nil }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/?type_id=1234567890").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/").with(query: { type_id: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -314,7 +242,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/?type_id=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/").with(query: { type_id: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -326,7 +254,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/?type_id=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/").with(query: { type_id: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -338,7 +266,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/?type_id=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/").with(query: { type_id: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -350,7 +278,7 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/?type_id=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/").with(query: { type_id: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -362,35 +290,11 @@ RSpec.describe ESI::Client::UserInterface do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/?type_id=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/").with(query: { type_id: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_ui_openwindow_marketdetails(type_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/?type_id=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_ui_openwindow_marketdetails(type_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/marketdetails/?type_id=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_ui_openwindow_marketdetails(type_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -477,30 +381,6 @@ RSpec.describe ESI::Client::UserInterface do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_ui_openwindow_newmail(new_mail: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/newmail/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_ui_openwindow_newmail(new_mail: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/ui/openwindow/newmail/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_ui_openwindow_newmail(new_mail: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end

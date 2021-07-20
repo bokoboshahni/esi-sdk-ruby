@@ -17,7 +17,7 @@ module ESI
       # @esi_version v1
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -30,7 +30,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Location/get_characters_character_id_location
-      def get_character_location(character_id:, params: {}, headers: {})
+      def get_character_location(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/location/", headers: headers, params: params)
       end
       alias get_characters_character_id_location get_character_location
@@ -47,7 +47,7 @@ module ESI
       # @esi_version v2
       # @esi_version v3
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -60,7 +60,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Location/get_characters_character_id_online
-      def get_character_online(character_id:, params: {}, headers: {})
+      def get_character_online(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/online/", headers: headers, params: params)
       end
       alias get_characters_character_id_online get_character_online
@@ -78,7 +78,7 @@ module ESI
       # @esi_version v1
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -91,7 +91,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Location/get_characters_character_id_ship
-      def get_character_ship(character_id:, params: {}, headers: {})
+      def get_character_ship(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/ship/", headers: headers, params: params)
       end
       alias get_characters_character_id_ship get_character_ship
