@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-RSpec.describe ESI::Client::Calendar do
-  subject(:client) { ESI::Client.new(user_agent: "ESI SDK Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk)") }
+RSpec.describe ESI::Client::Calendar, type: :stub do
+  subject(:client) { ESI::Client.new(user_agent: "esi-sdk-ruby Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk-ruby)") }
 
   describe "#get_character_calendar" do
     context "when the response is 200" do
       let(:response) { [{ "event_date" => "2016-06-26T20:00:00Z", "event_id" => 1_386_435, "event_response" => "accepted", "importance" => 0, "title" => "o7 The EVE Online Show" }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/?from_event=1234567890").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/").with(query: { from_event: "1234567890" }).to_return(body: response.to_json)
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Calendar do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/?from_event=1234567890").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/").with(query: { from_event: "1234567890" }).to_return(body: response.to_json, status: 400)
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Calendar do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/?from_event=1234567890").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/").with(query: { from_event: "1234567890" }).to_return(body: response.to_json, status: 401)
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Calendar do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/?from_event=1234567890").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/").with(query: { from_event: "1234567890" }).to_return(body: response.to_json, status: 403)
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Calendar do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/?from_event=1234567890").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/").with(query: { from_event: "1234567890" }).to_return(body: response.to_json, status: 420)
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,35 +68,11 @@ RSpec.describe ESI::Client::Calendar do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/?from_event=1234567890").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/").with(query: { from_event: "1234567890" }).to_return(body: response.to_json, status: 500)
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_character_calendar(character_id: "1234567890", from_event: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/?from_event=1234567890").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_calendar(character_id: "1234567890", from_event: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/?from_event=1234567890").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_calendar(character_id: "1234567890", from_event: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -185,30 +161,6 @@ RSpec.describe ESI::Client::Calendar do
         expect { client.get_character_calendar_event(character_id: "1234567890", event_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_calendar_event(character_id: "1234567890", event_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_calendar_event(character_id: "1234567890", event_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_character_calendar_event_attendees" do
@@ -295,30 +247,6 @@ RSpec.describe ESI::Client::Calendar do
         expect { client.get_character_calendar_event_attendees(character_id: "1234567890", event_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/1234567890/attendees/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_calendar_event_attendees(character_id: "1234567890", event_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/calendar/1234567890/attendees/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_calendar_event_attendees(character_id: "1234567890", event_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#put_character_calendar_event" do
@@ -391,30 +319,6 @@ RSpec.describe ESI::Client::Calendar do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.put_character_calendar_event(character_id: "1234567890", event_id: "1234567890", response: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/calendar/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.put_character_calendar_event(character_id: "1234567890", event_id: "1234567890", response: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/calendar/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.put_character_calendar_event(character_id: "1234567890", event_id: "1234567890", response: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end

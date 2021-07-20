@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe ESI::Client::Fleet do
-  subject(:client) { ESI::Client.new(user_agent: "ESI SDK Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk)") }
+RSpec.describe ESI::Client::Fleet, type: :stub do
+  subject(:client) { ESI::Client.new(user_agent: "esi-sdk-ruby Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk-ruby)") }
 
   describe "#delete_fleet_member" do
     context "when the response is 204" do
@@ -85,30 +85,6 @@ RSpec.describe ESI::Client::Fleet do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.delete_fleet_member(fleet_id: "1234567890", member_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.delete_fleet_member(fleet_id: "1234567890", member_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.delete_fleet_member(fleet_id: "1234567890", member_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -197,30 +173,6 @@ RSpec.describe ESI::Client::Fleet do
         expect { client.delete_fleet_squad(fleet_id: "1234567890", squad_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.delete_fleet_squad(fleet_id: "1234567890", squad_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.delete_fleet_squad(fleet_id: "1234567890", squad_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#delete_fleet_wing" do
@@ -305,30 +257,6 @@ RSpec.describe ESI::Client::Fleet do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.delete_fleet_wing(fleet_id: "1234567890", wing_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.delete_fleet_wing(fleet_id: "1234567890", wing_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.delete_fleet_wing(fleet_id: "1234567890", wing_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -417,30 +345,6 @@ RSpec.describe ESI::Client::Fleet do
         expect { client.get_character_fleet(character_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_fleet(character_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_fleet(character_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_fleet" do
@@ -525,30 +429,6 @@ RSpec.describe ESI::Client::Fleet do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_fleet(fleet_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_fleet(fleet_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_fleet(fleet_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -637,30 +517,6 @@ RSpec.describe ESI::Client::Fleet do
         expect { client.get_fleet_members(fleet_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_fleet_members(fleet_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_fleet_members(fleet_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_fleet_wings" do
@@ -745,30 +601,6 @@ RSpec.describe ESI::Client::Fleet do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_fleet_wings(fleet_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_fleet_wings(fleet_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_fleet_wings(fleet_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -869,30 +701,6 @@ RSpec.describe ESI::Client::Fleet do
         expect { client.post_fleet_members(fleet_id: "1234567890", invitation: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_fleet_members(fleet_id: "1234567890", invitation: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_fleet_members(fleet_id: "1234567890", invitation: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#post_fleet_wing_squads" do
@@ -977,30 +785,6 @@ RSpec.describe ESI::Client::Fleet do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_fleet_wing_squads(fleet_id: "1234567890", wing_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_fleet_wing_squads(fleet_id: "1234567890", wing_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_fleet_wing_squads(fleet_id: "1234567890", wing_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -1089,30 +873,6 @@ RSpec.describe ESI::Client::Fleet do
         expect { client.post_fleet_wings(fleet_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_fleet_wings(fleet_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_fleet_wings(fleet_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#put_fleet" do
@@ -1197,30 +957,6 @@ RSpec.describe ESI::Client::Fleet do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.put_fleet(fleet_id: "1234567890", new_settings: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.put_fleet(fleet_id: "1234567890", new_settings: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.put_fleet(fleet_id: "1234567890", new_settings: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -1321,30 +1057,6 @@ RSpec.describe ESI::Client::Fleet do
         expect { client.put_fleet_member(fleet_id: "1234567890", member_id: "1234567890", movement: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.put_fleet_member(fleet_id: "1234567890", member_id: "1234567890", movement: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.put_fleet_member(fleet_id: "1234567890", member_id: "1234567890", movement: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#put_fleet_squad" do
@@ -1431,30 +1143,6 @@ RSpec.describe ESI::Client::Fleet do
         expect { client.put_fleet_squad(fleet_id: "1234567890", squad_id: "1234567890", naming: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.put_fleet_squad(fleet_id: "1234567890", squad_id: "1234567890", naming: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.put_fleet_squad(fleet_id: "1234567890", squad_id: "1234567890", naming: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#put_fleet_wing" do
@@ -1539,30 +1227,6 @@ RSpec.describe ESI::Client::Fleet do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.put_fleet_wing(fleet_id: "1234567890", wing_id: "1234567890", naming: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.put_fleet_wing(fleet_id: "1234567890", wing_id: "1234567890", naming: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.put_fleet_wing(fleet_id: "1234567890", wing_id: "1234567890", naming: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end

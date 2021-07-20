@@ -14,8 +14,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param mail_id [Integer,String] An EVE mail ID
+      # @param character_id [Integer] An EVE character ID
+      # @param mail_id [Integer] An EVE mail ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -28,7 +28,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Mail/delete_characters_character_id_mail_mail_id
-      def delete_character_mail(character_id:, mail_id:, params: {}, headers: {})
+      def delete_character_mail(character_id:, mail_id:, headers: {}, params: {})
         delete("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params)
       end
       alias delete_characters_character_id_mail_mail_id delete_character_mail
@@ -43,8 +43,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param label_id [Integer,String] An EVE label id
+      # @param character_id [Integer] An EVE character ID
+      # @param label_id [Integer] An EVE label id
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -58,7 +58,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Mail/delete_characters_character_id_mail_labels_label_id
-      def delete_character_mail_label(character_id:, label_id:, params: {}, headers: {})
+      def delete_character_mail_label(character_id:, label_id:, headers: {}, params: {})
         delete("/characters/#{character_id}/mail/labels/#{label_id}/", headers: headers, params: params)
       end
       alias delete_characters_character_id_mail_labels_label_id delete_character_mail_label
@@ -75,8 +75,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param mail_id [Integer,String] An EVE mail ID
+      # @param character_id [Integer] An EVE character ID
+      # @param mail_id [Integer] An EVE mail ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -90,7 +90,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_mail_id
-      def get_character_mail(character_id:, mail_id:, params: {}, headers: {})
+      def get_character_mail(character_id:, mail_id:, headers: {}, params: {})
         get("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params)
       end
       alias get_characters_character_id_mail_mail_id get_character_mail
@@ -106,7 +106,7 @@ module ESI
       # @esi_version dev
       # @esi_version v3
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -119,7 +119,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_labels
-      def get_character_mail_labels(character_id:, params: {}, headers: {})
+      def get_character_mail_labels(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/mail/labels/", headers: headers, params: params)
       end
       alias get_characters_character_id_mail_labels get_character_mail_labels
@@ -136,7 +136,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -149,7 +149,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_lists
-      def get_character_mail_lists(character_id:, params: {}, headers: {})
+      def get_character_mail_lists(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/mail/lists/", headers: headers, params: params)
       end
       alias get_characters_character_id_mail_lists get_character_mail_lists
@@ -164,8 +164,9 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param mail [Hash] The mail to send
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -178,8 +179,8 @@ module ESI
       # @raise [ESI::Errors::EveServerError] Internal error thrown from the EVE server. Most of the time this means you have hit an EVE server rate limit
       #
       # @see https://esi.evetech.net/ui/#/Mail/post_characters_character_id_mail
-      def post_character_mail(character_id:, mail:, headers: {})
-        post("/characters/#{character_id}/mail/", headers: headers, payload: mail)
+      def post_character_mail(character_id:, mail:, headers: {}, params: {})
+        post("/characters/#{character_id}/mail/", headers: headers, params: params, payload: mail)
       end
       alias post_characters_character_id_mail post_character_mail
 
@@ -193,8 +194,9 @@ module ESI
       # @esi_version legacy
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param label [Hash] Label to create
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -206,8 +208,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Mail/post_characters_character_id_mail_labels
-      def post_character_mail_labels(character_id:, label:, headers: {})
-        post("/characters/#{character_id}/mail/labels/", headers: headers, payload: label)
+      def post_character_mail_labels(character_id:, label:, headers: {}, params: {})
+        post("/characters/#{character_id}/mail/labels/", headers: headers, params: params, payload: label)
       end
       alias post_characters_character_id_mail_labels post_character_mail_labels
 
@@ -221,9 +223,10 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param mail_id [Integer,String] An EVE mail ID
+      # @param character_id [Integer] An EVE character ID
+      # @param mail_id [Integer] An EVE mail ID
       # @param contents [Hash] Data used to update the mail
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -235,8 +238,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Mail/put_characters_character_id_mail_mail_id
-      def put_character_mail(character_id:, mail_id:, contents:, headers: {})
-        put("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, payload: contents)
+      def put_character_mail(character_id:, mail_id:, contents:, headers: {}, params: {})
+        put("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params, payload: contents)
       end
       alias put_characters_character_id_mail_mail_id put_character_mail
     end

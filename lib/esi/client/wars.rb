@@ -12,7 +12,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param war_id [Integer,String] ID for a war
+      # @param war_id [Integer] ID for a war
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -24,7 +24,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars_war_id
-      def get_war(war_id:, params: {}, headers: {})
+      def get_war(war_id:, headers: {}, params: {})
         get("/wars/#{war_id}/", headers: headers, params: params)
       end
       alias get_wars_war_id get_war
@@ -37,7 +37,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param war_id [Integer,String] A valid war ID
+      # @param war_id [Integer] A valid war ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -49,7 +49,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars_war_id_killmails
-      def get_war_killmails(war_id:, params: {}, headers: {})
+      def get_war_killmails(war_id:, headers: {}, params: {})
         get("/wars/#{war_id}/killmails/", headers: headers, params: params)
       end
       alias get_wars_war_id_killmails get_war_killmails
@@ -73,9 +73,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars
-      def get_wars(max_war_id:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["max_war_id", max_war_id]])
-        get("/wars/?#{query_string}", headers: headers, params: params)
+      def get_wars(max_war_id: nil, headers: {}, params: {})
+        params.merge!("max_war_id" => max_war_id)
+        get("/wars/", headers: headers, params: params)
       end
     end
   end

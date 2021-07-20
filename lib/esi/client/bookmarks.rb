@@ -15,7 +15,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -28,7 +28,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Bookmarks/get_characters_character_id_bookmarks_folders
-      def get_character_bookmark_folders(character_id:, params: {}, headers: {})
+      def get_character_bookmark_folders(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/bookmarks/folders/", headers: headers, params: params)
       end
       alias get_characters_character_id_bookmarks_folders get_character_bookmark_folders
@@ -44,7 +44,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -57,7 +57,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Bookmarks/get_characters_character_id_bookmarks
-      def get_character_bookmarks(character_id:, params: {}, headers: {})
+      def get_character_bookmarks(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/bookmarks/", headers: headers, params: params)
       end
       alias get_characters_character_id_bookmarks get_character_bookmarks
@@ -74,7 +74,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -87,7 +87,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Bookmarks/get_corporations_corporation_id_bookmarks_folders
-      def get_corporation_bookmark_folders(corporation_id:, params: {}, headers: {})
+      def get_corporation_bookmark_folders(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/bookmarks/folders/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_bookmarks_folders get_corporation_bookmark_folders
@@ -104,7 +104,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -117,7 +117,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Bookmarks/get_corporations_corporation_id_bookmarks
-      def get_corporation_bookmarks(corporation_id:, params: {}, headers: {})
+      def get_corporation_bookmarks(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/bookmarks/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_bookmarks get_corporation_bookmarks

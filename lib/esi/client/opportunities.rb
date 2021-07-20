@@ -16,7 +16,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -29,7 +29,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_characters_character_id_opportunities
-      def get_character_opportunities(character_id:, params: {}, headers: {})
+      def get_character_opportunities(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/opportunities/", headers: headers, params: params)
       end
       alias get_characters_character_id_opportunities get_character_opportunities
@@ -40,7 +40,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param group_id [Integer,String] ID of an opportunities group
+      # @param group_id [Integer] ID of an opportunities group
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -51,7 +51,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_groups_group_id
-      def get_opportunities_group(group_id:, params: {}, headers: {})
+      def get_opportunities_group(group_id:, headers: {}, params: {})
         get("/opportunities/groups/#{group_id}/", headers: headers, params: params)
       end
       alias get_opportunities_groups_group_id get_opportunities_group
@@ -62,7 +62,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param task_id [Integer,String] ID of an opportunities task
+      # @param task_id [Integer] ID of an opportunities task
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -73,7 +73,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_tasks_task_id
-      def get_opportunities_task(task_id:, params: {}, headers: {})
+      def get_opportunities_task(task_id:, headers: {}, params: {})
         get("/opportunities/tasks/#{task_id}/", headers: headers, params: params)
       end
       alias get_opportunities_tasks_task_id get_opportunities_task
@@ -94,7 +94,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_groups
-      def get_opportunity_groups(params: {}, headers: {})
+      def get_opportunity_groups(headers: {}, params: {})
         get("/opportunities/groups/", headers: headers, params: params)
       end
       alias get_opportunities_groups get_opportunity_groups
@@ -115,7 +115,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_tasks
-      def get_opportunity_tasks(params: {}, headers: {})
+      def get_opportunity_tasks(headers: {}, params: {})
         get("/opportunities/tasks/", headers: headers, params: params)
       end
       alias get_opportunities_tasks get_opportunity_tasks

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe ESI::Client::Mail do
-  subject(:client) { ESI::Client.new(user_agent: "ESI SDK Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk)") }
+RSpec.describe ESI::Client::Mail, type: :stub do
+  subject(:client) { ESI::Client.new(user_agent: "esi-sdk-ruby Tests/1.0; +(https://github.com/bokoboshahni/esi-sdk-ruby)") }
 
   describe "#delete_character_mail" do
     context "when the response is 204" do
@@ -73,30 +73,6 @@ RSpec.describe ESI::Client::Mail do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.delete_character_mail(character_id: "1234567890", mail_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.delete_character_mail(character_id: "1234567890", mail_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.delete_character_mail(character_id: "1234567890", mail_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -185,30 +161,6 @@ RSpec.describe ESI::Client::Mail do
         expect { client.delete_character_mail_label(character_id: "1234567890", label_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.delete_character_mail_label(character_id: "1234567890", label_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.delete_character_mail_label(character_id: "1234567890", label_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_character_mail" do
@@ -295,30 +247,6 @@ RSpec.describe ESI::Client::Mail do
         expect { client.get_character_mail(character_id: "1234567890", mail_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_mail(character_id: "1234567890", mail_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_mail(character_id: "1234567890", mail_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#get_character_mail_labels" do
@@ -391,30 +319,6 @@ RSpec.describe ESI::Client::Mail do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.get_character_mail_labels(character_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_mail_labels(character_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_mail_labels(character_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end
@@ -491,30 +395,6 @@ RSpec.describe ESI::Client::Mail do
         expect { client.get_character_mail_lists(character_id: "1234567890") }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.get_character_mail_lists(character_id: "1234567890") }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.get_character_mail_lists(character_id: "1234567890") }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#post_character_mail" do
@@ -587,30 +467,6 @@ RSpec.describe ESI::Client::Mail do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.post_character_mail(character_id: "1234567890", mail: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_character_mail(character_id: "1234567890", mail: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_character_mail(character_id: "1234567890", mail: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
 
@@ -699,30 +555,6 @@ RSpec.describe ESI::Client::Mail do
         expect { client.post_character_mail_labels(character_id: "1234567890", label: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
       end
     end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.post_character_mail_labels(character_id: "1234567890", label: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.post_character_mail_labels(character_id: "1234567890", label: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
-      end
-    end
   end
 
   describe "#put_character_mail" do
@@ -795,30 +627,6 @@ RSpec.describe ESI::Client::Mail do
 
       it "raises a ESI::Errors::InternalServerError error" do
         expect { client.put_character_mail(character_id: "1234567890", mail_id: "1234567890", contents: { "foo" => "bar" }) }.to raise_error(ESI::Errors::InternalServerError)
-      end
-    end
-
-    context "when the response is 503" do
-      let(:response) { { "error" => "Service unavailable message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 503)
-      end
-
-      it "raises a ESI::Errors::ServiceUnavailableError error" do
-        expect { client.put_character_mail(character_id: "1234567890", mail_id: "1234567890", contents: { "foo" => "bar" }) }.to raise_error(ESI::Errors::ServiceUnavailableError)
-      end
-    end
-
-    context "when the response is 504" do
-      let(:response) { { "error" => "Gateway timeout message" } }
-
-      before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 504)
-      end
-
-      it "raises a ESI::Errors::GatewayTimeoutError error" do
-        expect { client.put_character_mail(character_id: "1234567890", mail_id: "1234567890", contents: { "foo" => "bar" }) }.to raise_error(ESI::Errors::GatewayTimeoutError)
       end
     end
   end

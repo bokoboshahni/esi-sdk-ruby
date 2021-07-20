@@ -11,7 +11,7 @@ module ESI
       # @esi_version dev
       # @esi_version v5
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -23,7 +23,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id
-      def get_corporation(corporation_id:, params: {}, headers: {})
+      def get_corporation(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id get_corporation
@@ -35,7 +35,7 @@ module ESI
       # @esi_version dev
       # @esi_version v3
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -46,7 +46,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_alliancehistory
-      def get_corporation_alliancehistory(corporation_id:, params: {}, headers: {})
+      def get_corporation_alliancehistory(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/alliancehistory/", headers: headers, params: params)
       end
       alias get_corporation_alliance_history get_corporation_alliancehistory
@@ -63,7 +63,7 @@ module ESI
       # @esi_version dev
       # @esi_version v3
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -76,7 +76,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_blueprints
-      def get_corporation_blueprints(corporation_id:, params: {}, headers: {})
+      def get_corporation_blueprints(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/blueprints/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_blueprints get_corporation_blueprints
@@ -92,7 +92,7 @@ module ESI
       # @esi_version dev
       # @esi_version v3
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -105,7 +105,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_containers_logs
-      def get_corporation_container_logs(corporation_id:, params: {}, headers: {})
+      def get_corporation_container_logs(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/containers/logs/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_containers_logs get_corporation_container_logs
@@ -121,7 +121,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -134,7 +134,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_divisions
-      def get_corporation_divisions(corporation_id:, params: {}, headers: {})
+      def get_corporation_divisions(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/divisions/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_divisions get_corporation_divisions
@@ -150,7 +150,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -163,7 +163,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_facilities
-      def get_corporation_facilities(corporation_id:, params: {}, headers: {})
+      def get_corporation_facilities(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/facilities/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_facilities get_corporation_facilities
@@ -175,7 +175,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -187,7 +187,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_icons
-      def get_corporation_icons(corporation_id:, params: {}, headers: {})
+      def get_corporation_icons(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/icons/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_icons get_corporation_icons
@@ -203,7 +203,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -216,7 +216,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_medals
-      def get_corporation_medals(corporation_id:, params: {}, headers: {})
+      def get_corporation_medals(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/medals/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_medals get_corporation_medals
@@ -232,7 +232,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -245,7 +245,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_medals_issued
-      def get_corporation_medals_issued(corporation_id:, params: {}, headers: {})
+      def get_corporation_medals_issued(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/medals/issued/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_medals_issued get_corporation_medals_issued
@@ -261,7 +261,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -274,7 +274,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_members_titles
-      def get_corporation_member_titles(corporation_id:, params: {}, headers: {})
+      def get_corporation_member_titles(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/members/titles/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_members_titles get_corporation_member_titles
@@ -290,7 +290,7 @@ module ESI
       # @esi_version dev
       # @esi_version v4
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -303,7 +303,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_members
-      def get_corporation_members(corporation_id:, params: {}, headers: {})
+      def get_corporation_members(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/members/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_members get_corporation_members
@@ -319,7 +319,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -332,7 +332,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_members_limit
-      def get_corporation_members_limit(corporation_id:, params: {}, headers: {})
+      def get_corporation_members_limit(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/members/limit/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_members_limit get_corporation_members_limit
@@ -348,7 +348,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -361,7 +361,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_membertracking
-      def get_corporation_membertracking(corporation_id:, params: {}, headers: {})
+      def get_corporation_membertracking(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/membertracking/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_membertracking get_corporation_membertracking
@@ -381,7 +381,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_npccorps
-      def get_corporation_npccorps(params: {}, headers: {})
+      def get_corporation_npccorps(headers: {}, params: {})
         get("/corporations/npccorps/", headers: headers, params: params)
       end
       alias get_corporations_npccorps get_corporation_npccorps
@@ -397,7 +397,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -410,7 +410,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_roles
-      def get_corporation_roles(corporation_id:, params: {}, headers: {})
+      def get_corporation_roles(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/roles/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_roles get_corporation_roles
@@ -426,7 +426,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -439,7 +439,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_roles_history
-      def get_corporation_roles_history(corporation_id:, params: {}, headers: {})
+      def get_corporation_roles_history(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/roles/history/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_roles_history get_corporation_roles_history
@@ -456,7 +456,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -469,7 +469,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_shareholders
-      def get_corporation_shareholders(corporation_id:, params: {}, headers: {})
+      def get_corporation_shareholders(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/shareholders/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_shareholders get_corporation_shareholders
@@ -485,7 +485,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -498,7 +498,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_standings
-      def get_corporation_standings(corporation_id:, params: {}, headers: {})
+      def get_corporation_standings(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/standings/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_standings get_corporation_standings
@@ -514,8 +514,8 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
-      # @param starbase_id [Integer,String] An EVE starbase (POS) ID
+      # @param corporation_id [Integer] An EVE corporation ID
+      # @param starbase_id [Integer] An EVE starbase (POS) ID
       # @param system_id [Integer] The solar system this starbase (POS) is located in,
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
@@ -529,9 +529,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_starbases_starbase_id
-      def get_corporation_starbase(corporation_id:, starbase_id:, system_id:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["system_id", system_id]])
-        get("/corporations/#{corporation_id}/starbases/#{starbase_id}/?#{query_string}", headers: headers, params: params)
+      def get_corporation_starbase(corporation_id:, starbase_id:, system_id:, headers: {}, params: {})
+        params.merge!("system_id" => system_id)
+        get("/corporations/#{corporation_id}/starbases/#{starbase_id}/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_starbases_starbase_id get_corporation_starbase
 
@@ -546,7 +546,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -559,7 +559,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_starbases
-      def get_corporation_starbases(corporation_id:, params: {}, headers: {})
+      def get_corporation_starbases(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/starbases/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_starbases get_corporation_starbases
@@ -575,7 +575,7 @@ module ESI
       # @esi_version dev
       # @esi_version v4
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -588,7 +588,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_structures
-      def get_corporation_structures(corporation_id:, params: {}, headers: {})
+      def get_corporation_structures(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/structures/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_structures get_corporation_structures
@@ -604,7 +604,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -617,7 +617,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_titles
-      def get_corporation_titles(corporation_id:, params: {}, headers: {})
+      def get_corporation_titles(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/titles/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_titles get_corporation_titles

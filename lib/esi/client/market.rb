@@ -15,7 +15,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -28,7 +28,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_characters_character_id_orders
-      def get_character_orders(character_id:, params: {}, headers: {})
+      def get_character_orders(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/orders/", headers: headers, params: params)
       end
       alias get_characters_character_id_orders get_character_orders
@@ -45,7 +45,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -58,7 +58,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_characters_character_id_orders_history
-      def get_character_orders_history(character_id:, params: {}, headers: {})
+      def get_character_orders_history(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/orders/history/", headers: headers, params: params)
       end
       alias get_characters_character_id_orders_history get_character_orders_history
@@ -74,7 +74,7 @@ module ESI
       # @esi_version dev
       # @esi_version v3
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -87,7 +87,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_corporations_corporation_id_orders
-      def get_corporation_orders(corporation_id:, params: {}, headers: {})
+      def get_corporation_orders(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/orders/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_orders get_corporation_orders
@@ -103,7 +103,7 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -116,7 +116,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_corporations_corporation_id_orders_history
-      def get_corporation_orders_history(corporation_id:, params: {}, headers: {})
+      def get_corporation_orders_history(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/orders/history/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_orders_history get_corporation_orders_history
@@ -137,7 +137,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_groups
-      def get_market_groups(params: {}, headers: {})
+      def get_market_groups(headers: {}, params: {})
         get("/markets/groups/", headers: headers, params: params)
       end
       alias get_markets_groups get_market_groups
@@ -148,7 +148,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param market_group_id [Integer,String] An Eve item group ID
+      # @param market_group_id [Integer] An Eve item group ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -160,7 +160,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_groups_market_group_id
-      def get_market_groups_market_group(market_group_id:, params: {}, headers: {})
+      def get_market_groups_market_group(market_group_id:, headers: {}, params: {})
         get("/markets/groups/#{market_group_id}/", headers: headers, params: params)
       end
       alias get_markets_groups_market_group_id get_market_groups_market_group
@@ -183,7 +183,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_prices
-      def get_market_prices(params: {}, headers: {})
+      def get_market_prices(headers: {}, params: {})
         get("/markets/prices/", headers: headers, params: params)
       end
       alias get_markets_prices get_market_prices
@@ -194,7 +194,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param region_id [Integer,String] Return statistics in this region
+      # @param region_id [Integer] Return statistics in this region
       # @param type_id [Integer] Return statistics for this type
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
@@ -209,9 +209,9 @@ module ESI
       # @raise [ESI::Errors::EveServerError] Internal error thrown from the EVE server
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_history
-      def get_markets_region_history(region_id:, type_id:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["type_id", type_id]])
-        get("/markets/#{region_id}/history/?#{query_string}", headers: headers, params: params)
+      def get_markets_region_history(region_id:, type_id:, headers: {}, params: {})
+        params.merge!("type_id" => type_id)
+        get("/markets/#{region_id}/history/", headers: headers, params: params)
       end
       alias get_markets_region_id_history get_markets_region_history
 
@@ -223,8 +223,8 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param region_id [Integer,String] Return orders in this region
-      # @param order_type [String] Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders
+      # @param region_id [Integer] Return orders in this region
+      # @param order_type [String] Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders. Must be one of: `buy`, `sell`, `all`
       # @param type_id [Integer] Return orders only for this type
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
@@ -238,9 +238,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_orders
-      def get_markets_region_orders(region_id:, order_type:, type_id:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["order_type", order_type], ["type_id", type_id]])
-        get("/markets/#{region_id}/orders/?#{query_string}", headers: headers, params: params)
+      def get_markets_region_orders(region_id:, order_type: "all", type_id: nil, headers: {}, params: {})
+        params.merge!("order_type" => order_type, "type_id" => type_id)
+        get("/markets/#{region_id}/orders/", headers: headers, params: params)
       end
       alias get_markets_region_id_orders get_markets_region_orders
 
@@ -252,7 +252,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param region_id [Integer,String] Return statistics in this region
+      # @param region_id [Integer] Return statistics in this region
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -263,7 +263,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_types
-      def get_markets_region_types(region_id:, params: {}, headers: {})
+      def get_markets_region_types(region_id:, headers: {}, params: {})
         get("/markets/#{region_id}/types/", headers: headers, params: params)
       end
       alias get_markets_region_id_types get_markets_region_types
@@ -280,7 +280,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param structure_id [Integer,String] Return orders in this structure
+      # @param structure_id [Integer] Return orders in this structure
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -293,7 +293,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_structures_structure_id
-      def get_markets_structure(structure_id:, params: {}, headers: {})
+      def get_markets_structure(structure_id:, headers: {}, params: {})
         get("/markets/structures/#{structure_id}/", headers: headers, params: params)
       end
       alias get_markets_structures_structure_id get_markets_structure

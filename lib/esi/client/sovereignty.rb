@@ -22,7 +22,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_campaigns
-      def get_sovereignty_campaigns(params: {}, headers: {})
+      def get_sovereignty_campaigns(headers: {}, params: {})
         get("/sovereignty/campaigns/", headers: headers, params: params)
       end
 
@@ -44,7 +44,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_map
-      def get_sovereignty_map(params: {}, headers: {})
+      def get_sovereignty_map(headers: {}, params: {})
         get("/sovereignty/map/", headers: headers, params: params)
       end
 
@@ -66,7 +66,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_structures
-      def get_sovereignty_structures(params: {}, headers: {})
+      def get_sovereignty_structures(headers: {}, params: {})
         get("/sovereignty/structures/", headers: headers, params: params)
       end
     end

@@ -17,7 +17,7 @@ module ESI
       # @esi_version v1
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param from_event [Integer] The event ID to retrieve events from
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
@@ -31,9 +31,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar
-      def get_character_calendar(character_id:, from_event:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["from_event", from_event]])
-        get("/characters/#{character_id}/calendar/?#{query_string}", headers: headers, params: params)
+      def get_character_calendar(character_id:, from_event: nil, headers: {}, params: {})
+        params.merge!("from_event" => from_event)
+        get("/characters/#{character_id}/calendar/", headers: headers, params: params)
       end
       alias get_characters_character_id_calendar get_character_calendar
 
@@ -50,8 +50,8 @@ module ESI
       # @esi_version v3
       # @esi_version v4
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param event_id [Integer,String] The id of the event requested
+      # @param character_id [Integer] An EVE character ID
+      # @param event_id [Integer] The id of the event requested
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -65,7 +65,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar_event_id
-      def get_character_calendar_event(character_id:, event_id:, params: {}, headers: {})
+      def get_character_calendar_event(character_id:, event_id:, headers: {}, params: {})
         get("/characters/#{character_id}/calendar/#{event_id}/", headers: headers, params: params)
       end
       alias get_characters_character_id_calendar_event_id get_character_calendar_event
@@ -83,8 +83,8 @@ module ESI
       # @esi_version v1
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param event_id [Integer,String] The id of the event requested
+      # @param character_id [Integer] An EVE character ID
+      # @param event_id [Integer] The id of the event requested
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -98,7 +98,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar_event_id_attendees
-      def get_character_calendar_event_attendees(character_id:, event_id:, params: {}, headers: {})
+      def get_character_calendar_event_attendees(character_id:, event_id:, headers: {}, params: {})
         get("/characters/#{character_id}/calendar/#{event_id}/attendees/", headers: headers, params: params)
       end
       alias get_characters_character_id_calendar_event_id_attendees get_character_calendar_event_attendees
@@ -116,9 +116,10 @@ module ESI
       # @esi_version v3
       # @esi_version v4
       #
-      # @param character_id [Integer,String] An EVE character ID
-      # @param event_id [Integer,String] The ID of the event requested
+      # @param character_id [Integer] An EVE character ID
+      # @param event_id [Integer] The ID of the event requested
       # @param response [Hash] The response value to set, overriding current value
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -130,8 +131,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Calendar/put_characters_character_id_calendar_event_id
-      def put_character_calendar_event(character_id:, event_id:, response:, headers: {})
-        put("/characters/#{character_id}/calendar/#{event_id}/", headers: headers, payload: response)
+      def put_character_calendar_event(character_id:, event_id:, response:, headers: {}, params: {})
+        put("/characters/#{character_id}/calendar/#{event_id}/", headers: headers, params: params, payload: response)
       end
       alias put_characters_character_id_calendar_event_id put_character_calendar_event
     end

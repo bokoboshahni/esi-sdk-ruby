@@ -15,7 +15,7 @@ module ESI
       # @esi_version dev
       # @esi_version v5
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -29,7 +29,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Assets/get_characters_character_id_assets
-      def get_character_assets(character_id:, params: {}, headers: {})
+      def get_character_assets(character_id:, headers: {}, params: {})
         get("/characters/#{character_id}/assets/", headers: headers, params: params)
       end
       alias get_characters_character_id_assets get_character_assets
@@ -45,7 +45,7 @@ module ESI
       # @esi_version dev
       # @esi_version v5
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -58,7 +58,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Assets/get_corporations_corporation_id_assets
-      def get_corporation_assets(corporation_id:, params: {}, headers: {})
+      def get_corporation_assets(corporation_id:, headers: {}, params: {})
         get("/corporations/#{corporation_id}/assets/", headers: headers, params: params)
       end
       alias get_corporations_corporation_id_assets get_corporation_assets
@@ -72,8 +72,9 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param item_ids [Array] A list of item ids
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -85,8 +86,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_characters_character_id_assets_locations
-      def post_character_asset_locations(character_id:, item_ids:, headers: {})
-        post("/characters/#{character_id}/assets/locations/", headers: headers, payload: item_ids)
+      def post_character_asset_locations(character_id:, item_ids:, headers: {}, params: {})
+        post("/characters/#{character_id}/assets/locations/", headers: headers, params: params, payload: item_ids)
       end
       alias post_characters_character_id_assets_locations post_character_asset_locations
 
@@ -100,8 +101,9 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param item_ids [Array] A list of item ids
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -113,8 +115,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_characters_character_id_assets_names
-      def post_character_asset_names(character_id:, item_ids:, headers: {})
-        post("/characters/#{character_id}/assets/names/", headers: headers, payload: item_ids)
+      def post_character_asset_names(character_id:, item_ids:, headers: {}, params: {})
+        post("/characters/#{character_id}/assets/names/", headers: headers, params: params, payload: item_ids)
       end
       alias post_characters_character_id_assets_names post_character_asset_names
 
@@ -127,8 +129,9 @@ module ESI
       # @esi_version dev
       # @esi_version v2
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param item_ids [Array] A list of item ids
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -141,8 +144,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_corporations_corporation_id_assets_locations
-      def post_corporation_asset_locations(corporation_id:, item_ids:, headers: {})
-        post("/corporations/#{corporation_id}/assets/locations/", headers: headers, payload: item_ids)
+      def post_corporation_asset_locations(corporation_id:, item_ids:, headers: {}, params: {})
+        post("/corporations/#{corporation_id}/assets/locations/", headers: headers, params: params, payload: item_ids)
       end
       alias post_corporations_corporation_id_assets_locations post_corporation_asset_locations
 
@@ -156,8 +159,9 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param corporation_id [Integer,String] An EVE corporation ID
+      # @param corporation_id [Integer] An EVE corporation ID
       # @param item_ids [Array] A list of item ids
+      # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
       # @raise [ESI::Errors::BadRequestError] Bad request
@@ -170,8 +174,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_corporations_corporation_id_assets_names
-      def post_corporation_asset_names(corporation_id:, item_ids:, headers: {})
-        post("/corporations/#{corporation_id}/assets/names/", headers: headers, payload: item_ids)
+      def post_corporation_asset_names(corporation_id:, item_ids:, headers: {}, params: {})
+        post("/corporations/#{corporation_id}/assets/names/", headers: headers, params: params, payload: item_ids)
       end
       alias post_corporations_corporation_id_assets_names post_corporation_asset_names
     end

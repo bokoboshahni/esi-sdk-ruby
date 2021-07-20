@@ -12,11 +12,11 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param destination [Integer,String] destination solar system ID
-      # @param origin [Integer,String] origin solar system ID
+      # @param destination [Integer] destination solar system ID
+      # @param origin [Integer] origin solar system ID
       # @param avoid [Array] avoid solar system ID(s)
       # @param connections [Array] connected solar system pairs
-      # @param flag [String] route security preference
+      # @param flag [String] route security preference. Must be one of: `shortest`, `secure`, `insecure`
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -28,9 +28,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Routes/get_route_origin_destination
-      def get_route_origin_destination(destination:, origin:, avoid:, connections:, flag:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["avoid", avoid], ["connections", connections], ["flag", flag]])
-        get("/route/#{origin}/#{destination}/?#{query_string}", headers: headers, params: params)
+      def get_route_origin_destination(destination:, origin:, avoid: nil, connections: nil, flag: "shortest", headers: {}, params: {})
+        params.merge!("avoid" => avoid, "connections" => connections, "flag" => flag)
+        get("/route/#{origin}/#{destination}/", headers: headers, params: params)
       end
     end
   end

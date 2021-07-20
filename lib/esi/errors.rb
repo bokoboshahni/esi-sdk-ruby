@@ -18,6 +18,17 @@ module ESI
       end
     end
 
+    # ESI pagination error.
+    class PaginationError < ClientError
+      attr_reader :responses
+
+      def initialize(msg, response:, responses:)
+        super(msg, response: response)
+
+        @responses = responses
+      end
+    end
+
     # ESI unauthorized error.
     class UnauthorizedError < ClientError; end
 

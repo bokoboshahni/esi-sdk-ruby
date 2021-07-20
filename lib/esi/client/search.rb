@@ -16,7 +16,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v3
       #
-      # @param character_id [Integer,String] An EVE character ID
+      # @param character_id [Integer] An EVE character ID
       # @param categories [Array] Type of entities to search for
       # @param search [String] The string to search on
       # @param strict [Boolean] Whether the search should be a strict match
@@ -32,9 +32,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Search/get_characters_character_id_search
-      def get_character_search(character_id:, categories:, search:, strict:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["categories", categories], ["search", search], ["strict", strict]])
-        get("/characters/#{character_id}/search/?#{query_string}", headers: headers, params: params)
+      def get_character_search(character_id:, categories:, search:, strict: nil, headers: {}, params: {})
+        params.merge!("categories" => categories, "search" => search, "strict" => strict)
+        get("/characters/#{character_id}/search/", headers: headers, params: params)
       end
       alias get_characters_character_id_search get_character_search
 
@@ -59,9 +59,9 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Search/get_search
-      def get_search(categories:, search:, strict:, params: {}, headers: {})
-        query_string = URI.encode_www_form([["categories", categories], ["search", search], ["strict", strict]])
-        get("/search/?#{query_string}", headers: headers, params: params)
+      def get_search(categories:, search:, strict: nil, headers: {}, params: {})
+        params.merge!("categories" => categories, "search" => search, "strict" => strict)
+        get("/search/", headers: headers, params: params)
       end
     end
   end

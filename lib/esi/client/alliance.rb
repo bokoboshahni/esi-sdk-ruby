@@ -13,7 +13,7 @@ module ESI
       # @esi_version v3
       # @esi_version v4
       #
-      # @param alliance_id [Integer,String] An EVE alliance ID
+      # @param alliance_id [Integer] An EVE alliance ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -25,7 +25,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id
-      def get_alliance(alliance_id:, params: {}, headers: {})
+      def get_alliance(alliance_id:, headers: {}, params: {})
         get("/alliances/#{alliance_id}/", headers: headers, params: params)
       end
       alias get_alliances_alliance_id get_alliance
@@ -39,7 +39,7 @@ module ESI
       # @esi_version v1
       # @esi_version v2
       #
-      # @param alliance_id [Integer,String] An EVE alliance ID
+      # @param alliance_id [Integer] An EVE alliance ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -50,7 +50,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id_corporations
-      def get_alliance_corporations(alliance_id:, params: {}, headers: {})
+      def get_alliance_corporations(alliance_id:, headers: {}, params: {})
         get("/alliances/#{alliance_id}/corporations/", headers: headers, params: params)
       end
       alias get_alliances_alliance_id_corporations get_alliance_corporations
@@ -60,7 +60,7 @@ module ESI
       # @esi_version legacy
       # @esi_version v1
       #
-      # @param alliance_id [Integer,String] An EVE alliance ID
+      # @param alliance_id [Integer] An EVE alliance ID
       # @param params [Hash] Additional query string parameters
       # @param headers [Hash] Additional headers
       #
@@ -72,7 +72,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id_icons
-      def get_alliance_icons(alliance_id:, params: {}, headers: {})
+      def get_alliance_icons(alliance_id:, headers: {}, params: {})
         get("/alliances/#{alliance_id}/icons/", headers: headers, params: params)
       end
       alias get_alliances_alliance_id_icons get_alliance_icons
@@ -96,7 +96,7 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances
-      def get_alliances(params: {}, headers: {})
+      def get_alliances(headers: {}, params: {})
         get("/alliances/", headers: headers, params: params)
       end
     end
