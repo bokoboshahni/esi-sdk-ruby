@@ -116,7 +116,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_character_contacts-instance_method" title="#delete_character_contacts (instance method)">#<strong>delete_character_contacts</strong>(character_id:, contact_ids:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#delete_character_contacts-instance_method" title="#delete_character_contacts (instance method)">#<strong>delete_character_contacts</strong>(character_id:, contact_ids:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -141,7 +141,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_alliance_contact_labels-instance_method" title="#get_alliance_contact_labels (instance method)">#<strong>get_alliance_contact_labels</strong>(alliance_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_alliance_contact_labels-instance_method" title="#get_alliance_contact_labels (instance method)">#<strong>get_alliance_contact_labels</strong>(alliance_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -166,7 +166,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_alliance_contacts-instance_method" title="#get_alliance_contacts (instance method)">#<strong>get_alliance_contacts</strong>(alliance_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_alliance_contacts-instance_method" title="#get_alliance_contacts (instance method)">#<strong>get_alliance_contacts</strong>(alliance_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -191,7 +191,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_character_contact_labels-instance_method" title="#get_character_contact_labels (instance method)">#<strong>get_character_contact_labels</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_character_contact_labels-instance_method" title="#get_character_contact_labels (instance method)">#<strong>get_character_contact_labels</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -216,7 +216,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_character_contacts-instance_method" title="#get_character_contacts (instance method)">#<strong>get_character_contacts</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_character_contacts-instance_method" title="#get_character_contacts (instance method)">#<strong>get_character_contacts</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -241,7 +241,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_corporation_contact_labels-instance_method" title="#get_corporation_contact_labels (instance method)">#<strong>get_corporation_contact_labels</strong>(corporation_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_corporation_contact_labels-instance_method" title="#get_corporation_contact_labels (instance method)">#<strong>get_corporation_contact_labels</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -266,7 +266,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_corporation_contacts-instance_method" title="#get_corporation_contacts (instance method)">#<strong>get_corporation_contacts</strong>(corporation_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_corporation_contacts-instance_method" title="#get_corporation_contacts (instance method)">#<strong>get_corporation_contacts</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -291,7 +291,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#post_character_contacts-instance_method" title="#post_character_contacts (instance method)">#<strong>post_character_contacts</strong>(character_id:, contact_ids:, label_ids:, standing:, watched:, headers: {})  &#x21d2; Object </a>
+      <a href="#post_character_contacts-instance_method" title="#post_character_contacts (instance method)">#<strong>post_character_contacts</strong>(character_id:, contact_ids:, standing:, label_ids: nil, watched: nil, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -316,7 +316,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#put_character_contacts-instance_method" title="#put_character_contacts (instance method)">#<strong>put_character_contacts</strong>(character_id:, contact_ids:, label_ids:, standing:, watched:, headers: {})  &#x21d2; Object </a>
+      <a href="#put_character_contacts-instance_method" title="#put_character_contacts (instance method)">#<strong>put_character_contacts</strong>(character_id:, contact_ids:, standing:, label_ids: nil, watched: nil, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -350,7 +350,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="delete_character_contacts-instance_method">
   
-    #<strong>delete_character_contacts</strong>(character_id:, contact_ids:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>delete_character_contacts</strong>(character_id:, contact_ids:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -378,7 +378,7 @@
         <span class='name'>character_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -597,9 +597,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 30</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete_character_contacts'>delete_character_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>contact_ids:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>contact_ids</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_contact_ids'>contact_ids</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/?</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_query_string'>query_string</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_character_contacts'>delete_character_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>contact_ids:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>contact_ids</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_contact_ids'>contact_ids</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -609,7 +609,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_alliance_contact_labels-instance_method">
   
-    #<strong>get_alliance_contact_labels</strong>(alliance_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_alliance_contact_labels</strong>(alliance_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -639,7 +639,7 @@
         <span class='name'>alliance_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -853,7 +853,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 61</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_alliance_contact_labels'>get_alliance_contact_labels</span><span class='lparen'>(</span><span class='label'>alliance_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_alliance_contact_labels'>get_alliance_contact_labels</span><span class='lparen'>(</span><span class='label'>alliance_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/alliances/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_alliance_id'>alliance_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/labels/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -864,7 +864,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_alliance_contacts-instance_method">
   
-    #<strong>get_alliance_contacts</strong>(alliance_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_alliance_contacts</strong>(alliance_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -894,7 +894,7 @@
         <span class='name'>alliance_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -1097,7 +1097,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 90</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_alliance_contacts'>get_alliance_contacts</span><span class='lparen'>(</span><span class='label'>alliance_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_alliance_contacts'>get_alliance_contacts</span><span class='lparen'>(</span><span class='label'>alliance_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/alliances/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_alliance_id'>alliance_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1108,7 +1108,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_character_contact_labels-instance_method">
   
-    #<strong>get_character_contact_labels</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_character_contact_labels</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1138,7 +1138,7 @@
         <span class='name'>character_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -1352,7 +1352,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 120</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_character_contact_labels'>get_character_contact_labels</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_contact_labels'>get_character_contact_labels</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/labels/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1363,7 +1363,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_character_contacts-instance_method">
   
-    #<strong>get_character_contacts</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_character_contacts</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1393,7 +1393,7 @@
         <span class='name'>character_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -1596,7 +1596,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 149</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_character_contacts'>get_character_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_contacts'>get_character_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1607,7 +1607,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_corporation_contact_labels-instance_method">
   
-    #<strong>get_corporation_contact_labels</strong>(corporation_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_corporation_contact_labels</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1637,7 +1637,7 @@
         <span class='name'>corporation_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -1851,7 +1851,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 179</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_contact_labels'>get_corporation_contact_labels</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_contact_labels'>get_corporation_contact_labels</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/labels/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1862,7 +1862,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_corporation_contacts-instance_method">
   
-    #<strong>get_corporation_contacts</strong>(corporation_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_corporation_contacts</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1892,7 +1892,7 @@
         <span class='name'>corporation_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -2095,7 +2095,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 208</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_contacts'>get_corporation_contacts</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_contacts'>get_corporation_contacts</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2106,7 +2106,7 @@
       <div class="method_details ">
   <h3 class="signature " id="post_character_contacts-instance_method">
   
-    #<strong>post_character_contacts</strong>(character_id:, contact_ids:, label_ids:, standing:, watched:, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>post_character_contacts</strong>(character_id:, contact_ids:, standing:, label_ids: nil, watched: nil, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -2134,7 +2134,7 @@
         <span class='name'>character_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -2167,6 +2167,8 @@
         <span class='type'>(<tt>Array</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'><p>Add custom labels to the new contact</p>
@@ -2197,9 +2199,28 @@
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'><p>Whether the contact should be watched, note this is only effective on characters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
 </div>
       
     </li>
@@ -2386,17 +2407,17 @@
       <pre class="lines">
 
 
-239
 240
 241
-242</pre>
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 239</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 240</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_post_character_contacts'>post_character_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>contact_ids:</span><span class='comma'>,</span> <span class='label'>label_ids:</span><span class='comma'>,</span> <span class='label'>standing:</span><span class='comma'>,</span> <span class='label'>watched:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label_ids</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_label_ids'>label_ids</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>standing</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_standing'>standing</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>watched</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_watched'>watched</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/?</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_query_string'>query_string</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>payload:</span> <span class='id identifier rubyid_contact_ids'>contact_ids</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_post_character_contacts'>post_character_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>contact_ids:</span><span class='comma'>,</span> <span class='label'>standing:</span><span class='comma'>,</span> <span class='label'>label_ids:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>watched:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label_ids</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_label_ids'>label_ids</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>standing</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_standing'>standing</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>watched</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_watched'>watched</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='label'>payload:</span> <span class='id identifier rubyid_contact_ids'>contact_ids</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2406,7 +2427,7 @@
       <div class="method_details ">
   <h3 class="signature " id="put_character_contacts-instance_method">
   
-    #<strong>put_character_contacts</strong>(character_id:, contact_ids:, label_ids:, standing:, watched:, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>put_character_contacts</strong>(character_id:, contact_ids:, standing:, label_ids: nil, watched: nil, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -2434,7 +2455,7 @@
         <span class='name'>character_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -2467,6 +2488,8 @@
         <span class='type'>(<tt>Array</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'><p>Add custom labels to the contact</p>
@@ -2497,9 +2520,28 @@
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'><p>Whether the contact should be watched, note this is only effective on characters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
 </div>
       
     </li>
@@ -2673,17 +2715,17 @@
       <pre class="lines">
 
 
-270
-271
 272
-273</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 270</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/contacts.rb', line 272</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_put_character_contacts'>put_character_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>contact_ids:</span><span class='comma'>,</span> <span class='label'>label_ids:</span><span class='comma'>,</span> <span class='label'>standing:</span><span class='comma'>,</span> <span class='label'>watched:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label_ids</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_label_ids'>label_ids</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>standing</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_standing'>standing</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>watched</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_watched'>watched</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/?</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_query_string'>query_string</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>payload:</span> <span class='id identifier rubyid_contact_ids'>contact_ids</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_put_character_contacts'>put_character_contacts</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>contact_ids:</span><span class='comma'>,</span> <span class='label'>standing:</span><span class='comma'>,</span> <span class='label'>label_ids:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>watched:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label_ids</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_label_ids'>label_ids</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>standing</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_standing'>standing</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>watched</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_watched'>watched</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/contacts/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='label'>payload:</span> <span class='id identifier rubyid_contact_ids'>contact_ids</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2695,7 +2737,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 19 04:01:10 2021 by
+  Generated on Tue Jul 20 19:09:30 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

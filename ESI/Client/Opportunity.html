@@ -116,7 +116,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_character_opportunities-instance_method" title="#get_character_opportunities (instance method)">#<strong>get_character_opportunities</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_character_opportunities-instance_method" title="#get_character_opportunities (instance method)">#<strong>get_character_opportunities</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -141,7 +141,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_opportunities_group-instance_method" title="#get_opportunities_group (instance method)">#<strong>get_opportunities_group</strong>(group_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_opportunities_group-instance_method" title="#get_opportunities_group (instance method)">#<strong>get_opportunities_group</strong>(group_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -166,7 +166,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_opportunities_task-instance_method" title="#get_opportunities_task (instance method)">#<strong>get_opportunities_task</strong>(task_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_opportunities_task-instance_method" title="#get_opportunities_task (instance method)">#<strong>get_opportunities_task</strong>(task_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -191,7 +191,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_opportunity_groups-instance_method" title="#get_opportunity_groups (instance method)">#<strong>get_opportunity_groups</strong>(params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_opportunity_groups-instance_method" title="#get_opportunity_groups (instance method)">#<strong>get_opportunity_groups</strong>(headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -216,7 +216,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_opportunity_tasks-instance_method" title="#get_opportunity_tasks (instance method)">#<strong>get_opportunity_tasks</strong>(params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_opportunity_tasks-instance_method" title="#get_opportunity_tasks (instance method)">#<strong>get_opportunity_tasks</strong>(headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -250,7 +250,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="get_character_opportunities-instance_method">
   
-    #<strong>get_character_opportunities</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_character_opportunities</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -280,7 +280,7 @@
         <span class='name'>character_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -494,7 +494,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/opportunities.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_character_opportunities'>get_character_opportunities</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_opportunities'>get_character_opportunities</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/opportunities/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -505,7 +505,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_opportunities_group-instance_method">
   
-    #<strong>get_opportunities_group</strong>(group_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_opportunities_group</strong>(group_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -531,7 +531,7 @@
         <span class='name'>group_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -704,7 +704,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/opportunities.rb', line 54</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_opportunities_group'>get_opportunities_group</span><span class='lparen'>(</span><span class='label'>group_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_opportunities_group'>get_opportunities_group</span><span class='lparen'>(</span><span class='label'>group_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/opportunities/groups/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group_id'>group_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -715,7 +715,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_opportunities_task-instance_method">
   
-    #<strong>get_opportunities_task</strong>(task_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_opportunities_task</strong>(task_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -741,7 +741,7 @@
         <span class='name'>task_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -914,7 +914,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/opportunities.rb', line 76</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_opportunities_task'>get_opportunities_task</span><span class='lparen'>(</span><span class='label'>task_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_opportunities_task'>get_opportunities_task</span><span class='lparen'>(</span><span class='label'>task_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/opportunities/tasks/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_task_id'>task_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -925,7 +925,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_opportunity_groups-instance_method">
   
-    #<strong>get_opportunity_groups</strong>(params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_opportunity_groups</strong>(headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1109,7 +1109,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/opportunities.rb', line 97</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_opportunity_groups'>get_opportunity_groups</span><span class='lparen'>(</span><span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_opportunity_groups'>get_opportunity_groups</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/opportunities/groups/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1120,7 +1120,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_opportunity_tasks-instance_method">
   
-    #<strong>get_opportunity_tasks</strong>(params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_opportunity_tasks</strong>(headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1304,7 +1304,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/opportunities.rb', line 118</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_opportunity_tasks'>get_opportunity_tasks</span><span class='lparen'>(</span><span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_opportunity_tasks'>get_opportunity_tasks</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/opportunities/tasks/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1317,7 +1317,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 19 04:01:13 2021 by
+  Generated on Tue Jul 20 19:09:32 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

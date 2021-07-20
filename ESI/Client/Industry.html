@@ -116,7 +116,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_character_industry_jobs-instance_method" title="#get_character_industry_jobs (instance method)">#<strong>get_character_industry_jobs</strong>(character_id:, include_completed:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_character_industry_jobs-instance_method" title="#get_character_industry_jobs (instance method)">#<strong>get_character_industry_jobs</strong>(character_id:, include_completed: nil, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -141,7 +141,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_character_mining-instance_method" title="#get_character_mining (instance method)">#<strong>get_character_mining</strong>(character_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_character_mining-instance_method" title="#get_character_mining (instance method)">#<strong>get_character_mining</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -166,7 +166,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_corporation_industry_jobs-instance_method" title="#get_corporation_industry_jobs (instance method)">#<strong>get_corporation_industry_jobs</strong>(corporation_id:, include_completed:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_corporation_industry_jobs-instance_method" title="#get_corporation_industry_jobs (instance method)">#<strong>get_corporation_industry_jobs</strong>(corporation_id:, include_completed: nil, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -191,7 +191,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_corporation_mining_extractions-instance_method" title="#get_corporation_mining_extractions (instance method)">#<strong>get_corporation_mining_extractions</strong>(corporation_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_corporation_mining_extractions-instance_method" title="#get_corporation_mining_extractions (instance method)">#<strong>get_corporation_mining_extractions</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -216,7 +216,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_corporation_mining_observer-instance_method" title="#get_corporation_mining_observer (instance method)">#<strong>get_corporation_mining_observer</strong>(corporation_id:, observer_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_corporation_mining_observer-instance_method" title="#get_corporation_mining_observer (instance method)">#<strong>get_corporation_mining_observer</strong>(corporation_id:, observer_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -241,7 +241,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_corporation_mining_observers-instance_method" title="#get_corporation_mining_observers (instance method)">#<strong>get_corporation_mining_observers</strong>(corporation_id:, params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_corporation_mining_observers-instance_method" title="#get_corporation_mining_observers (instance method)">#<strong>get_corporation_mining_observers</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -266,7 +266,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_industry_facilities-instance_method" title="#get_industry_facilities (instance method)">#<strong>get_industry_facilities</strong>(params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_industry_facilities-instance_method" title="#get_industry_facilities (instance method)">#<strong>get_industry_facilities</strong>(headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -289,7 +289,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_industry_systems-instance_method" title="#get_industry_systems (instance method)">#<strong>get_industry_systems</strong>(params: {}, headers: {})  &#x21d2; Object </a>
+      <a href="#get_industry_systems-instance_method" title="#get_industry_systems (instance method)">#<strong>get_industry_systems</strong>(headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -321,7 +321,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="get_character_industry_jobs-instance_method">
   
-    #<strong>get_character_industry_jobs</strong>(character_id:, include_completed:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_character_industry_jobs</strong>(character_id:, include_completed: nil, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -351,7 +351,7 @@
         <span class='name'>character_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -368,6 +368,8 @@
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -581,9 +583,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/industry.rb', line 33</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_character_industry_jobs'>get_character_industry_jobs</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>include_completed:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>include_completed</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_include_completed'>include_completed</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/industry/jobs/?</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_query_string'>query_string</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_industry_jobs'>get_character_industry_jobs</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>include_completed:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>include_completed</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_include_completed'>include_completed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/industry/jobs/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -593,7 +595,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_character_mining-instance_method">
   
-    #<strong>get_character_mining</strong>(character_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_character_mining</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -623,7 +625,7 @@
         <span class='name'>character_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -837,7 +839,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/industry.rb', line 64</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_character_mining'>get_character_mining</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_mining'>get_character_mining</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/mining/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -848,7 +850,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_corporation_industry_jobs-instance_method">
   
-    #<strong>get_corporation_industry_jobs</strong>(corporation_id:, include_completed:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_corporation_industry_jobs</strong>(corporation_id:, include_completed: nil, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -878,7 +880,7 @@
         <span class='name'>corporation_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -895,6 +897,8 @@
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -1108,9 +1112,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/industry.rb', line 95</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_industry_jobs'>get_corporation_industry_jobs</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>include_completed:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_encode_www_form'>encode_www_form</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>include_completed</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_include_completed'>include_completed</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/industry/jobs/?</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_query_string'>query_string</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_industry_jobs'>get_corporation_industry_jobs</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>include_completed:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>include_completed</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_include_completed'>include_completed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/industry/jobs/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1120,7 +1124,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_corporation_mining_extractions-instance_method">
   
-    #<strong>get_corporation_mining_extractions</strong>(corporation_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_corporation_mining_extractions</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1150,7 +1154,7 @@
         <span class='name'>corporation_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -1364,7 +1368,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/industry.rb', line 126</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_mining_extractions'>get_corporation_mining_extractions</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_mining_extractions'>get_corporation_mining_extractions</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporation/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/mining/extractions/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1375,7 +1379,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_corporation_mining_observer-instance_method">
   
-    #<strong>get_corporation_mining_observer</strong>(corporation_id:, observer_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_corporation_mining_observer</strong>(corporation_id:, observer_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1405,7 +1409,7 @@
         <span class='name'>corporation_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -1420,7 +1424,7 @@
         <span class='name'>observer_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -1634,7 +1638,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/industry.rb', line 157</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_mining_observer'>get_corporation_mining_observer</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>observer_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_mining_observer'>get_corporation_mining_observer</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>observer_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporation/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/mining/observers/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_observer_id'>observer_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1645,7 +1649,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_corporation_mining_observers-instance_method">
   
-    #<strong>get_corporation_mining_observers</strong>(corporation_id:, params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_corporation_mining_observers</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1675,7 +1679,7 @@
         <span class='name'>corporation_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -1889,7 +1893,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/industry.rb', line 187</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_mining_observers'>get_corporation_mining_observers</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_mining_observers'>get_corporation_mining_observers</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporation/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/mining/observers/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1900,7 +1904,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_industry_facilities-instance_method">
   
-    #<strong>get_industry_facilities</strong>(params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_industry_facilities</strong>(headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -2082,7 +2086,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/industry.rb', line 210</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_industry_facilities'>get_industry_facilities</span><span class='lparen'>(</span><span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_industry_facilities'>get_industry_facilities</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/industry/facilities/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2093,7 +2097,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_industry_systems-instance_method">
   
-    #<strong>get_industry_systems</strong>(params: {}, headers: {})  &#x21d2; <tt>Object</tt> 
+    #<strong>get_industry_systems</strong>(headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -2275,7 +2279,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/industry.rb', line 232</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_industry_systems'>get_industry_systems</span><span class='lparen'>(</span><span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_industry_systems'>get_industry_systems</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/industry/systems/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2288,7 +2292,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 19 04:01:11 2021 by
+  Generated on Tue Jul 20 19:09:30 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>
