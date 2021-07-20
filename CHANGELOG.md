@@ -1,5 +1,12 @@
 # ESI SDK Changelog
 
+# [1.2.0](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v1.1.3...v1.2.0) (2021-07-20)
+
+
+### Features
+
+* Client improvements ([bad70ae](https://github.com/bokoboshahni/esi-sdk-ruby/commit/bad70ae4d97b8b0f93019b5b4dac73f97aad7dc0))
+
 ## [1.1.3](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v1.1.2...v1.1.3) (2021-07-19)
 
 
