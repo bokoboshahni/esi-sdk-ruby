@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "aggressor" => { "corporation_id" => 986_665_792, "isk_destroyed" => 0, "ships_killed" => 0 }, "declared" => "2004-05-22T05:20:00Z", "defender" => { "corporation_id" => 1_001_562_011, "isk_destroyed" => 0, "ships_killed" => 0 }, "id" => 1941, "mutual" => false, "open_for_allies" => false } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Unprocessable entity message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, status: 422)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, status: 422, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnprocessableEntityError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -70,7 +70,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { [{ "killmail_hash" => "8eef5e8fb6b88fe3407c489df33822b2e3b57a5e", "killmail_id" => 2 }, { "killmail_hash" => "b41ccb498ece33d64019f64c0db392aa3aa701fb", "killmail_id" => 1 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, headers: { "Content-Type": "application/json", "X-Pages": "1" })
       end
 
       it "returns the response" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Unprocessable entity message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, status: 422)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, status: 422, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnprocessableEntityError error" do
@@ -118,7 +118,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/1234567890/killmails/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -132,7 +132,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { [3, 2, 1] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/").with(query: { max_war_id: "1234567890" }).to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/").with(query: { max_war_id: "1234567890" }).to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -144,7 +144,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/").with(query: { max_war_id: "1234567890" }).to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/").with(query: { max_war_id: "1234567890" }).to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -156,7 +156,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/").with(query: { max_war_id: "1234567890" }).to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/").with(query: { max_war_id: "1234567890" }).to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -168,7 +168,7 @@ RSpec.describe ESI::Client::War, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/wars/").with(query: { max_war_id: "1234567890" }).to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/wars/").with(query: { max_war_id: "1234567890" }).to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

@@ -26,7 +26,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id
       def get_alliance(alliance_id:, headers: {}, params: {})
-        get("/alliances/#{alliance_id}/", headers: headers, params: params)
+        get("/alliances/#{alliance_id}/", headers: headers, params: params).json
       end
       alias get_alliances_alliance_id get_alliance
 
@@ -51,7 +51,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id_corporations
       def get_alliance_corporations(alliance_id:, headers: {}, params: {})
-        get("/alliances/#{alliance_id}/corporations/", headers: headers, params: params)
+        get("/alliances/#{alliance_id}/corporations/", headers: headers, params: params).json
       end
       alias get_alliances_alliance_id_corporations get_alliance_corporations
 
@@ -73,7 +73,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id_icons
       def get_alliance_icons(alliance_id:, headers: {}, params: {})
-        get("/alliances/#{alliance_id}/icons/", headers: headers, params: params)
+        get("/alliances/#{alliance_id}/icons/", headers: headers, params: params).json
       end
       alias get_alliances_alliance_id_icons get_alliance_icons
 
@@ -97,7 +97,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances
       def get_alliances(headers: {}, params: {})
-        get("/alliances/", headers: headers, params: params)
+        get("/alliances/", headers: headers, params: params).json
       end
     end
   end

@@ -12,15 +12,44 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 require "webmock/rspec"
+require "httpx/adapters/webmock"
+
+module WebMock
+  module HttpLibAdapters
+    module Plugin
+      module InstanceMethods
+        private
+
+        def _build_webmock_request_signature(request) # rubocop:disable Metrics/AbcSize
+          request.uri.query = request.query if request.query
+          uri = WebMock::Util::URI.heuristic_parse(request.uri)
+          uri.path = uri.normalized_path.gsub("[^:]//", "/")
+
+          WebMock::RequestSignature.new(
+            request.verb,
+            uri.to_s,
+            body: request.body.each.to_a.join,
+            headers: request.headers.to_h
+          )
+        end
+      end
+    end
+  end
+end
+
 WebMock.disable_net_connect!
 
 require "vcr"
-VCR.configure do |config|
-  config.cassette_library_dir = "spec/cassettes"
-  config.hook_into :webmock
-  config.configure_rspec_metadata!
-  config.allow_http_connections_when_no_cassette = true
+VCR.configure do |c|
+  c.allow_http_connections_when_no_cassette = true
+  c.cassette_library_dir = "spec/cassettes"
+  c.hook_into :webmock
+  c.ignore_localhost = true
+
+  c.configure_rspec_metadata!
 end
+
+require "awesome_print"
 
 RSpec.configure do |config|
   config.disable_monkey_patching!
@@ -43,11 +72,5 @@ RSpec.configure do |config|
     WebMock.allow_net_connect!(net_http_connect_on_start: true)
     example.run
     WebMock.disable_net_connect!
-  end
-
-  config.around type: :stub do |example|
-    VCR.turn_off!
-    example.run
-    VCR.turn_on!
   end
 end

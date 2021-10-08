@@ -30,7 +30,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Killmails/get_characters_character_id_killmails_recent
       def get_character_killmails_recent(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/killmails/recent/", headers: headers, params: params)
+        responses = get("/characters/#{character_id}/killmails/recent/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_characters_character_id_killmails_recent get_character_killmails_recent
 
@@ -60,7 +61,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Killmails/get_corporations_corporation_id_killmails_recent
       def get_corporation_killmails_recent(corporation_id:, headers: {}, params: {})
-        get("/corporations/#{corporation_id}/killmails/recent/", headers: headers, params: params)
+        responses = get("/corporations/#{corporation_id}/killmails/recent/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_corporations_corporation_id_killmails_recent get_corporation_killmails_recent
 
@@ -86,7 +88,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Killmails/get_killmails_killmail_id_killmail_hash
       def get_killmail_killmail_hash(killmail_hash:, killmail_id:, headers: {}, params: {})
-        get("/killmails/#{killmail_id}/#{killmail_hash}/", headers: headers, params: params)
+        get("/killmails/#{killmail_id}/#{killmail_hash}/", headers: headers, params: params).json
       end
       alias get_killmail get_killmail_killmail_hash
       alias get_killmails_killmail_id_killmail_hash get_killmail_killmail_hash

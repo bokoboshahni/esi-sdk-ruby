@@ -24,7 +24,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Status/get_status
       def get_status(headers: {}, params: {})
-        get("/status/", headers: headers, params: params)
+        get("/status/", headers: headers, params: params).json
       end
     end
   end

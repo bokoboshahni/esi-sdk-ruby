@@ -29,7 +29,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Bookmarks/get_characters_character_id_bookmarks_folders
       def get_character_bookmark_folders(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/bookmarks/folders/", headers: headers, params: params)
+        responses = get("/characters/#{character_id}/bookmarks/folders/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_characters_character_id_bookmarks_folders get_character_bookmark_folders
 
@@ -58,7 +59,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Bookmarks/get_characters_character_id_bookmarks
       def get_character_bookmarks(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/bookmarks/", headers: headers, params: params)
+        responses = get("/characters/#{character_id}/bookmarks/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_characters_character_id_bookmarks get_character_bookmarks
 
@@ -88,7 +90,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Bookmarks/get_corporations_corporation_id_bookmarks_folders
       def get_corporation_bookmark_folders(corporation_id:, headers: {}, params: {})
-        get("/corporations/#{corporation_id}/bookmarks/folders/", headers: headers, params: params)
+        responses = get("/corporations/#{corporation_id}/bookmarks/folders/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_corporations_corporation_id_bookmarks_folders get_corporation_bookmark_folders
 
@@ -118,7 +121,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Bookmarks/get_corporations_corporation_id_bookmarks
       def get_corporation_bookmarks(corporation_id:, headers: {}, params: {})
-        get("/corporations/#{corporation_id}/bookmarks/", headers: headers, params: params)
+        responses = get("/corporations/#{corporation_id}/bookmarks/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_corporations_corporation_id_bookmarks get_corporation_bookmarks
     end

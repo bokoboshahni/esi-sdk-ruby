@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_characters_character_id_opportunities
       def get_character_opportunities(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/opportunities/", headers: headers, params: params)
+        get("/characters/#{character_id}/opportunities/", headers: headers, params: params).json
       end
       alias get_characters_character_id_opportunities get_character_opportunities
 
@@ -52,7 +52,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_groups_group_id
       def get_opportunities_group(group_id:, headers: {}, params: {})
-        get("/opportunities/groups/#{group_id}/", headers: headers, params: params)
+        get("/opportunities/groups/#{group_id}/", headers: headers, params: params).json
       end
       alias get_opportunities_groups_group_id get_opportunities_group
 
@@ -74,7 +74,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_tasks_task_id
       def get_opportunities_task(task_id:, headers: {}, params: {})
-        get("/opportunities/tasks/#{task_id}/", headers: headers, params: params)
+        get("/opportunities/tasks/#{task_id}/", headers: headers, params: params).json
       end
       alias get_opportunities_tasks_task_id get_opportunities_task
 
@@ -95,7 +95,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_groups
       def get_opportunity_groups(headers: {}, params: {})
-        get("/opportunities/groups/", headers: headers, params: params)
+        get("/opportunities/groups/", headers: headers, params: params).json
       end
       alias get_opportunities_groups get_opportunity_groups
 
@@ -116,7 +116,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_tasks
       def get_opportunity_tasks(headers: {}, params: {})
-        get("/opportunities/tasks/", headers: headers, params: params)
+        get("/opportunities/tasks/", headers: headers, params: params).json
       end
       alias get_opportunities_tasks get_opportunity_tasks
     end

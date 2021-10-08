@@ -32,7 +32,7 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Industry/get_characters_character_id_industry_jobs
       def get_character_industry_jobs(character_id:, include_completed: nil, headers: {}, params: {})
         params.merge!("include_completed" => include_completed)
-        get("/characters/#{character_id}/industry/jobs/", headers: headers, params: params)
+        get("/characters/#{character_id}/industry/jobs/", headers: headers, params: params).json
       end
       alias get_characters_character_id_industry_jobs get_character_industry_jobs
 
@@ -62,7 +62,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_characters_character_id_mining
       def get_character_mining(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/mining/", headers: headers, params: params)
+        responses = get("/characters/#{character_id}/mining/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_characters_character_id_mining get_character_mining
 
@@ -94,7 +95,8 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Industry/get_corporations_corporation_id_industry_jobs
       def get_corporation_industry_jobs(corporation_id:, include_completed: nil, headers: {}, params: {})
         params.merge!("include_completed" => include_completed)
-        get("/corporations/#{corporation_id}/industry/jobs/", headers: headers, params: params)
+        responses = get("/corporations/#{corporation_id}/industry/jobs/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_corporations_corporation_id_industry_jobs get_corporation_industry_jobs
 
@@ -124,7 +126,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_extractions
       def get_corporation_mining_extractions(corporation_id:, headers: {}, params: {})
-        get("/corporation/#{corporation_id}/mining/extractions/", headers: headers, params: params)
+        responses = get("/corporation/#{corporation_id}/mining/extractions/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_corporation_corporation_id_mining_extractions get_corporation_mining_extractions
 
@@ -155,7 +158,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_observers_observer_id
       def get_corporation_mining_observer(corporation_id:, observer_id:, headers: {}, params: {})
-        get("/corporation/#{corporation_id}/mining/observers/#{observer_id}/", headers: headers, params: params)
+        responses = get("/corporation/#{corporation_id}/mining/observers/#{observer_id}/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_corporation_corporation_id_mining_observers_observer_id get_corporation_mining_observer
 
@@ -185,7 +189,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_observers
       def get_corporation_mining_observers(corporation_id:, headers: {}, params: {})
-        get("/corporation/#{corporation_id}/mining/observers/", headers: headers, params: params)
+        responses = get("/corporation/#{corporation_id}/mining/observers/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_corporation_corporation_id_mining_observers get_corporation_mining_observers
 
@@ -208,7 +213,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_industry_facilities
       def get_industry_facilities(headers: {}, params: {})
-        get("/industry/facilities/", headers: headers, params: params)
+        get("/industry/facilities/", headers: headers, params: params).json
       end
 
       # Return cost indices for solar systems.
@@ -230,7 +235,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_industry_systems
       def get_industry_systems(headers: {}, params: {})
-        get("/industry/systems/", headers: headers, params: params)
+        get("/industry/systems/", headers: headers, params: params).json
       end
     end
   end

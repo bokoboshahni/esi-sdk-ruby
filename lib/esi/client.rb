@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-require "faraday"
-require "faraday-http-cache"
-require "faraday_middleware"
+require "httpx"
 require "timeout"
-require "typhoeus"
-require "typhoeus/adapters/faraday"
 
 require_relative "./errors"
 require_relative "./client/alliance"
@@ -93,7 +89,7 @@ module ESI
       520 => ESI::Errors::EveServerError
     }.freeze
 
-    attr_reader :base_url, :cache, :user_agent, :version
+    attr_reader :base_url, :cache, :instrumentation, :logger, :user_agent, :version
 
     # Returns a new {ESI::Client}.
     #
@@ -103,141 +99,115 @@ module ESI
     # @param user_agent [String] Value of the `User-Agent` header for HTTP calls
     # @param base_url [String] The base URL of the ESI API
     # @param version [String] The version of the ESI API
+    # @param logger [Object] The logger to use
     # @param cache [Hash] The cache configuration to use
-    # @param max_concurrency [Integer] Maximum concurrent requests for pagination
     # @option cache [Object] :store The cache store (e.g. `Rails.cache`)
     # @option cache [Object] :logger The logger (e.g. `Rails.logger`)
     # @option cache [Object] :instrumenter The instrumenter (e.g. `ActiveSupport::Notifications`)
-    def initialize(user_agent:, base_url: DEFAULT_BASE_URL, version: DEFAULT_VERSION, cache: {}, max_concurrency: 50)
+    # @param instrumentation [Hash] The instrumentation configuration to use
+    # @option instrumentation [String] :name The name to use for instrumentation
+    # @option instrumentation [Object] :instrumenter The instrumenter to use (e.g. `ActiveSupport::Notifications`)
+    def initialize(user_agent:, base_url: DEFAULT_BASE_URL, version: DEFAULT_VERSION, cache: {}, instrumentation: {}, logger: nil) # rubocop:disable Layout/LineLength, Metrics/ParameterLists
       @base_url = base_url
       @cache = cache
+      @instrumentation = instrumentation
       @user_agent = user_agent
       @version = version
-      @hydra = Typhoeus::Hydra.new(max_concurrency: max_concurrency)
+      @logger = logger
     end
 
     # Set the `Authorization` header for subsequent requests.
     #
     # @param token [String] The [EVE SSO JWT token](https://docs.esi.evetech.net/docs/sso/) to use
     def authorize(token)
-      url_encoded_connection.authorization :Bearer, token
-      json_encoded_connection.authorization :Bearer, token
+      session.authentication token
+    end
+
+    def delete(path, params: {}, headers: {})
+      params.delete_if { |_, v| v.nil? }
+      response = session.delete("/#{version}#{path}", params: params, headers: headers)
+      response.raise_for_status
+      response
+    rescue HTTPX::Error
+      raise_error(response)
+    end
+
+    def get(path, params: {}, headers: {})
+      params.delete_if { |_, v| v.nil? }
+      response = session.get("/#{version}#{path}", params: params, headers: headers)
+      response.raise_for_status
+
+      return paginate(response, "/#{version}#{path}", params, headers) if paginated?(response)
+
+      response
+    rescue HTTPX::Error
+      raise_error(response)
+    end
+
+    def post(path, payload: {}, params: {}, headers: {})
+      params.delete_if { |_, v| v.nil? }
+      response = session.post("/#{version}#{path}",
+                              params: params,
+                              headers: headers,
+                              json: payload)
+      response.raise_for_status
+      response
+    rescue HTTPX::Error
+      raise_error(response)
+    end
+
+    def put(path, payload: {}, params: {}, headers: {})
+      params.delete_if { |_, v| v.nil? }
+      response = session.put("/#{version}#{path}",
+                             params: params,
+                             headers: headers,
+                             json: payload)
+      response.raise_for_status
+      response
+    rescue HTTPX::Error
+      raise_error(response)
     end
 
     private
 
-    ESI_RETRY_EXCEPTIONS = [Errno::ETIMEDOUT, Timeout::Error, Faraday::TimeoutError, Faraday::ConnectionFailed,
-                            Faraday::ParsingError, SocketError].freeze
-
-    attr_reader :hydra
-
-    def delete(path, params: {}, headers: {})
-      response = make_delete_request(path, params: params, headers: headers)
-      raise_error(response) unless response.success?
-      response.body
-    end
-
-    def get(path, params: {}, headers: {})
-      response = make_get_request(path, params: params, headers: headers)
-      raise_error(response) unless response.success?
-
+    def paginate(response, path, params, headers) # rubocop:disable Metrics/MethodLength
       response_headers = normalize_headers(response.headers)
-      return paginate(response, path, params, headers) if paginated?(response_headers)
+      page_count = response_headers["x-pages"].to_i
 
-      response.body
-    end
-
-    def post(path, payload: {}, params: {}, headers: {})
-      response = make_post_request(path, payload: payload, params: params, headers: headers)
-      raise_error(response) unless response.success?
-      response.body
-    end
-
-    def put(path, payload: {}, params: {}, headers: {})
-      response = make_put_request(path, payload: payload, params: params, headers: headers)
-      raise_error(response) unless response.success?
-      response.body
-    end
-
-    def paginate(response, path, params, headers) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
-      all_items = response.body
-      response_headers = normalize_headers(response.headers)
-      page_count = response_headers["x-pages"].to_i - 1
-
-      responses = []
-      url_encoded_connection.in_parallel(hydra) do
-        page_count.times do |n|
-          page_number = n + 2
-          params = params.merge(page: page_number)
-          responses << make_get_request(path, params: params, headers: headers)
-        end
+      requests = (2..page_count).map do |n|
+        session.build_request(:get, path, params: params.merge(page: n), headers: headers)
       end
-      unless responses.all?(&:success?)
-        raise ESI::Errors::PaginationError.new("Error paginating request", response: response,
-                                                                           responses: responses)
+      responses = requests.any? ? session.request(*requests) : []
+      responses.unshift(response)
+
+      if responses.any?(&:error)
+        raise ESI::Errors::PaginationError.new("Error paginating request", responses: responses)
       end
 
-      all_items + responses.map(&:body).flatten
+      responses
     end
 
-    def make_delete_request(path, params: {}, headers: {})
-      params.delete_if { |_, v| v.nil? }
-      url_encoded_connection.delete("/#{version}#{path}", params, headers)
-    end
-
-    def make_get_request(path, params: {}, headers: {})
-      params.delete_if { |_, v| v.nil? }
-      url_encoded_connection.get("/#{version}#{path}", params, headers)
-    end
-
-    def make_post_request(path, payload: {}, params: {}, headers: {})
-      params.delete_if { |_, v| v.nil? }
-      json_encoded_connection.post("/#{version}#{path}") do |req|
-        req.params = params
-        req.headers = req.headers.merge(headers)
-        req.body = payload.to_json
-      end
-    end
-
-    def make_put_request(path, payload: {}, params: {}, headers: {})
-      params.delete_if { |_, v| v.nil? }
-      json_encoded_connection.put("/#{version}#{path}") do |req|
-        req.params = params
-        req.headers = req.headers.merge(headers)
-        req.body = payload.to_json
-      end
-    end
-
-    def paginated?(headers)
-      headers["x-pages"] && headers["x-pages"].to_i > 1
+    def paginated?(response)
+      headers = normalize_headers(response.headers)
+      headers.key?("x-pages")
     end
 
     def normalize_headers(headers)
-      headers.transform_keys(&:downcase)
+      headers.to_h.transform_keys(&:downcase)
     end
 
     def raise_error(res)
-      raise (ERROR_MAPPING[res.status] || ESI::Errors::ClientError).new("(#{res.status}) #{res["error"]}",
+      raise (ERROR_MAPPING[res.status] || ESI::Errors::ClientError).new("(#{res.status}) #{res.json["error"]}",
                                                                         response: res)
     end
 
-    def url_encoded_connection
-      @url_encoded_connection ||= Faraday.new(base_url, headers: default_headers) do |f|
-        f.use :http_cache, **cache unless cache.empty?
-        f.request :retry, { exceptions: ESI_RETRY_EXCEPTIONS, max: 10, retry_statuses: [502, 503, 504] }
-        f.response :json
-        f.adapter :typhoeus
-      end
-    end
-
-    def json_encoded_connection
-      @json_encoded_connection ||= Faraday.new(base_url, headers: default_headers) do |f|
-        f.use :http_cache, **cache unless cache.empty?
-        f.request :json
-        f.request :retry, { exceptions: ESI_RETRY_EXCEPTIONS, max: 10, retry_statuses: [502, 503, 504] }
-        f.response :json
-        f.adapter :typhoeus
-      end
+    def session
+      @session ||= HTTPX.with(origin: base_url)
+                        .with_headers(default_headers)
+                        .plugin(:authentication)
+                        .plugin(:persistent)
+                        .plugin(:response_cache)
+                        .plugin(:retries)
     end
 
     def default_headers

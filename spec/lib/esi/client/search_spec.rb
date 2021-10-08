@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "solar_system" => [30_002_510], "station" => [60_004_588, 60_004_594, 60_005_725, 60_009_106, 60_012_721, 60_012_724, 60_012_727] } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,7 +68,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "solar_system" => [30_002_510], "station" => [60_004_588, 60_004_594, 60_005_725, 60_009_106, 60_012_721, 60_012_724, 60_012_727] } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -118,7 +118,7 @@ RSpec.describe ESI::Client::Search, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/search/").with(query: { categories: "1234567890", search: "1234567890", strict: "1234567890" }).to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

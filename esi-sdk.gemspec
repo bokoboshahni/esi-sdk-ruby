@@ -26,8 +26,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday", "~> 1.5"
-  spec.add_dependency "faraday-http-cache", "~> 2.2"
-  spec.add_dependency "faraday_middleware", "~> 1.0"
-  spec.add_dependency "typhoeus", "~> 1.4"
+  spec.add_dependency "httpx", "~> 0.18"
+  spec.add_dependency "retriable", "~> 3.1"
 end

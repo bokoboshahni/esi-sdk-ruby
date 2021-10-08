@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "home_location" => { "location_id" => 1_021_348_135_816, "location_type" => "structure" }, "jump_clones" => [{ "implants" => [22_118], "jump_clone_id" => 12_345, "location_id" => 60_003_463, "location_type" => "station" }] } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,7 +68,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/clones/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { [1, 2, 3] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -118,7 +118,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -130,7 +130,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -142,7 +142,7 @@ RSpec.describe ESI::Client::Clone, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/implants/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

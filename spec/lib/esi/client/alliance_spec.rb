@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "creator_corporation_id" => 45_678, "creator_id" => 12_345, "date_founded" => "2016-06-26T21:00:00Z", "executor_corporation_id" => 98_356_193, "name" => "C C P Alliance", "ticker" => "<C C P>" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -70,7 +70,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { [98_000_001] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/corporations/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/corporations/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/corporations/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/corporations/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/corporations/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/corporations/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/corporations/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/corporations/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -120,7 +120,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "px128x128" => "https://images.evetech.net/Alliance/503818424_128.png", "px64x64" => "https://images.evetech.net/Alliance/503818424_64.png" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -132,7 +132,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -144,7 +144,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "No image server for this datasource" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -156,7 +156,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -168,7 +168,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/icons/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -182,7 +182,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { [99_000_001, 99_000_002] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -194,7 +194,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -206,7 +206,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -218,7 +218,7 @@ RSpec.describe ESI::Client::Alliance, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

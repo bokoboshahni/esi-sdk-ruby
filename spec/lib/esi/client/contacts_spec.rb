@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 400)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 401)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 403)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 420)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,7 +68,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 500)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { contact_ids: "1234567890" }).to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { [{ "label_id" => 1, "label_name" => "Alliance Friends" }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -118,7 +118,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -130,7 +130,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -142,7 +142,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/labels/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -156,7 +156,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { [{ "contact_id" => 2_112_625_428, "contact_type" => "character", "standing" => 9.9 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, headers: { "Content-Type": "application/json", "X-Pages": "1" })
       end
 
       it "returns the response" do
@@ -168,7 +168,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -180,7 +180,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -192,7 +192,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -204,7 +204,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -216,7 +216,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/alliances/1234567890/contacts/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -230,7 +230,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { [{ "label_id" => 123, "label_name" => "Friends" }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -242,7 +242,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -254,7 +254,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -266,7 +266,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -278,7 +278,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -290,7 +290,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/labels/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -304,7 +304,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { [{ "contact_id" => 123, "contact_type" => "character", "is_blocked" => true, "is_watched" => true, "standing" => 9.9 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, headers: { "Content-Type": "application/json", "X-Pages": "1" })
       end
 
       it "returns the response" do
@@ -316,7 +316,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -328,7 +328,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -340,7 +340,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -352,7 +352,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -364,7 +364,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/contacts/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -378,7 +378,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { [{ "label_id" => 2, "label_name" => "Corporation Friends" }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -390,7 +390,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -402,7 +402,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -414,7 +414,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -426,7 +426,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -438,7 +438,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/labels/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -452,7 +452,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { [{ "contact_id" => 123, "contact_type" => "character", "is_watched" => true, "standing" => 9.9 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, headers: { "Content-Type": "application/json", "X-Pages": "1" })
       end
 
       it "returns the response" do
@@ -464,7 +464,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -476,7 +476,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -488,7 +488,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -500,7 +500,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -512,7 +512,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/corporations/1234567890/contacts/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -526,7 +526,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { [123, 456] }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -538,7 +538,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -550,7 +550,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -562,7 +562,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -574,7 +574,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -586,7 +586,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -598,7 +598,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error 520 message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 520)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 520, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::EveServerError error" do
@@ -612,7 +612,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -624,7 +624,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 400)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -636,7 +636,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 401)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -648,7 +648,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 403)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -660,7 +660,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 420)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -672,7 +672,7 @@ RSpec.describe ESI::Client::Contact, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 500)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/contacts/").with(query: { label_ids: "1234567890", standing: "1234567890", watched: "1234567890" }).to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

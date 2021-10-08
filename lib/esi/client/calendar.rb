@@ -33,7 +33,7 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar
       def get_character_calendar(character_id:, from_event: nil, headers: {}, params: {})
         params.merge!("from_event" => from_event)
-        get("/characters/#{character_id}/calendar/", headers: headers, params: params)
+        get("/characters/#{character_id}/calendar/", headers: headers, params: params).json
       end
       alias get_characters_character_id_calendar get_character_calendar
 
@@ -66,7 +66,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar_event_id
       def get_character_calendar_event(character_id:, event_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/calendar/#{event_id}/", headers: headers, params: params)
+        get("/characters/#{character_id}/calendar/#{event_id}/", headers: headers, params: params).json
       end
       alias get_characters_character_id_calendar_event_id get_character_calendar_event
 
@@ -99,7 +99,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar_event_id_attendees
       def get_character_calendar_event_attendees(character_id:, event_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/calendar/#{event_id}/attendees/", headers: headers, params: params)
+        get("/characters/#{character_id}/calendar/#{event_id}/attendees/", headers: headers, params: params).json
       end
       alias get_characters_character_id_calendar_event_id_attendees get_character_calendar_event_attendees
 
@@ -132,7 +132,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Calendar/put_characters_character_id_calendar_event_id
       def put_character_calendar_event(character_id:, event_id:, response:, headers: {}, params: {})
-        put("/characters/#{character_id}/calendar/#{event_id}/", headers: headers, params: params, payload: response)
+        put("/characters/#{character_id}/calendar/#{event_id}/", headers: headers, params: params, payload: response).json
       end
       alias put_characters_character_id_calendar_event_id put_character_calendar_event
     end

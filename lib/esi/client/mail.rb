@@ -29,7 +29,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/delete_characters_character_id_mail_mail_id
       def delete_character_mail(character_id:, mail_id:, headers: {}, params: {})
-        delete("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params)
+        delete("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params).json
       end
       alias delete_characters_character_id_mail_mail_id delete_character_mail
 
@@ -59,7 +59,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/delete_characters_character_id_mail_labels_label_id
       def delete_character_mail_label(character_id:, label_id:, headers: {}, params: {})
-        delete("/characters/#{character_id}/mail/labels/#{label_id}/", headers: headers, params: params)
+        delete("/characters/#{character_id}/mail/labels/#{label_id}/", headers: headers, params: params).json
       end
       alias delete_characters_character_id_mail_labels_label_id delete_character_mail_label
 
@@ -91,7 +91,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_mail_id
       def get_character_mail(character_id:, mail_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params)
+        get("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params).json
       end
       alias get_characters_character_id_mail_mail_id get_character_mail
 
@@ -120,7 +120,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_labels
       def get_character_mail_labels(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/mail/labels/", headers: headers, params: params)
+        get("/characters/#{character_id}/mail/labels/", headers: headers, params: params).json
       end
       alias get_characters_character_id_mail_labels get_character_mail_labels
 
@@ -150,7 +150,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_lists
       def get_character_mail_lists(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/mail/lists/", headers: headers, params: params)
+        get("/characters/#{character_id}/mail/lists/", headers: headers, params: params).json
       end
       alias get_characters_character_id_mail_lists get_character_mail_lists
 
@@ -180,7 +180,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/post_characters_character_id_mail
       def post_character_mail(character_id:, mail:, headers: {}, params: {})
-        post("/characters/#{character_id}/mail/", headers: headers, params: params, payload: mail)
+        post("/characters/#{character_id}/mail/", headers: headers, params: params, payload: mail).json
       end
       alias post_characters_character_id_mail post_character_mail
 
@@ -209,7 +209,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/post_characters_character_id_mail_labels
       def post_character_mail_labels(character_id:, label:, headers: {}, params: {})
-        post("/characters/#{character_id}/mail/labels/", headers: headers, params: params, payload: label)
+        post("/characters/#{character_id}/mail/labels/", headers: headers, params: params, payload: label).json
       end
       alias post_characters_character_id_mail_labels post_character_mail_labels
 
@@ -239,7 +239,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/put_characters_character_id_mail_mail_id
       def put_character_mail(character_id:, mail_id:, contents:, headers: {}, params: {})
-        put("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params, payload: contents)
+        put("/characters/#{character_id}/mail/#{mail_id}/", headers: headers, params: params, payload: contents).json
       end
       alias put_characters_character_id_mail_mail_id put_character_mail
     end
