@@ -1,5 +1,22 @@
 # ESI SDK Changelog
 
+# [2.0.0](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v1.2.0...v2.0.0) (2021-10-08)
+
+
+### Bug Fixes
+
+* require name from esi/sdk to esi-sdk ([2e5e996](https://github.com/bokoboshahni/esi-sdk-ruby/commit/2e5e9966343baef91bd037579607bb562edce301))
+
+
+### Features
+
+* migrate to httpx ([fd6ec0d](https://github.com/bokoboshahni/esi-sdk-ruby/commit/fd6ec0d6910805215efceb80a5361dc4d72b9599))
+
+
+### BREAKING CHANGES
+
+* use httpx instead of faraday for http calls
+
 # [1.2.0](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v1.1.3...v1.2.0) (2021-07-20)
 
 
