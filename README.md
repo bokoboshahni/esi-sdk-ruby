@@ -55,19 +55,6 @@ response = client.get_character(character_id: 2113024536)
 
 See the documentation for [ESI::Client](https://bokoboshahni.github.io/esi-sdk-ruby/ESI/Client.html) for detailed information on each endpoint.
 
-### Caching
-
-Caching is handled via the [faraday-http-cache](https://github.com/sourcelevel/faraday-http-cache) middleware. When instantiating an `ESI::Client` instance, cache configuration can be passed via the `cache` parameter:
-
-```ruby
-client = ESI::Client.new(
-  user_agent: 'My ESI Bot/1.0; +(https://example.com)',
-  cache: { store: Rails.cache, logger: Rails.logger, instrumenter: ActiveSupport::Notifications }
-)
-```
-
-See the [faraday-http-cache](https://github.com/sourcelevel/faraday-http-cache) documentation for more details on what configuration options are available.
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
