@@ -7,7 +7,7 @@ RSpec.describe ESI::Client::Market, type: :integration do
 
   describe "#get_markets_region_orders" do
     it "automatically paginates get responses" do
-      response = client.get_markets_region_orders(region_id: "10000002")
+      response = client.get_markets_region_orders(region_id: "10000070")
       expect(response.size).to be > 1000
     end
   end

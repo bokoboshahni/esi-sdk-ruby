@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/delete_fleets_fleet_id_members_member_id
       def delete_fleet_member(fleet_id:, member_id:, headers: {}, params: {})
-        delete("/fleets/#{fleet_id}/members/#{member_id}/", headers: headers, params: params)
+        delete("/fleets/#{fleet_id}/members/#{member_id}/", headers: headers, params: params).json
       end
       alias delete_fleets_fleet_id_members_member_id delete_fleet_member
 
@@ -60,7 +60,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/delete_fleets_fleet_id_squads_squad_id
       def delete_fleet_squad(fleet_id:, squad_id:, headers: {}, params: {})
-        delete("/fleets/#{fleet_id}/squads/#{squad_id}/", headers: headers, params: params)
+        delete("/fleets/#{fleet_id}/squads/#{squad_id}/", headers: headers, params: params).json
       end
       alias delete_fleets_fleet_id_squads_squad_id delete_fleet_squad
 
@@ -90,7 +90,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/delete_fleets_fleet_id_wings_wing_id
       def delete_fleet_wing(fleet_id:, wing_id:, headers: {}, params: {})
-        delete("/fleets/#{fleet_id}/wings/#{wing_id}/", headers: headers, params: params)
+        delete("/fleets/#{fleet_id}/wings/#{wing_id}/", headers: headers, params: params).json
       end
       alias delete_fleets_fleet_id_wings_wing_id delete_fleet_wing
 
@@ -120,7 +120,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/get_characters_character_id_fleet
       def get_character_fleet(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/fleet/", headers: headers, params: params)
+        get("/characters/#{character_id}/fleet/", headers: headers, params: params).json
       end
       alias get_characters_character_id_fleet get_character_fleet
 
@@ -151,7 +151,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/get_fleets_fleet_id
       def get_fleet(fleet_id:, headers: {}, params: {})
-        get("/fleets/#{fleet_id}/", headers: headers, params: params)
+        get("/fleets/#{fleet_id}/", headers: headers, params: params).json
       end
       alias get_fleets_fleet_id get_fleet
 
@@ -182,7 +182,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/get_fleets_fleet_id_members
       def get_fleet_members(fleet_id:, headers: {}, params: {})
-        get("/fleets/#{fleet_id}/members/", headers: headers, params: params)
+        get("/fleets/#{fleet_id}/members/", headers: headers, params: params).json
       end
       alias get_fleets_fleet_id_members get_fleet_members
 
@@ -213,7 +213,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/get_fleets_fleet_id_wings
       def get_fleet_wings(fleet_id:, headers: {}, params: {})
-        get("/fleets/#{fleet_id}/wings/", headers: headers, params: params)
+        get("/fleets/#{fleet_id}/wings/", headers: headers, params: params).json
       end
       alias get_fleets_fleet_id_wings get_fleet_wings
 
@@ -244,7 +244,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/post_fleets_fleet_id_members
       def post_fleet_members(fleet_id:, invitation:, headers: {}, params: {})
-        post("/fleets/#{fleet_id}/members/", headers: headers, params: params, payload: invitation)
+        post("/fleets/#{fleet_id}/members/", headers: headers, params: params, payload: invitation).json
       end
       alias post_fleets_fleet_id_members post_fleet_members
 
@@ -274,7 +274,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/post_fleets_fleet_id_wings_wing_id_squads
       def post_fleet_wing_squads(fleet_id:, wing_id:, headers: {}, params: {})
-        post("/fleets/#{fleet_id}/wings/#{wing_id}/squads/", headers: headers, params: params)
+        post("/fleets/#{fleet_id}/wings/#{wing_id}/squads/", headers: headers, params: params).json
       end
       alias post_fleets_fleet_id_wings_wing_id_squads post_fleet_wing_squads
 
@@ -303,7 +303,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/post_fleets_fleet_id_wings
       def post_fleet_wings(fleet_id:, headers: {}, params: {})
-        post("/fleets/#{fleet_id}/wings/", headers: headers, params: params)
+        post("/fleets/#{fleet_id}/wings/", headers: headers, params: params).json
       end
       alias post_fleets_fleet_id_wings post_fleet_wings
 
@@ -333,7 +333,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/put_fleets_fleet_id
       def put_fleet(fleet_id:, new_settings:, headers: {}, params: {})
-        put("/fleets/#{fleet_id}/", headers: headers, params: params, payload: new_settings)
+        put("/fleets/#{fleet_id}/", headers: headers, params: params, payload: new_settings).json
       end
       alias put_fleets_fleet_id put_fleet
 
@@ -365,7 +365,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/put_fleets_fleet_id_members_member_id
       def put_fleet_member(fleet_id:, member_id:, movement:, headers: {}, params: {})
-        put("/fleets/#{fleet_id}/members/#{member_id}/", headers: headers, params: params, payload: movement)
+        put("/fleets/#{fleet_id}/members/#{member_id}/", headers: headers, params: params, payload: movement).json
       end
       alias put_fleets_fleet_id_members_member_id put_fleet_member
 
@@ -396,7 +396,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/put_fleets_fleet_id_squads_squad_id
       def put_fleet_squad(fleet_id:, squad_id:, naming:, headers: {}, params: {})
-        put("/fleets/#{fleet_id}/squads/#{squad_id}/", headers: headers, params: params, payload: naming)
+        put("/fleets/#{fleet_id}/squads/#{squad_id}/", headers: headers, params: params, payload: naming).json
       end
       alias put_fleets_fleet_id_squads_squad_id put_fleet_squad
 
@@ -427,7 +427,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/put_fleets_fleet_id_wings_wing_id
       def put_fleet_wing(fleet_id:, wing_id:, naming:, headers: {}, params: {})
-        put("/fleets/#{fleet_id}/wings/#{wing_id}/", headers: headers, params: params, payload: naming)
+        put("/fleets/#{fleet_id}/wings/#{wing_id}/", headers: headers, params: params, payload: naming).json
       end
       alias put_fleets_fleet_id_wings_wing_id put_fleet_wing
     end

@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Route, type: :stub do
       let(:response) { [30_002_771, 30_002_770, 30_002_769, 30_002_772] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Route, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Route, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Route, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Route, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/route/1234567890/1234567890/").with(query: { avoid: "1234567890", connections: "1234567890", flag: "1234567890" }).to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

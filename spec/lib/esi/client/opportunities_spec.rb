@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { [{ "completed_at" => "2016-04-29T12:34:56Z", "task_id" => 1 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,7 +68,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/opportunities/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "connected_groups" => [100], "description" => "As a capsuleer...", "group_id" => 103, "name" => "Welcome to New Eden", "notification" => "Completed:<br>Welcome to New Eden", "required_tasks" => [19] } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -118,7 +118,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -132,7 +132,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "description" => "To use station services...", "name" => "Dock in the station", "notification" => "Completed:<br>Docked in a station!", "task_id" => 10 } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -144,7 +144,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -156,7 +156,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -168,7 +168,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -182,7 +182,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { [100, 101, 102, 103] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -194,7 +194,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -206,7 +206,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -218,7 +218,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/groups/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -232,7 +232,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { [1, 2, 3, 4] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -244,7 +244,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -256,7 +256,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -268,7 +268,7 @@ RSpec.describe ESI::Client::Opportunity, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/opportunities/tasks/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

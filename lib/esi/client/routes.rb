@@ -30,7 +30,7 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Routes/get_route_origin_destination
       def get_route_origin_destination(destination:, origin:, avoid: nil, connections: nil, flag: "shortest", headers: {}, params: {})
         params.merge!("avoid" => avoid, "connections" => connections, "flag" => flag)
-        get("/route/#{origin}/#{destination}/", headers: headers, params: params)
+        get("/route/#{origin}/#{destination}/", headers: headers, params: params).json
       end
     end
   end

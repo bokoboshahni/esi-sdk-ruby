@@ -9,7 +9,7 @@ module ESI
 
     # Base class for ESI client errors.
     class ClientError < Error
-      attr_reader :response
+      attr_reader :response, :responses
 
       def initialize(msg, response:)
         super(msg)
@@ -22,8 +22,8 @@ module ESI
     class PaginationError < ClientError
       attr_reader :responses
 
-      def initialize(msg, response:, responses:)
-        super(msg, response: response)
+      def initialize(msg, responses:)
+        super(msg, response: nil)
 
         @responses = responses
       end

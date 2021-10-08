@@ -23,7 +23,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes_attribute_id
       def get_dogma_attribute(attribute_id:, headers: {}, params: {})
-        get("/dogma/attributes/#{attribute_id}/", headers: headers, params: params)
+        get("/dogma/attributes/#{attribute_id}/", headers: headers, params: params).json
       end
       alias get_dogma_attributes_attribute_id get_dogma_attribute
 
@@ -44,7 +44,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes
       def get_dogma_attributes(headers: {}, params: {})
-        get("/dogma/attributes/", headers: headers, params: params)
+        get("/dogma/attributes/", headers: headers, params: params).json
       end
 
       # Returns info about a dynamic item resulting from mutation with a mutaplasmid.
@@ -67,7 +67,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_dynamic_items_type_id_item_id
       def get_dogma_dynamic_items_type_item(item_id:, type_id:, headers: {}, params: {})
-        get("/dogma/dynamic/items/#{type_id}/#{item_id}/", headers: headers, params: params)
+        get("/dogma/dynamic/items/#{type_id}/#{item_id}/", headers: headers, params: params).json
       end
       alias get_dogma_dynamic_items_type_id_item_id get_dogma_dynamic_items_type_item
 
@@ -89,7 +89,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_effects_effect_id
       def get_dogma_effect(effect_id:, headers: {}, params: {})
-        get("/dogma/effects/#{effect_id}/", headers: headers, params: params)
+        get("/dogma/effects/#{effect_id}/", headers: headers, params: params).json
       end
       alias get_dogma_effects_effect_id get_dogma_effect
 
@@ -110,7 +110,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_effects
       def get_dogma_effects(headers: {}, params: {})
-        get("/dogma/effects/", headers: headers, params: params)
+        get("/dogma/effects/", headers: headers, params: params).json
       end
     end
   end

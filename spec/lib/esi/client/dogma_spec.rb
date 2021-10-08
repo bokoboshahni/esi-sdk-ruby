@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "attribute_id" => 20, "default_value" => 1, "description" => "Factor by which topspeed increases.", "display_name" => "Maximum Velocity Bonus", "high_is_good" => true, "icon_id" => 1389, "name" => "speedFactor", "published" => true, "unit_id" => 124 } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -70,7 +70,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { [1, 2, 3] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/attributes/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -120,7 +120,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "created_by" => 2_112_625_428, "dogma_attributes" => [{ "attribute_id" => 9, "value" => 350 }], "dogma_effects" => [{ "effect_id" => 508, "is_default" => false }], "mutator_type_id" => 47_845, "source_type_id" => 33_103 } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -132,7 +132,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -144,7 +144,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -156,7 +156,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -168,7 +168,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/dynamic/items/1234567890/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -182,7 +182,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "description" => "Requires a high power slot.", "display_name" => "High power", "effect_category" => 0, "effect_id" => 12, "icon_id" => 293, "name" => "hiPower", "post_expression" => 131, "pre_expression" => 131, "published" => true } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -194,7 +194,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -206,7 +206,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -218,7 +218,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -230,7 +230,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -244,7 +244,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { [1, 2, 3] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -256,7 +256,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -268,7 +268,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -280,7 +280,7 @@ RSpec.describe ESI::Client::Dogma, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/dogma/effects/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

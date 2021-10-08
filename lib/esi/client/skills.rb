@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_attributes
       def get_character_attributes(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/attributes/", headers: headers, params: params)
+        get("/characters/#{character_id}/attributes/", headers: headers, params: params).json
       end
       alias get_characters_character_id_attributes get_character_attributes
 
@@ -60,7 +60,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skillqueue
       def get_character_skillqueue(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/skillqueue/", headers: headers, params: params)
+        get("/characters/#{character_id}/skillqueue/", headers: headers, params: params).json
       end
       alias get_characters_character_id_skillqueue get_character_skillqueue
 
@@ -89,7 +89,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skills
       def get_character_skills(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/skills/", headers: headers, params: params)
+        get("/characters/#{character_id}/skills/", headers: headers, params: params).json
       end
       alias get_characters_character_id_skills get_character_skills
     end

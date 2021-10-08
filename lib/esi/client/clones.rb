@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Clones/get_characters_character_id_clones
       def get_character_clones(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/clones/", headers: headers, params: params)
+        get("/characters/#{character_id}/clones/", headers: headers, params: params).json
       end
       alias get_characters_character_id_clones get_character_clones
 
@@ -61,7 +61,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Clones/get_characters_character_id_implants
       def get_character_implants(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/implants/", headers: headers, params: params)
+        get("/characters/#{character_id}/implants/", headers: headers, params: params).json
       end
       alias get_characters_character_id_implants get_character_implants
     end

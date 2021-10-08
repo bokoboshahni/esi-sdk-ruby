@@ -7,6 +7,7 @@ ruby "3.0.2"
 gemspec
 
 gem "activesupport", "~> 6.1"
+gem "awesome_print", "~> 1.9"
 gem "rake", "~> 13.0"
 gem "rspec", "~> 3.10"
 gem "rubocop", "~> 1.18"

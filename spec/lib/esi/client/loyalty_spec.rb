@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { [{ "corporation_id" => 123, "loyalty_points" => 100 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,7 +68,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/loyalty/points/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { [{ "ak_cost" => 35_000, "isk_cost" => 0, "lp_cost" => 100, "offer_id" => 1, "quantity" => 1, "required_items" => [], "type_id" => 123 }, { "isk_cost" => 1000, "lp_cost" => 100, "offer_id" => 2, "quantity" => 10, "required_items" => [{ "quantity" => 10, "type_id" => 1234 }], "type_id" => 1235 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -118,7 +118,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -130,7 +130,7 @@ RSpec.describe ESI::Client::Loyalty, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/loyalty/stores/1234567890/offers/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

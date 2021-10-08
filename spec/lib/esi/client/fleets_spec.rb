@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -68,7 +68,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -80,7 +80,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -118,7 +118,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -130,7 +130,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -142,7 +142,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -154,7 +154,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -166,7 +166,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -180,7 +180,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -192,7 +192,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -204,7 +204,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -216,7 +216,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -228,7 +228,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -240,7 +240,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -252,7 +252,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:delete, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -266,7 +266,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "fleet_id" => 1_234_567_890, "role" => "fleet_commander", "squad_id" => -1, "wing_id" => -1 } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -278,7 +278,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -290,7 +290,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -302,7 +302,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -314,7 +314,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -326,7 +326,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -338,7 +338,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/fleet/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -352,7 +352,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "is_free_move" => false, "is_registered" => false, "is_voice_enabled" => false, "motd" => "This is an <b>awesome</b> fleet!" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -364,7 +364,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -376,7 +376,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -388,7 +388,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -400,7 +400,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -412,7 +412,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -424,7 +424,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -438,7 +438,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { [{ "character_id" => 93_265_215, "join_time" => "2016-04-29T12:34:56Z", "role" => "squad_commander", "role_name" => "Squad Commander (Boss)", "ship_type_id" => 33_328, "solar_system_id" => 30_003_729, "squad_id" => 3_129_411_261_968, "station_id" => 61_000_180, "takes_fleet_warp" => true, "wing_id" => 2_073_711_261_968 }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -450,7 +450,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -462,7 +462,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -474,7 +474,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -486,7 +486,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -498,7 +498,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -510,7 +510,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -524,7 +524,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { [{ "id" => 2_073_711_261_968, "name" => "Wing 1", "squads" => [{ "id" => 3_129_411_261_968, "name" => "Squad 1" }] }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -536,7 +536,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -548,7 +548,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -560,7 +560,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -572,7 +572,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -584,7 +584,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -596,7 +596,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -610,7 +610,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -622,7 +622,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -634,7 +634,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -646,7 +646,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -658,7 +658,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 404)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -670,7 +670,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -682,7 +682,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "missing wing_id" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 422)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 422, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnprocessableEntityError error" do
@@ -694,7 +694,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/members/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -708,7 +708,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "squad_id" => 123 } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -720,7 +720,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -732,7 +732,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -744,7 +744,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -756,7 +756,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 404)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -768,7 +768,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -780,7 +780,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/squads/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -794,7 +794,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "wing_id" => 123 } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -806,7 +806,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -818,7 +818,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -830,7 +830,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -842,7 +842,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 404)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -854,7 +854,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -866,7 +866,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/fleets/1234567890/wings/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -880,7 +880,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -892,7 +892,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -904,7 +904,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -916,7 +916,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -928,7 +928,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -940,7 +940,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -952,7 +952,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -966,7 +966,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -978,7 +978,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -990,7 +990,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -1002,7 +1002,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -1014,7 +1014,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -1026,7 +1026,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -1038,7 +1038,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "missing wing_id" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 422)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 422, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnprocessableEntityError error" do
@@ -1050,7 +1050,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/members/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -1064,7 +1064,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -1076,7 +1076,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -1088,7 +1088,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -1100,7 +1100,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -1112,7 +1112,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -1124,7 +1124,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -1136,7 +1136,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/squads/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -1150,7 +1150,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -1162,7 +1162,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -1174,7 +1174,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -1186,7 +1186,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -1198,7 +1198,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -1210,7 +1210,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -1222,7 +1222,7 @@ RSpec.describe ESI::Client::Fleet, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:put, "https://esi.evetech.net/latest/fleets/1234567890/wings/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

@@ -214,12 +214,13 @@ task :generate do
       http_call_params = %w[headers params].map { |p| "#{p}: #{p}" }
       http_call_params << ("payload: #{body_param["name"]}" if operation[:body])
 
-      if operation[:query].any?
-        http_call = "params.merge!(#{operation[:query].map { |q| "'#{q["name"]}' => #{q["name"]}" }.join(", ")})\n"
-        http_call += "#{operation[:method]}(\"#{path}\", #{http_call_params.join(", ")})"
-      else
-        http_call = "#{operation[:method]}(\"#{path}\", #{http_call_params.join(", ")})"
-      end
+      params_merge = if operation[:query].any?
+                       "params.merge!(#{operation[:query].map { |q| "'#{q["name"]}' => #{q["name"]}" }.join(", ")})"
+                     else
+                       ""
+                     end
+
+      http_call = "#{operation[:method]}(\"#{path}\", #{http_call_params.join(", ")})"
 
       alias_methods = if method_aliases[method_name]
                         Array(method_aliases[method_name]).sort.map do |alias_name|
@@ -231,13 +232,26 @@ task :generate do
       alias_methods << "alias_method :#{operation[:name]}, :#{method_name}" unless operation[:name] == method_name
       alias_methods = alias_methods.join("\n")
 
-      a << <<~METHOD_DEFINITION
-        #{description}
-        def #{method_name}#{signature}
-          #{http_call}
-        end
-        #{alias_methods}
-      METHOD_DEFINITION
+      if operation[:responses]["200"] && operation[:responses]["200"]["headers"] && operation[:responses]["200"]["headers"].key?("X-Pages")
+        a << <<~METHOD_DEFINITION
+          #{description}
+          def #{method_name}#{signature}
+            #{params_merge}
+            responses = #{http_call}
+            responses.map(&:json).reduce([], :concat)
+          end
+          #{alias_methods}
+        METHOD_DEFINITION
+      else
+        a << <<~METHOD_DEFINITION
+          #{description}
+          def #{method_name}#{signature}
+            #{params_merge}
+            #{http_call}.json
+          end
+          #{alias_methods}
+        METHOD_DEFINITION
+      end
     end
 
     lib_content = <<~MODULE_DEFINITION
@@ -289,12 +303,14 @@ task :generate do
 
       with_query = operation[:query].any? ? ".with(query: { #{operation[:query].map { |p| "#{p["name"]}: \"1234567890\"" }.join(", ")} })" : ""
 
+      extra_headers = success_desc["headers"] && success_desc["headers"]["X-Pages"] ? ", 'X-Pages': '1'" : ""
+
       describe = "  describe \"##{method_name}\" do\n"
       describe += "    context \"when the response is #{success_code}\" do\n"
       describe += "      let(:response) { #{success_response_body} }\n"
       describe += "\n"
       describe += "      before do\n"
-      describe += "        stub_request(:#{operation[:method]}, \"https://esi.evetech.net/latest#{success_path}\")#{with_query}.to_return(body: response.to_json)\n"
+      describe += "        stub_request(:#{operation[:method]}, \"https://esi.evetech.net/latest#{success_path}\")#{with_query}.to_return(body: response.to_json, headers: { 'Content-Type': 'application/json'#{extra_headers} })\n"
       describe += "      end\n"
       describe += "\n"
       describe += "      it \"returns the response\" do\n"
@@ -313,7 +329,7 @@ task :generate do
         context += "      let(:response) { #{error_response_body} }\n"
         context += "\n"
         context += "      before do\n"
-        context += "        stub_request(:#{operation[:method]}, \"https://esi.evetech.net/latest#{success_path}\")#{with_query}.to_return(body: response.to_json, status: #{code})\n"
+        context += "        stub_request(:#{operation[:method]}, \"https://esi.evetech.net/latest#{success_path}\")#{with_query}.to_return(body: response.to_json, status: #{code}, headers: { 'Content-Type': 'application/json' })\n"
         context += "      end\n"
         context += "\n"
         context += "      it \"raises a #{error_mapping[code.to_i]} error\" do\n"

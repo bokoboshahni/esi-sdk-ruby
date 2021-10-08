@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Loyalty/get_characters_character_id_loyalty_points
       def get_character_loyalty_points(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/loyalty/points/", headers: headers, params: params)
+        get("/characters/#{character_id}/loyalty/points/", headers: headers, params: params).json
       end
       alias get_characters_character_id_loyalty_points get_character_loyalty_points
 
@@ -53,7 +53,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Loyalty/get_loyalty_stores_corporation_id_offers
       def get_loyalty_stores_corporation_offers(corporation_id:, headers: {}, params: {})
-        get("/loyalty/stores/#{corporation_id}/offers/", headers: headers, params: params)
+        get("/loyalty/stores/#{corporation_id}/offers/", headers: headers, params: params).json
       end
       alias get_loyalty_stores_corporation_id_offers get_loyalty_stores_corporation_offers
     end

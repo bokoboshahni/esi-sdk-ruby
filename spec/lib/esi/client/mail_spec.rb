@@ -8,7 +8,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -20,7 +20,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -32,7 +32,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -44,7 +44,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -56,7 +56,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -68,7 +68,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -82,7 +82,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -94,7 +94,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -106,7 +106,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -118,7 +118,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -130,7 +130,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -142,7 +142,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unprocessable entity message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 422)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 422, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnprocessableEntityError error" do
@@ -154,7 +154,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:delete, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -168,7 +168,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "body" => "blah blah blah", "from" => 90_000_001, "labels" => [2, 32], "read" => true, "subject" => "test", "timestamp" => "2015-09-30T16:07:00Z" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -180,7 +180,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -192,7 +192,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -204,7 +204,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -216,7 +216,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Not found message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 404)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 404, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::NotFoundError error" do
@@ -228,7 +228,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -240,7 +240,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -254,7 +254,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "labels" => [{ "color" => "#660066", "label_id" => 16, "name" => "PINK", "unread_count" => 4 }, { "color" => "#ffffff", "label_id" => 17, "name" => "WHITE", "unread_count" => 1 }], "total_unread_count" => 5 } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -266,7 +266,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -278,7 +278,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -290,7 +290,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -302,7 +302,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -314,7 +314,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -328,7 +328,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { [{ "mailing_list_id" => 1, "name" => "test_mailing_list" }] }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -340,7 +340,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 400)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -352,7 +352,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 401)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -364,7 +364,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 403)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -376,7 +376,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 420)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -388,7 +388,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 500)
+        stub_request(:get, "https://esi.evetech.net/latest/characters/1234567890/mail/lists/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -402,7 +402,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { 13 }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -414,7 +414,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -426,7 +426,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -438,7 +438,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -450,7 +450,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -462,7 +462,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -474,7 +474,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error 520 message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 520)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/").to_return(body: response.to_json, status: 520, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::EveServerError error" do
@@ -488,7 +488,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { 128 }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -500,7 +500,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 400)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -512,7 +512,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 401)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -524,7 +524,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 403)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -536,7 +536,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 420)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -548,7 +548,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 500)
+        stub_request(:post, "https://esi.evetech.net/latest/characters/1234567890/mail/labels/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do
@@ -562,7 +562,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { nil }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, headers: { "Content-Type": "application/json" })
       end
 
       it "returns the response" do
@@ -574,7 +574,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Bad request message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 400)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 400, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::BadRequestError error" do
@@ -586,7 +586,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Unauthorized message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 401)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 401, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::UnauthorizedError error" do
@@ -598,7 +598,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Forbidden message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 403)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 403, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ForbiddenError error" do
@@ -610,7 +610,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Error limited message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 420)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 420, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::ErrorLimitedError error" do
@@ -622,7 +622,7 @@ RSpec.describe ESI::Client::Mail, type: :stub do
       let(:response) { { "error" => "Internal server error message" } }
 
       before do
-        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 500)
+        stub_request(:put, "https://esi.evetech.net/latest/characters/1234567890/mail/1234567890/").to_return(body: response.to_json, status: 500, headers: { "Content-Type": "application/json" })
       end
 
       it "raises a ESI::Errors::InternalServerError error" do

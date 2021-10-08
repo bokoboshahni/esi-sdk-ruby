@@ -30,7 +30,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/get_characters_character_id_assets
       def get_character_assets(character_id:, headers: {}, params: {})
-        get("/characters/#{character_id}/assets/", headers: headers, params: params)
+        responses = get("/characters/#{character_id}/assets/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_characters_character_id_assets get_character_assets
 
@@ -59,7 +60,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/get_corporations_corporation_id_assets
       def get_corporation_assets(corporation_id:, headers: {}, params: {})
-        get("/corporations/#{corporation_id}/assets/", headers: headers, params: params)
+        responses = get("/corporations/#{corporation_id}/assets/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_corporations_corporation_id_assets get_corporation_assets
 
@@ -87,7 +89,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_characters_character_id_assets_locations
       def post_character_asset_locations(character_id:, item_ids:, headers: {}, params: {})
-        post("/characters/#{character_id}/assets/locations/", headers: headers, params: params, payload: item_ids)
+        post("/characters/#{character_id}/assets/locations/", headers: headers, params: params, payload: item_ids).json
       end
       alias post_characters_character_id_assets_locations post_character_asset_locations
 
@@ -116,7 +118,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_characters_character_id_assets_names
       def post_character_asset_names(character_id:, item_ids:, headers: {}, params: {})
-        post("/characters/#{character_id}/assets/names/", headers: headers, params: params, payload: item_ids)
+        post("/characters/#{character_id}/assets/names/", headers: headers, params: params, payload: item_ids).json
       end
       alias post_characters_character_id_assets_names post_character_asset_names
 
@@ -145,7 +147,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_corporations_corporation_id_assets_locations
       def post_corporation_asset_locations(corporation_id:, item_ids:, headers: {}, params: {})
-        post("/corporations/#{corporation_id}/assets/locations/", headers: headers, params: params, payload: item_ids)
+        post("/corporations/#{corporation_id}/assets/locations/", headers: headers, params: params, payload: item_ids).json
       end
       alias post_corporations_corporation_id_assets_locations post_corporation_asset_locations
 
@@ -175,7 +177,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_corporations_corporation_id_assets_names
       def post_corporation_asset_names(corporation_id:, item_ids:, headers: {}, params: {})
-        post("/corporations/#{corporation_id}/assets/names/", headers: headers, params: params, payload: item_ids)
+        post("/corporations/#{corporation_id}/assets/names/", headers: headers, params: params, payload: item_ids).json
       end
       alias post_corporations_corporation_id_assets_names post_corporation_asset_names
     end

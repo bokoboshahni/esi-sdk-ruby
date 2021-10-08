@@ -23,7 +23,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Incursions/get_incursions
       def get_incursions(headers: {}, params: {})
-        get("/incursions/", headers: headers, params: params)
+        get("/incursions/", headers: headers, params: params).json
       end
     end
   end

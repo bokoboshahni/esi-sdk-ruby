@@ -23,7 +23,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Insurance/get_insurance_prices
       def get_insurance_prices(headers: {}, params: {})
-        get("/insurance/prices/", headers: headers, params: params)
+        get("/insurance/prices/", headers: headers, params: params).json
       end
     end
   end

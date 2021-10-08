@@ -25,7 +25,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars_war_id
       def get_war(war_id:, headers: {}, params: {})
-        get("/wars/#{war_id}/", headers: headers, params: params)
+        get("/wars/#{war_id}/", headers: headers, params: params).json
       end
       alias get_wars_war_id get_war
 
@@ -50,7 +50,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars_war_id_killmails
       def get_war_killmails(war_id:, headers: {}, params: {})
-        get("/wars/#{war_id}/killmails/", headers: headers, params: params)
+        responses = get("/wars/#{war_id}/killmails/", headers: headers, params: params)
+        responses.map(&:json).reduce([], :concat)
       end
       alias get_wars_war_id_killmails get_war_killmails
 
@@ -75,7 +76,7 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Wars/get_wars
       def get_wars(max_war_id: nil, headers: {}, params: {})
         params.merge!("max_war_id" => max_war_id)
-        get("/wars/", headers: headers, params: params)
+        get("/wars/", headers: headers, params: params).json
       end
     end
   end

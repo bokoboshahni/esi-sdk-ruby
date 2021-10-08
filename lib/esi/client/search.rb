@@ -34,7 +34,7 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Search/get_characters_character_id_search
       def get_character_search(character_id:, categories:, search:, strict: nil, headers: {}, params: {})
         params.merge!("categories" => categories, "search" => search, "strict" => strict)
-        get("/characters/#{character_id}/search/", headers: headers, params: params)
+        get("/characters/#{character_id}/search/", headers: headers, params: params).json
       end
       alias get_characters_character_id_search get_character_search
 
@@ -61,7 +61,7 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Search/get_search
       def get_search(categories:, search:, strict: nil, headers: {}, params: {})
         params.merge!("categories" => categories, "search" => search, "strict" => strict)
-        get("/search/", headers: headers, params: params)
+        get("/search/", headers: headers, params: params).json
       end
     end
   end
