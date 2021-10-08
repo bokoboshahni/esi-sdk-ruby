@@ -109,18 +109,6 @@
 
 <p>See the documentation for <a href="https://bokoboshahni.github.io/esi-sdk-ruby/ESI/Client.html">ESI::Client</a> for detailed information on each endpoint.</p>
 
-<h3 id="caching">Caching</h3>
-
-<p>Caching is handled via the <a href="https://github.com/sourcelevel/faraday-http-cache">faraday-http-cache</a> middleware. When instantiating an <code>ESI::Client</code> instance, cache configuration can be passed via the <code>cache</code> parameter:</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="code ruby"><code class="ruby"><span class="n">client</span> <span class="o">=</span> <span class="no">ESI</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
-  <span class="ss">user_agent: </span><span class="s1">'My ESI Bot/1.0; +(https://example.com)'</span><span class="p">,</span>
-  <span class="ss">cache: </span><span class="p">{</span> <span class="ss">store: </span><span class="no">Rails</span><span class="p">.</span><span class="nf">cache</span><span class="p">,</span> <span class="ss">logger: </span><span class="no">Rails</span><span class="p">.</span><span class="nf">logger</span><span class="p">,</span> <span class="ss">instrumenter: </span><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span> <span class="p">}</span>
-<span class="p">)</span>
-</code></pre></div></div>
-
-<p>See the <a href="https://github.com/sourcelevel/faraday-http-cache">faraday-http-cache</a> documentation for more details on what configuration options are available.</p>
-
 <h2 id="development">Development</h2>
 
 <p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
@@ -155,7 +143,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Tue Jul 20 19:09:28 2021 by
+  Generated on Fri Oct  8 19:32:15 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>
