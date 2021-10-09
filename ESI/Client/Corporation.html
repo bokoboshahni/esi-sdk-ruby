@@ -2021,15 +2021,13 @@
 
 124
 125
-126
-127</pre>
+126</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_blueprints'>get_corporation_blueprints</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_blueprints_raw'>get_corporation_blueprints_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_blueprints_raw'>get_corporation_blueprints_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2261,12 +2259,12 @@
       <pre class="lines">
 
 
+153
 154
-155
-156</pre>
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_blueprints_raw'>get_corporation_blueprints_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/blueprints/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -2505,17 +2503,15 @@
       <pre class="lines">
 
 
+181
 182
-183
-184
-185</pre>
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_container_logs'>get_corporation_container_logs</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_container_logs_raw'>get_corporation_container_logs_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_container_logs_raw'>get_corporation_container_logs_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2747,12 +2743,12 @@
       <pre class="lines">
 
 
-212
-213
-214</pre>
+210
+211
+212</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 210</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_container_logs_raw'>get_corporation_container_logs_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/containers/logs/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -2991,12 +2987,12 @@
       <pre class="lines">
 
 
-240
-241
-242</pre>
+238
+239
+240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 240</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_divisions'>get_corporation_divisions</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_divisions_raw'>get_corporation_divisions_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -3231,12 +3227,12 @@
       <pre class="lines">
 
 
-269
-270
-271</pre>
+267
+268
+269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 267</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_divisions_raw'>get_corporation_divisions_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/divisions/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -3475,12 +3471,12 @@
       <pre class="lines">
 
 
-297
-298
-299</pre>
+295
+296
+297</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 295</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_facilities'>get_corporation_facilities</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_facilities_raw'>get_corporation_facilities_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -3715,12 +3711,12 @@
       <pre class="lines">
 
 
-326
-327
-328</pre>
+324
+325
+326</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 326</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 324</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_facilities_raw'>get_corporation_facilities_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/facilities/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -3929,12 +3925,12 @@
       <pre class="lines">
 
 
-349
-350
-351</pre>
+347
+348
+349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 347</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_icons'>get_corporation_icons</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_icons_raw'>get_corporation_icons_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -4139,12 +4135,12 @@
       <pre class="lines">
 
 
-373
-374
-375</pre>
+371
+372
+373</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 373</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 371</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_icons_raw'>get_corporation_icons_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/icons/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -4383,17 +4379,15 @@
       <pre class="lines">
 
 
-401
-402
-403
-404</pre>
+399
+400
+401</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 401</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 399</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_medals'>get_corporation_medals</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_medals_raw'>get_corporation_medals_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_medals_raw'>get_corporation_medals_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -4629,17 +4623,15 @@
       <pre class="lines">
 
 
-459
-460
-461
-462</pre>
+456
+457
+458</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 459</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 456</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_medals_issued'>get_corporation_medals_issued</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_medals_issued_raw'>get_corporation_medals_issued_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_medals_issued_raw'>get_corporation_medals_issued_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -4871,12 +4863,12 @@
       <pre class="lines">
 
 
-489
-490
-491</pre>
+485
+486
+487</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 489</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 485</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_medals_issued_raw'>get_corporation_medals_issued_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/medals/issued/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -5111,12 +5103,12 @@
       <pre class="lines">
 
 
-431
-432
-433</pre>
+428
+429
+430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 431</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 428</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_medals_raw'>get_corporation_medals_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/medals/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -5355,12 +5347,12 @@
       <pre class="lines">
 
 
-517
-518
-519</pre>
+513
+514
+515</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 517</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 513</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_member_titles'>get_corporation_member_titles</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_member_titles_raw'>get_corporation_member_titles_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -5595,12 +5587,12 @@
       <pre class="lines">
 
 
-546
-547
-548</pre>
+542
+543
+544</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 546</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 542</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_member_titles_raw'>get_corporation_member_titles_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/members/titles/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -5839,12 +5831,12 @@
       <pre class="lines">
 
 
-574
-575
-576</pre>
+570
+571
+572</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 574</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 570</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_members'>get_corporation_members</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_members_raw'>get_corporation_members_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -6083,12 +6075,12 @@
       <pre class="lines">
 
 
-631
-632
-633</pre>
+627
+628
+629</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 631</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 627</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_members_limit'>get_corporation_members_limit</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_members_limit_raw'>get_corporation_members_limit_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -6323,12 +6315,12 @@
       <pre class="lines">
 
 
-660
-661
-662</pre>
+656
+657
+658</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 660</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 656</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_members_limit_raw'>get_corporation_members_limit_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/members/limit/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -6563,12 +6555,12 @@
       <pre class="lines">
 
 
-603
-604
-605</pre>
+599
+600
+601</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 603</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 599</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_members_raw'>get_corporation_members_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/members/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -6807,12 +6799,12 @@
       <pre class="lines">
 
 
-688
-689
-690</pre>
+684
+685
+686</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 688</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 684</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_membertracking'>get_corporation_membertracking</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_membertracking_raw'>get_corporation_membertracking_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -7047,12 +7039,12 @@
       <pre class="lines">
 
 
-717
-718
-719</pre>
+713
+714
+715</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 717</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 713</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_membertracking_raw'>get_corporation_membertracking_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/membertracking/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -7231,12 +7223,12 @@
       <pre class="lines">
 
 
-736
-737
-738</pre>
+732
+733
+734</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 736</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 732</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_npccorps'>get_corporation_npccorps</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_npccorps_raw'>get_corporation_npccorps_raw</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -7411,12 +7403,12 @@
       <pre class="lines">
 
 
-756
-757
-758</pre>
+752
+753
+754</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 756</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 752</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_npccorps_raw'>get_corporation_npccorps_raw</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/npccorps/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -7865,12 +7857,12 @@
       <pre class="lines">
 
 
-784
-785
-786</pre>
+780
+781
+782</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 784</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 780</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_roles'>get_corporation_roles</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_roles_raw'>get_corporation_roles_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -8109,17 +8101,15 @@
       <pre class="lines">
 
 
-841
-842
-843
-844</pre>
+837
+838
+839</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 841</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 837</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_roles_history'>get_corporation_roles_history</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_roles_history_raw'>get_corporation_roles_history_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_roles_history_raw'>get_corporation_roles_history_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -8351,12 +8341,12 @@
       <pre class="lines">
 
 
-871
-872
-873</pre>
+866
+867
+868</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 871</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 866</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_roles_history_raw'>get_corporation_roles_history_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/roles/history/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -8591,12 +8581,12 @@
       <pre class="lines">
 
 
-813
-814
-815</pre>
+809
+810
+811</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 813</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 809</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_roles_raw'>get_corporation_roles_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/roles/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -8846,17 +8836,15 @@
       <pre class="lines">
 
 
-900
-901
-902
-903</pre>
+895
+896
+897</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 900</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 895</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_shareholders'>get_corporation_shareholders</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_shareholders_raw'>get_corporation_shareholders_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_shareholders_raw'>get_corporation_shareholders_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -9099,12 +9087,12 @@
       <pre class="lines">
 
 
-931
-932
-933</pre>
+925
+926
+927</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 931</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 925</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_shareholders_raw'>get_corporation_shareholders_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/shareholders/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -9343,17 +9331,15 @@
       <pre class="lines">
 
 
-959
-960
-961
-962</pre>
+953
+954
+955</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 959</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 953</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_standings'>get_corporation_standings</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_standings_raw'>get_corporation_standings_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_standings_raw'>get_corporation_standings_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -9585,12 +9571,12 @@
       <pre class="lines">
 
 
-989
-990
-991</pre>
+982
+983
+984</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 989</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 982</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_standings_raw'>get_corporation_standings_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/standings/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -9859,12 +9845,12 @@
       <pre class="lines">
 
 
-1019
-1020
-1021</pre>
+1012
+1013
+1014</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1019</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1012</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_starbase'>get_corporation_starbase</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>starbase_id:</span><span class='comma'>,</span> <span class='label'>system_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_starbase_raw'>get_corporation_starbase_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>starbase_id:</span> <span class='id identifier rubyid_starbase_id'>starbase_id</span><span class='comma'>,</span> <span class='label'>system_id:</span> <span class='id identifier rubyid_system_id'>system_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -10129,13 +10115,13 @@
       <pre class="lines">
 
 
-1050
-1051
-1052
-1053</pre>
+1043
+1044
+1045
+1046</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1050</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1043</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_starbase_raw'>get_corporation_starbase_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>starbase_id:</span><span class='comma'>,</span> <span class='label'>system_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>system_id</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_system_id'>system_id</span><span class='rparen'>)</span>
@@ -10375,17 +10361,15 @@
       <pre class="lines">
 
 
-1079
-1080
-1081
-1082</pre>
+1072
+1073
+1074</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1079</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1072</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_starbases'>get_corporation_starbases</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_starbases_raw'>get_corporation_starbases_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_starbases_raw'>get_corporation_starbases_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -10617,12 +10601,12 @@
       <pre class="lines">
 
 
-1109
-1110
-1111</pre>
+1101
+1102
+1103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1109</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_starbases_raw'>get_corporation_starbases_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/starbases/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -10861,17 +10845,15 @@
       <pre class="lines">
 
 
-1137
-1138
-1139
-1140</pre>
+1129
+1130
+1131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1137</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_structures'>get_corporation_structures</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_structures_raw'>get_corporation_structures_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_concat_responses'>concat_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_get_corporation_structures_raw'>get_corporation_structures_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -11103,12 +11085,12 @@
       <pre class="lines">
 
 
-1167
-1168
-1169</pre>
+1158
+1159
+1160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1167</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1158</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_structures_raw'>get_corporation_structures_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/structures/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -11347,12 +11329,12 @@
       <pre class="lines">
 
 
-1195
-1196
-1197</pre>
+1186
+1187
+1188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1195</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1186</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_titles'>get_corporation_titles</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get_corporation_titles_raw'>get_corporation_titles_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
@@ -11587,12 +11569,12 @@
       <pre class="lines">
 
 
-1224
-1225
-1226</pre>
+1215
+1216
+1217</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1224</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/corporation.rb', line 1215</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_titles_raw'>get_corporation_titles_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/titles/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -11607,7 +11589,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Oct  9 02:09:22 2021 by
+  Generated on Sat Oct  9 02:18:13 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>
