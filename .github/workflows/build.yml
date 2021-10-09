@@ -128,10 +128,12 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Run tests
+        uses: paambaati/codeclimate-action@v3.0.0
         env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           USER_AGENT: "ESI SDK Tests/1.0; (+https://github.com/bokoboshahni/esi-sdk-ruby)"
-        run: |
-          bundle exec rake spec
+        with:
+          coverageCommand: bundle exec rake spec
 
   release:
     name: Release

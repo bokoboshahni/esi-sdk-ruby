@@ -1,5 +1,7 @@
 [![Build](https://github.com/bokoboshahni/esi-sdk-ruby/actions/workflows/build.yml/badge.svg)](https://github.com/bokoboshahni/esi-sdk-ruby/actions/workflows/build.yml)
 [![Gem Version](https://badge.fury.io/rb/esi-sdk.svg)](https://badge.fury.io/rb/esi-sdk)
+[![Maintainability](https://api.codeclimate.com/v1/badges/cec445478e041ffb9c2b/maintainability)](https://codeclimate.com/github/bokoboshahni/esi-sdk-ruby/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/cec445478e041ffb9c2b/test_coverage)](https://codeclimate.com/github/bokoboshahni/esi-sdk-ruby/test_coverage)
 
 # EVE Swagger Interface (ESI) SDK
 

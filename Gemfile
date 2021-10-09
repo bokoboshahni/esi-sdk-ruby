@@ -15,8 +15,6 @@ gem "rubocop-performance", "~> 1.11"
 gem "rubocop-rake", "~> 0.6"
 gem "rubocop-rspec", "~> 2.4"
 gem "simplecov", "~> 0.21"
-gem "simplecov_json_formatter", "~> 0.1", require: false
-gem "vcr", "~> 6.0"
 gem "webmock", "~> 3.13"
 gem "yard", "~> 0.9"
 

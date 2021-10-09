@@ -3,12 +3,12 @@
 require "esi-sdk"
 
 require "simplecov"
-require "simplecov_json_formatter"
+# require "simplecov_json_formatter"
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-                                                                 SimpleCov::Formatter::HTMLFormatter,
-                                                                 SimpleCov::Formatter::JSONFormatter
-                                                               ])
+# SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+#                                                                  SimpleCov::Formatter::HTMLFormatter,
+#                                                                  SimpleCov::Formatter::JSONFormatter
+#                                                                ])
 SimpleCov.start
 
 require "webmock/rspec"
