@@ -120,6 +120,7 @@ task :generate do
     module_name = tag.gsub(/ /, "_").classify
     method_definitions = operations.sort_by { |(k, _v)| k }.each_with_object([]) do |(method_name, operation), a|
       signature_params = operation[:params].map { |p| "#{p["name"]}:" }
+      raw_call_params = operation[:params].map { |p| "#{p["name"]}: #{p["name"]}" }
 
       description = "# #{operation[:description]}"
       description = "#{description}." unless description.end_with?(".")
@@ -157,6 +158,7 @@ task :generate do
           end
 
         signature_params << "#{body_name}:"
+        raw_call_params << "#{body_name}: #{body_name}"
         param_tags += ["# @param #{body_name} [#{body_type}] #{body_param["description"]}"]
       end
 
@@ -174,11 +176,15 @@ task :generate do
                   "#{p["name"]}:"
                 end
         signature_params << p_str
+        raw_call_params << "#{p["name"]}: #{p["name"]}"
         param_tags << p_tag
       end
 
       signature_params += %w[headers params].map do |p|
         "#{p}: {}"
+      end
+      raw_call_params += %w[headers params].map do |p|
+        "#{p}: #{p}"
       end
       param_tags << "# @param params [Hash] Additional query string parameters"
 
@@ -201,6 +207,7 @@ task :generate do
       description.gsub!(/^$\n/m, "")
 
       signature = "(#{signature_params.join(", ")})"
+      raw_call = "(#{raw_call_params.join(", ")})"
       path_parts = operation[:path].split("/")
       path_parts.map! do |p|
         if p =~ /\{\w+\}/
@@ -237,19 +244,30 @@ task :generate do
           #{description}
           def #{method_name}#{signature}
             #{params_merge}
-            responses = #{http_call}
+            responses = #{method_name}_raw#{raw_call}
             responses.map(&:json).reduce([], :concat)
           end
           #{alias_methods}
+
+          #{description}
+          def #{method_name}_raw#{signature}
+            #{params_merge}
+            #{http_call}
+          end
         METHOD_DEFINITION
       else
         a << <<~METHOD_DEFINITION
           #{description}
           def #{method_name}#{signature}
-            #{params_merge}
-            #{http_call}.json
+            #{method_name}_raw#{raw_call}.json
           end
           #{alias_methods}
+
+          #{description}
+          def #{method_name}_raw#{signature}
+            #{params_merge}
+            #{http_call}
+          end
         METHOD_DEFINITION
       end
     end
