@@ -39,16 +39,6 @@ end
 
 WebMock.disable_net_connect!
 
-require "vcr"
-VCR.configure do |c|
-  c.allow_http_connections_when_no_cassette = true
-  c.cassette_library_dir = "spec/cassettes"
-  c.hook_into :webmock
-  c.ignore_localhost = true
-
-  c.configure_rspec_metadata!
-end
-
 require "awesome_print"
 
 RSpec.configure do |config|

@@ -123,52 +123,57 @@ module ESI
       session.authentication token
     end
 
+    # Make a `DELETE` request to the ESI endpoint.
+    #
+    # @param path [String] The request path, excluding version like `latest`.
+    # @param params [Hash] Query string parameters to pass to the request.
+    # @param headers [Hash] Headers to pass to the request.
     def delete(path, params: {}, headers: {})
-      params.delete_if { |_, v| v.nil? }
-      response = session.delete("/#{version}#{path}", params: params, headers: headers)
-      response.raise_for_status
-      response
-    rescue HTTPX::Error
-      raise_error(response)
+      make_request(:delete, path, params: params, headers: headers)
     end
 
+    # Make a `GET` request to the ESI endpoint.
+    #
+    # @param path [String] The request path, excluding version like `latest`.
+    # @param params [Hash] Query string parameters to pass to the request.
+    # @param headers [Hash] Headers to pass to the request.
     def get(path, params: {}, headers: {})
-      params.delete_if { |_, v| v.nil? }
-      response = session.get("/#{version}#{path}", params: params, headers: headers)
-      response.raise_for_status
-
-      return paginate(response, "/#{version}#{path}", params, headers) if paginated?(response)
-
-      response
-    rescue HTTPX::Error
-      raise_error(response)
+      make_request(:get, path, params: params, headers: headers)
     end
 
+    # Make a `POST` request to the ESI endpoint.
+    #
+    # @param path [String] The request path, excluding version like `latest`.
+    # @param params [Hash] Query string parameters to pass to the request.
+    # @param headers [Hash] Headers to pass to the request.
+    # @param payload [Hash] Payload to encode as JSON to pass to the request.
     def post(path, payload: {}, params: {}, headers: {})
-      params.delete_if { |_, v| v.nil? }
-      response = session.post("/#{version}#{path}",
-                              params: params,
-                              headers: headers,
-                              json: payload)
-      response.raise_for_status
-      response
-    rescue HTTPX::Error
-      raise_error(response)
+      make_request(:post, path, params: params, headers: headers, payload: payload)
     end
 
+    # Make a `PUT` request to the ESI endpoint.
+    #
+    # @param path [String] The request path, excluding version like `latest`.
+    # @param params [Hash] Query string parameters to pass to the request.
+    # @param headers [Hash] Headers to pass to the request.
+    # @param payload [Hash] Payload to encode as JSON to pass to the request.
     def put(path, payload: {}, params: {}, headers: {})
-      params.delete_if { |_, v| v.nil? }
-      response = session.put("/#{version}#{path}",
-                             params: params,
-                             headers: headers,
-                             json: payload)
-      response.raise_for_status
-      response
-    rescue HTTPX::Error
-      raise_error(response)
+      make_request(:put, path, params: params, headers: headers, payload: payload)
     end
 
     private
+
+    def make_request(method, path, params: {}, headers: {}, payload: nil)
+      versioned_path = "/#{version}#{path}"
+      response = session.request(method, versioned_path, params: params, headers: headers, json: payload)
+      response.raise_for_status
+
+      return paginate(response, versioned_path, params, headers) if paginated?(response)
+
+      response
+    rescue HTTPX::Error
+      raise_error(response)
+    end
 
     def paginate(response, path, params, headers) # rubocop:disable Metrics/MethodLength
       response_headers = normalize_headers(response.headers)
