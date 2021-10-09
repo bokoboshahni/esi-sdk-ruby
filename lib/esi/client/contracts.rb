@@ -156,8 +156,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_characters_character_id_contracts
       def get_character_contracts(character_id:, headers: {}, params: {})
-        responses = get_character_contracts_raw(character_id: character_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_character_contracts_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_contracts get_character_contracts
 
@@ -212,8 +211,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_contracts_public_bids_contract_id
       def get_contracts_public_bids_contract(contract_id:, headers: {}, params: {})
-        responses = get_contracts_public_bids_contract_raw(contract_id: contract_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_contracts_public_bids_contract_raw(contract_id: contract_id, headers: headers, params: params))
       end
       alias get_contracts_public_bids_contract_id get_contracts_public_bids_contract
 
@@ -264,8 +262,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_contracts_public_items_contract_id
       def get_contracts_public_items_contract(contract_id:, headers: {}, params: {})
-        responses = get_contracts_public_items_contract_raw(contract_id: contract_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_contracts_public_items_contract_raw(contract_id: contract_id, headers: headers, params: params))
       end
       alias get_contracts_public_items_contract_id get_contracts_public_items_contract
 
@@ -315,8 +312,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_contracts_public_region_id
       def get_contracts_public_region(region_id:, headers: {}, params: {})
-        responses = get_contracts_public_region_raw(region_id: region_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_contracts_public_region_raw(region_id: region_id, headers: headers, params: params))
       end
       alias get_contracts_public_region_id get_contracts_public_region
 
@@ -372,8 +368,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_corporations_corporation_id_contracts_contract_id_bids
       def get_corporation_contract_bids(contract_id:, corporation_id:, headers: {}, params: {})
-        responses = get_corporation_contract_bids_raw(contract_id: contract_id, corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_contract_bids_raw(contract_id: contract_id, corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_contracts_contract_id_bids get_corporation_contract_bids
 
@@ -499,8 +494,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_corporations_corporation_id_contracts
       def get_corporation_contracts(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_contracts_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_contracts_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_contracts get_corporation_contracts
 

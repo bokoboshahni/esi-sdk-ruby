@@ -133,8 +133,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_blueprints
       def get_character_blueprints(character_id:, headers: {}, params: {})
-        responses = get_character_blueprints_raw(character_id: character_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_character_blueprints_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_blueprints get_character_blueprints
 

@@ -146,8 +146,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Planetary Interaction/get_corporations_corporation_id_customs_offices
       def get_corporation_customs_offices(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_customs_offices_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_customs_offices_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_customs_offices get_corporation_customs_offices
 

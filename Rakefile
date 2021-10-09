@@ -244,8 +244,7 @@ task :generate do
           #{description}
           def #{method_name}#{signature}
             #{params_merge}
-            responses = #{method_name}_raw#{raw_call}
-            responses.map(&:json).reduce([], :concat)
+            concat_responses(#{method_name}_raw#{raw_call})
           end
           #{alias_methods}
 

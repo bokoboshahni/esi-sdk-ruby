@@ -192,6 +192,10 @@ module ESI
       headers.key?("x-pages")
     end
 
+    def concat_responses(responses)
+      responses.map(&:json).reduce([], :concat)
+    end
+
     def normalize_headers(headers)
       headers.to_h.transform_keys(&:downcase)
     end

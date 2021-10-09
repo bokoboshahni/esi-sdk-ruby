@@ -467,8 +467,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_groups
       def get_universe_groups(headers: {}, params: {})
-        responses = get_universe_groups_raw(headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_universe_groups_raw(headers: headers, params: params))
       end
 
       # Get a list of item groups.
@@ -1152,8 +1151,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Universe/get_universe_types
       def get_universe_types(headers: {}, params: {})
-        responses = get_universe_types_raw(headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_universe_types_raw(headers: headers, params: params))
       end
 
       # Get a list of type ids.

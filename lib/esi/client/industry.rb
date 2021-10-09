@@ -92,8 +92,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_characters_character_id_mining
       def get_character_mining(character_id:, headers: {}, params: {})
-        responses = get_character_mining_raw(character_id: character_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_character_mining_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_mining get_character_mining
 
@@ -154,8 +153,7 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Industry/get_corporations_corporation_id_industry_jobs
       def get_corporation_industry_jobs(corporation_id:, include_completed: nil, headers: {}, params: {})
         params.merge!("include_completed" => include_completed)
-        responses = get_corporation_industry_jobs_raw(corporation_id: corporation_id, include_completed: include_completed, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_industry_jobs_raw(corporation_id: corporation_id, include_completed: include_completed, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_industry_jobs get_corporation_industry_jobs
 
@@ -216,8 +214,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_extractions
       def get_corporation_mining_extractions(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_mining_extractions_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_mining_extractions_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporation_corporation_id_mining_extractions get_corporation_mining_extractions
 
@@ -277,8 +274,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_observers_observer_id
       def get_corporation_mining_observer(corporation_id:, observer_id:, headers: {}, params: {})
-        responses = get_corporation_mining_observer_raw(corporation_id: corporation_id, observer_id: observer_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_mining_observer_raw(corporation_id: corporation_id, observer_id: observer_id, headers: headers, params: params))
       end
       alias get_corporation_corporation_id_mining_observers_observer_id get_corporation_mining_observer
 
@@ -338,8 +334,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporation_corporation_id_mining_observers
       def get_corporation_mining_observers(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_mining_observers_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_mining_observers_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporation_corporation_id_mining_observers get_corporation_mining_observers
 

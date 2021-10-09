@@ -30,8 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/get_characters_character_id_assets
       def get_character_assets(character_id:, headers: {}, params: {})
-        responses = get_character_assets_raw(character_id: character_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_character_assets_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_assets get_character_assets
 
@@ -89,8 +88,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/get_corporations_corporation_id_assets
       def get_corporation_assets(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_assets_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_assets_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_assets get_corporation_assets
 
