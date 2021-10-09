@@ -1,5 +1,12 @@
 # ESI SDK Changelog
 
+# [2.1.0](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v2.0.0...v2.1.0) (2021-10-09)
+
+
+### Features
+
+* add methods to return raw responses ([93dc308](https://github.com/bokoboshahni/esi-sdk-ruby/commit/93dc3082cf06b0b4e42e17e3de77c9e05e3345b5))
+
 # [2.0.0](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v1.2.0...v2.0.0) (2021-10-08)
 
 

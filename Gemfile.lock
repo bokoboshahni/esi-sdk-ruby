@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    esi-sdk (2.0.0)
+    esi-sdk (2.1.0)
       httpx (~> 0.18)
       retriable (~> 3.1)
 
