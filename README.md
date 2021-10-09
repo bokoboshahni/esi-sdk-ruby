@@ -1,4 +1,5 @@
-![Build images](https://github.com/bokoboshahni/esi-sdk-ruby/workflows/CICD/badge.svg)
+[![Build](https://github.com/bokoboshahni/esi-sdk-ruby/actions/workflows/build.yml/badge.svg)](https://github.com/bokoboshahni/esi-sdk-ruby/actions/workflows/build.yml)
+[![Gem Version](https://badge.fury.io/rb/esi-sdk.svg)](https://badge.fury.io/rb/esi-sdk)
 
 # EVE Swagger Interface (ESI) SDK
 
