@@ -122,8 +122,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_blueprints
       def get_corporation_blueprints(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_blueprints_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_blueprints_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_blueprints get_corporation_blueprints
 
@@ -180,8 +179,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_containers_logs
       def get_corporation_container_logs(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_container_logs_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_container_logs_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_containers_logs get_corporation_container_logs
 
@@ -399,8 +397,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_medals
       def get_corporation_medals(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_medals_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_medals_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_medals get_corporation_medals
 
@@ -457,8 +454,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_medals_issued
       def get_corporation_medals_issued(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_medals_issued_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_medals_issued_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_medals_issued get_corporation_medals_issued
 
@@ -839,8 +835,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_roles_history
       def get_corporation_roles_history(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_roles_history_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_roles_history_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_roles_history get_corporation_roles_history
 
@@ -898,8 +893,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_shareholders
       def get_corporation_shareholders(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_shareholders_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_shareholders_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_shareholders get_corporation_shareholders
 
@@ -957,8 +951,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_standings
       def get_corporation_standings(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_standings_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_standings_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_standings get_corporation_standings
 
@@ -1077,8 +1070,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_starbases
       def get_corporation_starbases(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_starbases_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_starbases_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_starbases get_corporation_starbases
 
@@ -1135,8 +1127,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_structures
       def get_corporation_structures(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_structures_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_structures_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_structures get_corporation_structures
 

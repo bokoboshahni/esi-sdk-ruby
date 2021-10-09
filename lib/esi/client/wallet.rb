@@ -86,8 +86,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_journal
       def get_character_wallet_journal(character_id:, headers: {}, params: {})
-        responses = get_character_wallet_journal_raw(character_id: character_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_character_wallet_journal_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_wallet_journal get_character_wallet_journal
 
@@ -266,8 +265,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_journal
       def get_corporation_wallets_division_journal(corporation_id:, division:, headers: {}, params: {})
-        responses = get_corporation_wallets_division_journal_raw(corporation_id: corporation_id, division: division, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_wallets_division_journal_raw(corporation_id: corporation_id, division: division, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_wallets_division_journal get_corporation_wallets_division_journal
 

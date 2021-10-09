@@ -87,8 +87,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_characters_character_id_orders_history
       def get_character_orders_history(character_id:, headers: {}, params: {})
-        responses = get_character_orders_history_raw(character_id: character_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_character_orders_history_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_orders_history get_character_orders_history
 
@@ -146,8 +145,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_corporations_corporation_id_orders
       def get_corporation_orders(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_orders_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_orders_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_orders get_corporation_orders
 
@@ -204,8 +202,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_corporations_corporation_id_orders_history
       def get_corporation_orders_history(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_orders_history_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_orders_history_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_orders_history get_corporation_orders_history
 
@@ -445,8 +442,7 @@ module ESI
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_orders
       def get_markets_region_orders(region_id:, order_type: "all", type_id: nil, headers: {}, params: {})
         params.merge!("order_type" => order_type, "type_id" => type_id)
-        responses = get_markets_region_orders_raw(region_id: region_id, order_type: order_type, type_id: type_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_markets_region_orders_raw(region_id: region_id, order_type: order_type, type_id: type_id, headers: headers, params: params))
       end
       alias get_markets_region_id_orders get_markets_region_orders
 
@@ -498,8 +494,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_types
       def get_markets_region_types(region_id:, headers: {}, params: {})
-        responses = get_markets_region_types_raw(region_id: region_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_markets_region_types_raw(region_id: region_id, headers: headers, params: params))
       end
       alias get_markets_region_id_types get_markets_region_types
 
@@ -552,8 +547,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_structures_structure_id
       def get_markets_structure(structure_id:, headers: {}, params: {})
-        responses = get_markets_structure_raw(structure_id: structure_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_markets_structure_raw(structure_id: structure_id, headers: headers, params: params))
       end
       alias get_markets_structures_structure_id get_markets_structure
 

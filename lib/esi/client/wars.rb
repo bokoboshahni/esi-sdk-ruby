@@ -74,8 +74,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars_war_id_killmails
       def get_war_killmails(war_id:, headers: {}, params: {})
-        responses = get_war_killmails_raw(war_id: war_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_war_killmails_raw(war_id: war_id, headers: headers, params: params))
       end
       alias get_wars_war_id_killmails get_war_killmails
 

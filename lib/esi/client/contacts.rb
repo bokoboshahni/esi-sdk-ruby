@@ -144,8 +144,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/get_alliances_alliance_id_contacts
       def get_alliance_contacts(alliance_id:, headers: {}, params: {})
-        responses = get_alliance_contacts_raw(alliance_id: alliance_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_alliance_contacts_raw(alliance_id: alliance_id, headers: headers, params: params))
       end
       alias get_alliances_alliance_id_contacts get_alliance_contacts
 
@@ -261,8 +260,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/get_characters_character_id_contacts
       def get_character_contacts(character_id:, headers: {}, params: {})
-        responses = get_character_contacts_raw(character_id: character_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_character_contacts_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_contacts get_character_contacts
 
@@ -378,8 +376,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/get_corporations_corporation_id_contacts
       def get_corporation_contacts(corporation_id:, headers: {}, params: {})
-        responses = get_corporation_contacts_raw(corporation_id: corporation_id, headers: headers, params: params)
-        responses.map(&:json).reduce([], :concat)
+        concat_responses(get_corporation_contacts_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_contacts get_corporation_contacts
 
