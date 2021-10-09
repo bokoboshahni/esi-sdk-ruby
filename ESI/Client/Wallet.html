@@ -166,11 +166,80 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_character_wallet_journal_raw-instance_method" title="#get_character_wallet_journal_raw (instance method)">#<strong>get_character_wallet_journal_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieve the given character’s wallet journal going 30 days back.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_wallet_raw-instance_method" title="#get_character_wallet_raw (instance method)">#<strong>get_character_wallet_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns a character’s wallet balance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_character_wallet_transactions-instance_method" title="#get_character_wallet_transactions (instance method)">#<strong>get_character_wallet_transactions</strong>(character_id:, from_id: nil, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
       (also: #get_characters_character_id_wallet_transactions)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get wallet transactions of a character.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_wallet_transactions_raw-instance_method" title="#get_character_wallet_transactions_raw (instance method)">#<strong>get_character_wallet_transactions_raw</strong>(character_id:, from_id: nil, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
     
   </span>
   
@@ -241,6 +310,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_corporation_wallets_division_journal_raw-instance_method" title="#get_corporation_wallets_division_journal_raw (instance method)">#<strong>get_corporation_wallets_division_journal_raw</strong>(corporation_id:, division:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Retrieve the given corporation’s wallet journal for the given division going 30 days back.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_corporation_wallets_division_transactions-instance_method" title="#get_corporation_wallets_division_transactions (instance method)">#<strong>get_corporation_wallets_division_transactions</strong>(corporation_id:, division:, from_id: nil, headers: {}, params: {})  &#x21d2; Object </a>
     
 
@@ -258,6 +350,52 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Get wallet transactions of a corporation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_corporation_wallets_division_transactions_raw-instance_method" title="#get_corporation_wallets_division_transactions_raw (instance method)">#<strong>get_corporation_wallets_division_transactions_raw</strong>(corporation_id:, division:, from_id: nil, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get wallet transactions of a corporation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_corporation_wallets_raw-instance_method" title="#get_corporation_wallets_raw (instance method)">#<strong>get_corporation_wallets_raw</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get a corporation’s wallets.</p>
 </div></span>
   
 </li>
@@ -509,7 +647,7 @@
       <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_character_wallet'>get_character_wallet</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallet/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_character_wallet_raw'>get_character_wallet_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -745,17 +883,497 @@
       <pre class="lines">
 
 
+88
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_wallet_journal'>get_character_wallet_journal</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_character_wallet_journal_raw'>get_character_wallet_journal_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_wallet_journal_raw-instance_method">
+  
+    #<strong>get_character_wallet_journal_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieve the given character’s wallet journal going 30 days back.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_journal" target="_parent" title="https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_journal">https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_journal</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-wallet.read_character_wallet.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v6</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_wallet_journal_raw'>get_character_wallet_journal_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallet/journal/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_wallet_raw-instance_method">
+  
+    #<strong>get_character_wallet_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a character’s wallet balance.</p>
+
+<p>This endpoint is cached for up to 120 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet" target="_parent" title="https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet">https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-wallet.read_character_wallet.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 60
 61
-62
-63</pre>
+62</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 60</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_character_wallet_journal'>get_character_wallet_journal</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallet/journal/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_wallet_raw'>get_character_wallet_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallet/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1019,17 +1637,285 @@
       <pre class="lines">
 
 
-92
-93
-94
-95</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_character_wallet_transactions'>get_character_wallet_transactions</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>from_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get_character_wallet_transactions_raw'>get_character_wallet_transactions_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>from_id:</span> <span class='id identifier rubyid_from_id'>from_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_wallet_transactions_raw-instance_method">
+  
+    #<strong>get_character_wallet_transactions_raw</strong>(character_id:, from_id: nil, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get wallet transactions of a character.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>from_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Only show transactions happened before the one referenced by this id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_transactions" target="_parent" title="https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_transactions">https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_transactions</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-wallet.read_character_wallet.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_wallet_transactions_raw'>get_character_wallet_transactions_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>from_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>from_id</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_from_id'>from_id</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallet/transactions/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallet/transactions/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1276,15 +2162,15 @@
       <pre class="lines">
 
 
-123
-124
-125</pre>
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 209</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_wallets'>get_corporation_wallets</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallets/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_corporation_wallets_raw'>get_corporation_wallets_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1535,17 +2421,272 @@
       <pre class="lines">
 
 
-153
-154
-155
-156</pre>
+268
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 268</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_wallets_division_journal'>get_corporation_wallets_division_journal</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>division:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallets/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_division'>division</span><span class='embexpr_end'>}</span><span class='tstring_content'>/journal/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_responses'>responses</span> <span class='op'>=</span> <span class='id identifier rubyid_get_corporation_wallets_division_journal_raw'>get_corporation_wallets_division_journal_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>division:</span> <span class='id identifier rubyid_division'>division</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_responses'>responses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:json</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:concat</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_corporation_wallets_division_journal_raw-instance_method">
+  
+    #<strong>get_corporation_wallets_division_journal_raw</strong>(corporation_id:, division:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Retrieve the given corporation’s wallet journal for the given division going 30 days back.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>corporation_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE corporation ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>division</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Wallet key of the division to fetch journals from</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_journal" target="_parent" title="https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_journal">https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_journal</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-wallet.read_corporation_wallets.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v4</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+299
+300
+301</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 299</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_wallets_division_journal_raw'>get_corporation_wallets_division_journal_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>division:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallets/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_division'>division</span><span class='embexpr_end'>}</span><span class='tstring_content'>/journal/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1824,17 +2965,551 @@
       <pre class="lines">
 
 
-186
-187
-188
-189</pre>
+330
+331
+332</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 330</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_wallets_division_transactions'>get_corporation_wallets_division_transactions</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>division:</span><span class='comma'>,</span> <span class='label'>from_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get_corporation_wallets_division_transactions_raw'>get_corporation_wallets_division_transactions_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span> <span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='comma'>,</span> <span class='label'>division:</span> <span class='id identifier rubyid_division'>division</span><span class='comma'>,</span> <span class='label'>from_id:</span> <span class='id identifier rubyid_from_id'>from_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_corporation_wallets_division_transactions_raw-instance_method">
+  
+    #<strong>get_corporation_wallets_division_transactions_raw</strong>(corporation_id:, division:, from_id: nil, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get wallet transactions of a corporation.</p>
+
+<p>This endpoint is cached for up to 3600 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>corporation_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE corporation ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>division</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Wallet key of the division to fetch journals from</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>from_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Only show journal entries happened before the transaction referenced by this id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_transactions" target="_parent" title="https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_transactions">https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_transactions</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-wallet.read_corporation_wallets.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+362
+363
+364
+365</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 362</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_wallets_division_transactions_raw'>get_corporation_wallets_division_transactions_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>division:</span><span class='comma'>,</span> <span class='label'>from_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>from_id</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_from_id'>from_id</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallets/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_division'>division</span><span class='embexpr_end'>}</span><span class='tstring_content'>/transactions/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallets/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_division'>division</span><span class='embexpr_end'>}</span><span class='tstring_content'>/transactions/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_corporation_wallets_raw-instance_method">
+  
+    #<strong>get_corporation_wallets_raw</strong>(corporation_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get a corporation’s wallets.</p>
+
+<p>This endpoint is cached for up to 300 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>corporation_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE corporation ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets" target="_parent" title="https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets">https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-wallet.read_corporation_wallets.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+239
+240
+241</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/wallet.rb', line 239</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_corporation_wallets_raw'>get_corporation_wallets_raw</span><span class='lparen'>(</span><span class='label'>corporation_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/corporations/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_corporation_id'>corporation_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/wallets/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1846,7 +3521,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Oct  8 22:01:18 2021 by
+  Generated on Sat Oct  9 02:09:17 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

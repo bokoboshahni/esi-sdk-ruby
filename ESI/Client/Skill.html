@@ -141,6 +141,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_character_attributes_raw-instance_method" title="#get_character_attributes_raw (instance method)">#<strong>get_character_attributes_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return attributes of a character.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_character_skillqueue-instance_method" title="#get_character_skillqueue (instance method)">#<strong>get_character_skillqueue</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
@@ -166,11 +189,57 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_character_skillqueue_raw-instance_method" title="#get_character_skillqueue_raw (instance method)">#<strong>get_character_skillqueue_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List the configured skill queue for the given character.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_character_skills-instance_method" title="#get_character_skills (instance method)">#<strong>get_character_skills</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
       (also: #get_characters_character_id_skills)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List all trained skills for the given character.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_character_skills_raw-instance_method" title="#get_character_skills_raw (instance method)">#<strong>get_character_skills_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
     
   </span>
   
@@ -445,7 +514,258 @@
       <pre class="code"><span class="info file"># File 'lib/esi/client/skills.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_character_attributes'>get_character_attributes</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/attributes/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_character_attributes_raw'>get_character_attributes_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_attributes_raw-instance_method">
+  
+    #<strong>get_character_attributes_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return attributes of a character.</p>
+
+<p>This endpoint is cached for up to 120 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Skills/get_characters_character_id_attributes" target="_parent" title="https://esi.evetech.net/ui/#/Skills/get_characters_character_id_attributes">https://esi.evetech.net/ui/#/Skills/get_characters_character_id_attributes</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-skills.read_skills.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/skills.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_attributes_raw'>get_character_attributes_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/attributes/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -692,15 +1012,266 @@
       <pre class="lines">
 
 
-62
-63
-64</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/skills.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/skills.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_character_skillqueue'>get_character_skillqueue</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/skillqueue/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_character_skillqueue_raw'>get_character_skillqueue_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_skillqueue_raw-instance_method">
+  
+    #<strong>get_character_skillqueue_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List the configured skill queue for the given character.</p>
+
+<p>This endpoint is cached for up to 120 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skillqueue" target="_parent" title="https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skillqueue">https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skillqueue</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-skills.read_skillqueue.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/skills.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_skillqueue_raw'>get_character_skillqueue_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/skillqueue/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -936,15 +1507,255 @@
       <pre class="lines">
 
 
-91
-92
-93</pre>
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/skills.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/skills.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_character_skills'>get_character_skills</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/skills/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_character_skills_raw'>get_character_skills_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_character_skills_raw-instance_method">
+  
+    #<strong>get_character_skills_raw</strong>(character_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List all trained skills for the given character.</p>
+
+<p>This endpoint is cached for up to 120 seconds.</p>
+
+<p>This endpoint requires authorization (see <span class='object_link'><a href="../Client.html#authorize-instance_method" title="ESI::Client#authorize (method)">ESI::Client#authorize</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>character_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>An EVE character ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/UnauthorizedError.html" title="ESI::Errors::UnauthorizedError (class)">ESI::Errors::UnauthorizedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unauthorized</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ForbiddenError.html" title="ESI::Errors::ForbiddenError (class)">ESI::Errors::ForbiddenError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Forbidden</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skills" target="_parent" title="https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skills">https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skills</a></li>
+    
+  </ul>
+<p class="tag_title">Scopes:</p>
+<ul class="esi_scope">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>esi-skills.read_skills.v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v4</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/skills.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_character_skills_raw'>get_character_skills_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/characters/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_character_id'>character_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/skills/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -956,7 +1767,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Oct  8 22:01:18 2021 by
+  Generated on Sat Oct  9 02:09:17 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

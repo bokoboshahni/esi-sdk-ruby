@@ -141,7 +141,53 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_dogma_attribute_raw-instance_method" title="#get_dogma_attribute_raw (instance method)">#<strong>get_dogma_attribute_raw</strong>(attribute_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get information on a dogma attribute.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_dogma_attributes-instance_method" title="#get_dogma_attributes (instance method)">#<strong>get_dogma_attributes</strong>(headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get a list of dogma attribute ids.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_dogma_attributes_raw-instance_method" title="#get_dogma_attributes_raw (instance method)">#<strong>get_dogma_attributes_raw</strong>(headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -189,6 +235,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_dogma_dynamic_items_type_item_raw-instance_method" title="#get_dogma_dynamic_items_type_item_raw (instance method)">#<strong>get_dogma_dynamic_items_type_item_raw</strong>(item_id:, type_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns info about a dynamic item resulting from mutation with a mutaplasmid.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_dogma_effect-instance_method" title="#get_dogma_effect (instance method)">#<strong>get_dogma_effect</strong>(effect_id:, headers: {}, params: {})  &#x21d2; Object </a>
     
 
@@ -214,7 +283,53 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_dogma_effect_raw-instance_method" title="#get_dogma_effect_raw (instance method)">#<strong>get_dogma_effect_raw</strong>(effect_id:, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get information on a dogma effect.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_dogma_effects-instance_method" title="#get_dogma_effects (instance method)">#<strong>get_dogma_effects</strong>(headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get a list of dogma effect ids.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_dogma_effects_raw-instance_method" title="#get_dogma_effects_raw (instance method)">#<strong>get_dogma_effects_raw</strong>(headers: {}, params: {})  &#x21d2; Object </a>
     
 
     
@@ -459,7 +574,226 @@
       <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_attribute'>get_dogma_attribute</span><span class='lparen'>(</span><span class='label'>attribute_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/attributes/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_attribute_id'>attribute_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_dogma_attribute_raw'>get_dogma_attribute_raw</span><span class='lparen'>(</span><span class='label'>attribute_id:</span> <span class='id identifier rubyid_attribute_id'>attribute_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_dogma_attribute_raw-instance_method">
+  
+    #<strong>get_dogma_attribute_raw</strong>(attribute_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get information on a dogma attribute.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>attribute_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A dogma attribute ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/NotFoundError.html" title="ESI::Errors::NotFoundError (class)">ESI::Errors::NotFoundError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Dogma attribute not found</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes_attribute_id" target="_parent" title="https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes_attribute_id">https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes_attribute_id</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_attribute_raw'>get_dogma_attribute_raw</span><span class='lparen'>(</span><span class='label'>attribute_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/attributes/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_attribute_id'>attribute_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -642,15 +976,206 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_attributes'>get_dogma_attributes</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/attributes/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_dogma_attributes_raw'>get_dogma_attributes_raw</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_dogma_attributes_raw-instance_method">
+  
+    #<strong>get_dogma_attributes_raw</strong>(headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get a list of dogma attribute ids.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes" target="_parent" title="https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes">https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_attributes_raw'>get_dogma_attributes_raw</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/attributes/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -880,15 +1405,249 @@
       <pre class="lines">
 
 
-69
-70
-71</pre>
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_dynamic_items_type_item'>get_dogma_dynamic_items_type_item</span><span class='lparen'>(</span><span class='label'>item_id:</span><span class='comma'>,</span> <span class='label'>type_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/dynamic/items/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type_id'>type_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_item_id'>item_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_dogma_dynamic_items_type_item_raw'>get_dogma_dynamic_items_type_item_raw</span><span class='lparen'>(</span><span class='label'>item_id:</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='label'>type_id:</span> <span class='id identifier rubyid_type_id'>type_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_dogma_dynamic_items_type_item_raw-instance_method">
+  
+    #<strong>get_dogma_dynamic_items_type_item_raw</strong>(item_id:, type_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns info about a dynamic item resulting from mutation with a mutaplasmid.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>item_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>item_id integer</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>type_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>type_id integer</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/NotFoundError.html" title="ESI::Errors::NotFoundError (class)">ESI::Errors::NotFoundError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Item not found</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Dogma/get_dogma_dynamic_items_type_id_item_id" target="_parent" title="https://esi.evetech.net/ui/#/Dogma/get_dogma_dynamic_items_type_id_item_id">https://esi.evetech.net/ui/#/Dogma/get_dogma_dynamic_items_type_id_item_id</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_dynamic_items_type_item_raw'>get_dogma_dynamic_items_type_item_raw</span><span class='lparen'>(</span><span class='label'>item_id:</span><span class='comma'>,</span> <span class='label'>type_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/dynamic/items/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type_id'>type_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_item_id'>item_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1092,15 +1851,223 @@
       <pre class="lines">
 
 
-91
-92
-93</pre>
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_effect'>get_dogma_effect</span><span class='lparen'>(</span><span class='label'>effect_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/effects/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_effect_id'>effect_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_dogma_effect_raw'>get_dogma_effect_raw</span><span class='lparen'>(</span><span class='label'>effect_id:</span> <span class='id identifier rubyid_effect_id'>effect_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_dogma_effect_raw-instance_method">
+  
+    #<strong>get_dogma_effect_raw</strong>(effect_id:, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get information on a dogma effect.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>effect_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A dogma effect ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/NotFoundError.html" title="ESI::Errors::NotFoundError (class)">ESI::Errors::NotFoundError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Dogma effect not found</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Dogma/get_dogma_effects_effect_id" target="_parent" title="https://esi.evetech.net/ui/#/Dogma/get_dogma_effects_effect_id">https://esi.evetech.net/ui/#/Dogma/get_dogma_effects_effect_id</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_effect_raw'>get_dogma_effect_raw</span><span class='lparen'>(</span><span class='label'>effect_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/effects/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_effect_id'>effect_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1283,15 +2250,206 @@
       <pre class="lines">
 
 
-112
-113
-114</pre>
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_effects'>get_dogma_effects</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/effects/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get_dogma_effects_raw'>get_dogma_effects_raw</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_dogma_effects_raw-instance_method">
+  
+    #<strong>get_dogma_effects_raw</strong>(headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get a list of dogma effect ids.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Dogma/get_dogma_effects" target="_parent" title="https://esi.evetech.net/ui/#/Dogma/get_dogma_effects">https://esi.evetech.net/ui/#/Dogma/get_dogma_effects</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+218
+219
+220</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/dogma.rb', line 218</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_dogma_effects_raw'>get_dogma_effects_raw</span><span class='lparen'>(</span><span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/dogma/effects/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1303,7 +2461,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Oct  8 22:01:17 2021 by
+  Generated on Sat Oct  9 02:09:16 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

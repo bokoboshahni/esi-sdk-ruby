@@ -136,6 +136,29 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_route_origin_destination_raw-instance_method" title="#get_route_origin_destination_raw (instance method)">#<strong>get_route_origin_destination_raw</strong>(destination:, origin:, avoid: nil, connections: nil, flag: &quot;shortest&quot;, headers: {}, params: {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get the systems between origin and destination.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -419,15 +442,302 @@
 
 31
 32
-33
-34</pre>
+33</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/esi/client/routes.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_route_origin_destination'>get_route_origin_destination</span><span class='lparen'>(</span><span class='label'>destination:</span><span class='comma'>,</span> <span class='label'>origin:</span><span class='comma'>,</span> <span class='label'>avoid:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>connections:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>flag:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shortest</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get_route_origin_destination_raw'>get_route_origin_destination_raw</span><span class='lparen'>(</span><span class='label'>destination:</span> <span class='id identifier rubyid_destination'>destination</span><span class='comma'>,</span> <span class='label'>origin:</span> <span class='id identifier rubyid_origin'>origin</span><span class='comma'>,</span> <span class='label'>avoid:</span> <span class='id identifier rubyid_avoid'>avoid</span><span class='comma'>,</span> <span class='label'>connections:</span> <span class='id identifier rubyid_connections'>connections</span><span class='comma'>,</span> <span class='label'>flag:</span> <span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_route_origin_destination_raw-instance_method">
+  
+    #<strong>get_route_origin_destination_raw</strong>(destination:, origin:, avoid: nil, connections: nil, flag: &quot;shortest&quot;, headers: {}, params: {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the systems between origin and destination.</p>
+
+<p>This endpoint is cached for up to 86400 seconds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>destination</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>destination solar system ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>origin</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>origin solar system ID</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>avoid</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>avoid solar system ID(s)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>connections</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>connected solar system pairs</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>flag</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;shortest&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>route security preference. Must be one of: <code>shortest</code>, <code>secure</code>, <code>insecure</code></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional query string parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>headers</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Additional headers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/BadRequestError.html" title="ESI::Errors::BadRequestError (class)">ESI::Errors::BadRequestError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Bad request</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/NotFoundError.html" title="ESI::Errors::NotFoundError (class)">ESI::Errors::NotFoundError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>No route found</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ErrorLimitedError.html" title="ESI::Errors::ErrorLimitedError (class)">ESI::Errors::ErrorLimitedError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Error limited</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/InternalServerError.html" title="ESI::Errors::InternalServerError (class)">ESI::Errors::InternalServerError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Internal server error</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/ServiceUnavailableError.html" title="ESI::Errors::ServiceUnavailableError (class)">ESI::Errors::ServiceUnavailableError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service unavailable</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Errors/GatewayTimeoutError.html" title="ESI::Errors::GatewayTimeoutError (class)">ESI::Errors::GatewayTimeoutError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Gateway timeout</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://esi.evetech.net/ui/#/Routes/get_route_origin_destination" target="_parent" title="https://esi.evetech.net/ui/#/Routes/get_route_origin_destination">https://esi.evetech.net/ui/#/Routes/get_route_origin_destination</a></li>
+    
+  </ul>
+<p class="tag_title">Alternate Versions:</p>
+<ul class="esi_version">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>dev</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>legacy</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>v1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/esi/client/routes.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_route_origin_destination_raw'>get_route_origin_destination_raw</span><span class='lparen'>(</span><span class='label'>destination:</span><span class='comma'>,</span> <span class='label'>origin:</span><span class='comma'>,</span> <span class='label'>avoid:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>connections:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>flag:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shortest</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>avoid</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_avoid'>avoid</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>connections</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_connections'>connections</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>flag</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/route/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_origin'>origin</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_destination'>destination</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/route/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_origin'>origin</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_destination'>destination</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -439,7 +749,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Oct  8 22:01:18 2021 by
+  Generated on Sat Oct  9 02:09:17 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>
