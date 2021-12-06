@@ -175,14 +175,14 @@ module ESI
       raise_error(response)
     end
 
-    def paginate(response, path, params, headers) # rubocop:disable Metrics/MethodLength
+    def paginate(response, path, params, headers) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
       response_headers = normalize_headers(response.headers)
       page_count = response_headers["x-pages"].to_i
 
       requests = (2..page_count).map do |n|
         session.build_request(:get, path, params: params.merge(page: n), headers: headers)
       end
-      responses = requests.any? ? session.request(*requests) : []
+      responses = requests.any? ? Array(session.request(*requests)) : []
       responses.unshift(response)
 
       if responses.any?(&:error)
