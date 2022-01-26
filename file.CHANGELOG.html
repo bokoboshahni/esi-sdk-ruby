@@ -59,6 +59,31 @@
 
       <div id="content"><div id='filecontents'><h1 id="esi-sdk-changelog">ESI SDK Changelog</h1>
 
+<h1 id="300-2022-01-26"><a href="https://github.com/bokoboshahni/esi-sdk-ruby/compare/v2.1.3...v3.0.0">3.0.0</a> (2022-01-26)</h1>
+
+<ul>
+  <li>feat!: use typhoeus and oj for api calls (<a href="https://github.com/bokoboshahni/esi-sdk-ruby/commit/b6b150eff93889415ddca98d497c437470030e09">b6b150e</a>)</li>
+</ul>
+
+<h3 id="breaking-changes">BREAKING CHANGES</h3>
+
+<ul>
+  <li>Typhoeus is now used instead of HTTPX for API calls and
+oj is used for JSON parsing.</li>
+</ul>
+
+<p>The following options have been removed from <code>ESI::Client#initialize</code>:</p>
+
+<ul>
+  <li><code>:cache</code>: Configure Typhoeus cache globally with
+<code>Typhoeus::Config.cache</code>
+(see https://github.com/typhoeus/typhoeus#caching)</li>
+  <li><code>:logger</code>: Configure Ethon logger globally with <code>Ethon.logger</code>
+(see https://www.rubydoc.info/github/typhoeus/ethon/Ethon/Loggable#logger=-instance_method)</li>
+  <li><code>:instrumentation</code>: Instrumentation support to be re-added in a later
+release.</li>
+</ul>
+
 <h2 id="213-2021-12-08"><a href="https://github.com/bokoboshahni/esi-sdk-ruby/compare/v2.1.2...v2.1.3">2.1.3</a> (2021-12-08)</h2>
 
 <h3 id="bug-fixes">Bug Fixes</h3>
@@ -93,7 +118,7 @@
   <li>migrate to httpx (<a href="https://github.com/bokoboshahni/esi-sdk-ruby/commit/fd6ec0d6910805215efceb80a5361dc4d72b9599">fd6ec0d</a>)</li>
 </ul>
 
-<h3 id="breaking-changes">BREAKING CHANGES</h3>
+<h3 id="breaking-changes-1">BREAKING CHANGES</h3>
 
 <ul>
   <li>use httpx instead of faraday for http calls</li>
@@ -137,7 +162,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Wed Jan 26 17:31:26 2022 by
+  Generated on Wed Jan 26 17:47:17 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>
