@@ -26,7 +26,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id
       def get_alliance(alliance_id:, headers: {}, params: {})
-        get_alliance_raw(alliance_id: alliance_id, headers: headers, params: params).json
+        parse_response(get_alliance_raw(alliance_id: alliance_id, headers: headers, params: params))
       end
       alias get_alliances_alliance_id get_alliance
 
@@ -76,7 +76,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id_corporations
       def get_alliance_corporations(alliance_id:, headers: {}, params: {})
-        get_alliance_corporations_raw(alliance_id: alliance_id, headers: headers, params: params).json
+        parse_response(get_alliance_corporations_raw(alliance_id: alliance_id, headers: headers, params: params))
       end
       alias get_alliances_alliance_id_corporations get_alliance_corporations
 
@@ -122,7 +122,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances_alliance_id_icons
       def get_alliance_icons(alliance_id:, headers: {}, params: {})
-        get_alliance_icons_raw(alliance_id: alliance_id, headers: headers, params: params).json
+        parse_response(get_alliance_icons_raw(alliance_id: alliance_id, headers: headers, params: params))
       end
       alias get_alliances_alliance_id_icons get_alliance_icons
 
@@ -167,7 +167,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances
       def get_alliances(headers: {}, params: {})
-        get_alliances_raw(headers: headers, params: params).json
+        parse_response(get_alliances_raw(headers: headers, params: params))
       end
 
       # List all active player alliances.
@@ -190,7 +190,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Alliance/get_alliances
       def get_alliances_raw(headers: {}, params: {})
-        get("/alliances/", headers: headers, params: params)
+        get('/alliances/', headers: headers, params: params)
       end
     end
   end

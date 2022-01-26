@@ -33,7 +33,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Search/get_characters_character_id_search
       def get_character_search(character_id:, categories:, search:, strict: nil, headers: {}, params: {})
-        get_character_search_raw(character_id: character_id, categories: categories, search: search, strict: strict, headers: headers, params: params).json
+        parse_response(get_character_search_raw(character_id: character_id, categories: categories, search: search, strict: strict, headers: headers, params: params))
       end
       alias get_characters_character_id_search get_character_search
 
@@ -66,7 +66,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Search/get_characters_character_id_search
       def get_character_search_raw(character_id:, categories:, search:, strict: nil, headers: {}, params: {})
-        params.merge!("categories" => categories, "search" => search, "strict" => strict)
+        params.merge!('categories' => categories, 'search' => search, 'strict' => strict)
         get("/characters/#{character_id}/search/", headers: headers, params: params)
       end
 
@@ -92,7 +92,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Search/get_search
       def get_search(categories:, search:, strict: nil, headers: {}, params: {})
-        get_search_raw(categories: categories, search: search, strict: strict, headers: headers, params: params).json
+        parse_response(get_search_raw(categories: categories, search: search, strict: strict, headers: headers, params: params))
       end
 
       # Search for entities that match a given sub-string.
@@ -117,8 +117,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Search/get_search
       def get_search_raw(categories:, search:, strict: nil, headers: {}, params: {})
-        params.merge!("categories" => categories, "search" => search, "strict" => strict)
-        get("/search/", headers: headers, params: params)
+        params.merge!('categories' => categories, 'search' => search, 'strict' => strict)
+        get('/search/', headers: headers, params: params)
       end
     end
   end

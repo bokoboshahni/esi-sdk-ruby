@@ -31,7 +31,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_characters_character_id_industry_jobs
       def get_character_industry_jobs(character_id:, include_completed: nil, headers: {}, params: {})
-        get_character_industry_jobs_raw(character_id: character_id, include_completed: include_completed, headers: headers, params: params).json
+        parse_response(get_character_industry_jobs_raw(character_id: character_id, include_completed: include_completed, headers: headers, params: params))
       end
       alias get_characters_character_id_industry_jobs get_character_industry_jobs
 
@@ -62,7 +62,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_characters_character_id_industry_jobs
       def get_character_industry_jobs_raw(character_id:, include_completed: nil, headers: {}, params: {})
-        params.merge!("include_completed" => include_completed)
+        params.merge!('include_completed' => include_completed)
         get("/characters/#{character_id}/industry/jobs/", headers: headers, params: params)
       end
 
@@ -152,7 +152,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporations_corporation_id_industry_jobs
       def get_corporation_industry_jobs(corporation_id:, include_completed: nil, headers: {}, params: {})
-        params.merge!("include_completed" => include_completed)
+        params.merge!('include_completed' => include_completed)
         concat_responses(get_corporation_industry_jobs_raw(corporation_id: corporation_id, include_completed: include_completed, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_industry_jobs get_corporation_industry_jobs
@@ -184,7 +184,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_corporations_corporation_id_industry_jobs
       def get_corporation_industry_jobs_raw(corporation_id:, include_completed: nil, headers: {}, params: {})
-        params.merge!("include_completed" => include_completed)
+        params.merge!('include_completed' => include_completed)
         get("/corporations/#{corporation_id}/industry/jobs/", headers: headers, params: params)
       end
 
@@ -386,7 +386,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_industry_facilities
       def get_industry_facilities(headers: {}, params: {})
-        get_industry_facilities_raw(headers: headers, params: params).json
+        parse_response(get_industry_facilities_raw(headers: headers, params: params))
       end
 
       # Return a list of industry facilities.
@@ -408,7 +408,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_industry_facilities
       def get_industry_facilities_raw(headers: {}, params: {})
-        get("/industry/facilities/", headers: headers, params: params)
+        get('/industry/facilities/', headers: headers, params: params)
       end
 
       # Return cost indices for solar systems.
@@ -430,7 +430,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_industry_systems
       def get_industry_systems(headers: {}, params: {})
-        get_industry_systems_raw(headers: headers, params: params).json
+        parse_response(get_industry_systems_raw(headers: headers, params: params))
       end
 
       # Return cost indices for solar systems.
@@ -452,7 +452,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Industry/get_industry_systems
       def get_industry_systems_raw(headers: {}, params: {})
-        get("/industry/systems/", headers: headers, params: params)
+        get('/industry/systems/', headers: headers, params: params)
       end
     end
   end

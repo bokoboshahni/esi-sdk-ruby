@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_attributes
       def get_character_attributes(character_id:, headers: {}, params: {})
-        get_character_attributes_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_attributes_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_attributes get_character_attributes
 
@@ -89,7 +89,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skillqueue
       def get_character_skillqueue(character_id:, headers: {}, params: {})
-        get_character_skillqueue_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_skillqueue_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_skillqueue get_character_skillqueue
 
@@ -147,7 +147,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Skills/get_characters_character_id_skills
       def get_character_skills(character_id:, headers: {}, params: {})
-        get_character_skills_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_skills_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_skills get_character_skills
 

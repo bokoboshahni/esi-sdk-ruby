@@ -29,7 +29,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_characters_character_id_fw_stats
       def get_character_fw_stats(character_id:, headers: {}, params: {})
-        get_character_fw_stats_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_fw_stats_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_fw_stats get_character_fw_stats
 
@@ -86,7 +86,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_corporations_corporation_id_fw_stats
       def get_corporation_fw_stats(corporation_id:, headers: {}, params: {})
-        get_corporation_fw_stats_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_fw_stats_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_fw_stats get_corporation_fw_stats
 
@@ -136,7 +136,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards_characters
       def get_fw_leaderboard_characters(headers: {}, params: {})
-        get_fw_leaderboard_characters_raw(headers: headers, params: params).json
+        parse_response(get_fw_leaderboard_characters_raw(headers: headers, params: params))
       end
       alias get_fw_leaderboards_characters get_fw_leaderboard_characters
 
@@ -158,7 +158,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards_characters
       def get_fw_leaderboard_characters_raw(headers: {}, params: {})
-        get("/fw/leaderboards/characters/", headers: headers, params: params)
+        get('/fw/leaderboards/characters/', headers: headers, params: params)
       end
 
       # Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday.
@@ -179,7 +179,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards_corporations
       def get_fw_leaderboard_corporations(headers: {}, params: {})
-        get_fw_leaderboard_corporations_raw(headers: headers, params: params).json
+        parse_response(get_fw_leaderboard_corporations_raw(headers: headers, params: params))
       end
       alias get_fw_leaderboards_corporations get_fw_leaderboard_corporations
 
@@ -201,7 +201,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards_corporations
       def get_fw_leaderboard_corporations_raw(headers: {}, params: {})
-        get("/fw/leaderboards/corporations/", headers: headers, params: params)
+        get('/fw/leaderboards/corporations/', headers: headers, params: params)
       end
 
       # Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday.
@@ -222,7 +222,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards
       def get_fw_leaderboards(headers: {}, params: {})
-        get_fw_leaderboards_raw(headers: headers, params: params).json
+        parse_response(get_fw_leaderboards_raw(headers: headers, params: params))
       end
 
       # Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday.
@@ -243,7 +243,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_leaderboards
       def get_fw_leaderboards_raw(headers: {}, params: {})
-        get("/fw/leaderboards/", headers: headers, params: params)
+        get('/fw/leaderboards/', headers: headers, params: params)
       end
 
       # Statistical overviews of factions involved in faction warfare.
@@ -264,7 +264,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_stats
       def get_fw_stats(headers: {}, params: {})
-        get_fw_stats_raw(headers: headers, params: params).json
+        parse_response(get_fw_stats_raw(headers: headers, params: params))
       end
 
       # Statistical overviews of factions involved in faction warfare.
@@ -285,7 +285,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_stats
       def get_fw_stats_raw(headers: {}, params: {})
-        get("/fw/stats/", headers: headers, params: params)
+        get('/fw/stats/', headers: headers, params: params)
       end
 
       # An overview of the current ownership of faction warfare solar systems.
@@ -308,7 +308,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_systems
       def get_fw_systems(headers: {}, params: {})
-        get_fw_systems_raw(headers: headers, params: params).json
+        parse_response(get_fw_systems_raw(headers: headers, params: params))
       end
 
       # An overview of the current ownership of faction warfare solar systems.
@@ -331,7 +331,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_systems
       def get_fw_systems_raw(headers: {}, params: {})
-        get("/fw/systems/", headers: headers, params: params)
+        get('/fw/systems/', headers: headers, params: params)
       end
 
       # Data about which NPC factions are at war.
@@ -352,7 +352,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_wars
       def get_fw_wars(headers: {}, params: {})
-        get_fw_wars_raw(headers: headers, params: params).json
+        parse_response(get_fw_wars_raw(headers: headers, params: params))
       end
 
       # Data about which NPC factions are at war.
@@ -373,7 +373,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Faction Warfare/get_fw_wars
       def get_fw_wars_raw(headers: {}, params: {})
-        get("/fw/wars/", headers: headers, params: params)
+        get('/fw/wars/', headers: headers, params: params)
       end
     end
   end

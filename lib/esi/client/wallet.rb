@@ -29,7 +29,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet
       def get_character_wallet(character_id:, headers: {}, params: {})
-        get_character_wallet_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_wallet_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_wallet get_character_wallet
 
@@ -145,7 +145,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_transactions
       def get_character_wallet_transactions(character_id:, from_id: nil, headers: {}, params: {})
-        get_character_wallet_transactions_raw(character_id: character_id, from_id: from_id, headers: headers, params: params).json
+        parse_response(get_character_wallet_transactions_raw(character_id: character_id, from_id: from_id, headers: headers, params: params))
       end
       alias get_characters_character_id_wallet_transactions get_character_wallet_transactions
 
@@ -176,7 +176,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_characters_character_id_wallet_transactions
       def get_character_wallet_transactions_raw(character_id:, from_id: nil, headers: {}, params: {})
-        params.merge!("from_id" => from_id)
+        params.merge!('from_id' => from_id)
         get("/characters/#{character_id}/wallet/transactions/", headers: headers, params: params)
       end
 
@@ -206,7 +206,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets
       def get_corporation_wallets(corporation_id:, headers: {}, params: {})
-        get_corporation_wallets_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_wallets_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_wallets get_corporation_wallets
 
@@ -326,7 +326,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_transactions
       def get_corporation_wallets_division_transactions(corporation_id:, division:, from_id: nil, headers: {}, params: {})
-        get_corporation_wallets_division_transactions_raw(corporation_id: corporation_id, division: division, from_id: from_id, headers: headers, params: params).json
+        parse_response(get_corporation_wallets_division_transactions_raw(corporation_id: corporation_id, division: division, from_id: from_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_wallets_division_transactions get_corporation_wallets_division_transactions
 
@@ -358,7 +358,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wallet/get_corporations_corporation_id_wallets_division_transactions
       def get_corporation_wallets_division_transactions_raw(corporation_id:, division:, from_id: nil, headers: {}, params: {})
-        params.merge!("from_id" => from_id)
+        params.merge!('from_id' => from_id)
         get("/corporations/#{corporation_id}/wallets/#{division}/transactions/", headers: headers, params: params)
       end
     end

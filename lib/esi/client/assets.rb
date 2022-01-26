@@ -144,7 +144,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_characters_character_id_assets_locations
       def post_character_asset_locations(character_id:, item_ids:, headers: {}, params: {})
-        post_character_asset_locations_raw(character_id: character_id, item_ids: item_ids, headers: headers, params: params).json
+        parse_response(post_character_asset_locations_raw(character_id: character_id, item_ids: item_ids, headers: headers, params: params))
       end
       alias post_characters_character_id_assets_locations post_character_asset_locations
 
@@ -200,7 +200,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_characters_character_id_assets_names
       def post_character_asset_names(character_id:, item_ids:, headers: {}, params: {})
-        post_character_asset_names_raw(character_id: character_id, item_ids: item_ids, headers: headers, params: params).json
+        parse_response(post_character_asset_names_raw(character_id: character_id, item_ids: item_ids, headers: headers, params: params))
       end
       alias post_characters_character_id_assets_names post_character_asset_names
 
@@ -257,7 +257,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_corporations_corporation_id_assets_locations
       def post_corporation_asset_locations(corporation_id:, item_ids:, headers: {}, params: {})
-        post_corporation_asset_locations_raw(corporation_id: corporation_id, item_ids: item_ids, headers: headers, params: params).json
+        parse_response(post_corporation_asset_locations_raw(corporation_id: corporation_id, item_ids: item_ids, headers: headers, params: params))
       end
       alias post_corporations_corporation_id_assets_locations post_corporation_asset_locations
 
@@ -315,7 +315,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Assets/post_corporations_corporation_id_assets_names
       def post_corporation_asset_names(corporation_id:, item_ids:, headers: {}, params: {})
-        post_corporation_asset_names_raw(corporation_id: corporation_id, item_ids: item_ids, headers: headers, params: params).json
+        parse_response(post_corporation_asset_names_raw(corporation_id: corporation_id, item_ids: item_ids, headers: headers, params: params))
       end
       alias post_corporations_corporation_id_assets_names post_corporation_asset_names
 

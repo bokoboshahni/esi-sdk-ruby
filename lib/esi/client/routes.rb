@@ -28,8 +28,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Routes/get_route_origin_destination
-      def get_route_origin_destination(destination:, origin:, avoid: nil, connections: nil, flag: "shortest", headers: {}, params: {})
-        get_route_origin_destination_raw(destination: destination, origin: origin, avoid: avoid, connections: connections, flag: flag, headers: headers, params: params).json
+      def get_route_origin_destination(destination:, origin:, avoid: nil, connections: nil, flag: 'shortest', headers: {}, params: {})
+        parse_response(get_route_origin_destination_raw(destination: destination, origin: origin, avoid: avoid, connections: connections, flag: flag, headers: headers, params: params))
       end
 
       # Get the systems between origin and destination.
@@ -56,8 +56,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Routes/get_route_origin_destination
-      def get_route_origin_destination_raw(destination:, origin:, avoid: nil, connections: nil, flag: "shortest", headers: {}, params: {})
-        params.merge!("avoid" => avoid, "connections" => connections, "flag" => flag)
+      def get_route_origin_destination_raw(destination:, origin:, avoid: nil, connections: nil, flag: 'shortest', headers: {}, params: {})
+        params.merge!('avoid' => avoid, 'connections' => connections, 'flag' => flag)
         get("/route/#{origin}/#{destination}/", headers: headers, params: params)
       end
     end

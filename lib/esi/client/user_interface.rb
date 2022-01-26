@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_autopilot_waypoint
       def post_ui_autopilot_waypoint(add_to_beginning:, clear_other_waypoints:, destination_id:, headers: {}, params: {})
-        post_ui_autopilot_waypoint_raw(add_to_beginning: add_to_beginning, clear_other_waypoints: clear_other_waypoints, destination_id: destination_id, headers: headers, params: params).json
+        parse_response(post_ui_autopilot_waypoint_raw(add_to_beginning: add_to_beginning, clear_other_waypoints: clear_other_waypoints, destination_id: destination_id, headers: headers, params: params))
       end
 
       # Set a solar system as autopilot waypoint.
@@ -59,8 +59,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_autopilot_waypoint
       def post_ui_autopilot_waypoint_raw(add_to_beginning:, clear_other_waypoints:, destination_id:, headers: {}, params: {})
-        params.merge!("add_to_beginning" => add_to_beginning, "clear_other_waypoints" => clear_other_waypoints, "destination_id" => destination_id)
-        post("/ui/autopilot/waypoint/", headers: headers, params: params)
+        params.merge!('add_to_beginning' => add_to_beginning, 'clear_other_waypoints' => clear_other_waypoints, 'destination_id' => destination_id)
+        post('/ui/autopilot/waypoint/', headers: headers, params: params)
       end
 
       # Open the contract window inside the client.
@@ -87,7 +87,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_openwindow_contract
       def post_ui_openwindow_contract(contract_id:, headers: {}, params: {})
-        post_ui_openwindow_contract_raw(contract_id: contract_id, headers: headers, params: params).json
+        parse_response(post_ui_openwindow_contract_raw(contract_id: contract_id, headers: headers, params: params))
       end
 
       # Open the contract window inside the client.
@@ -114,8 +114,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_openwindow_contract
       def post_ui_openwindow_contract_raw(contract_id:, headers: {}, params: {})
-        params.merge!("contract_id" => contract_id)
-        post("/ui/openwindow/contract/", headers: headers, params: params)
+        params.merge!('contract_id' => contract_id)
+        post('/ui/openwindow/contract/', headers: headers, params: params)
       end
 
       # Open the information window for a character, corporation or alliance inside the client.
@@ -142,7 +142,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_openwindow_information
       def post_ui_openwindow_information(target_id:, headers: {}, params: {})
-        post_ui_openwindow_information_raw(target_id: target_id, headers: headers, params: params).json
+        parse_response(post_ui_openwindow_information_raw(target_id: target_id, headers: headers, params: params))
       end
 
       # Open the information window for a character, corporation or alliance inside the client.
@@ -169,8 +169,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_openwindow_information
       def post_ui_openwindow_information_raw(target_id:, headers: {}, params: {})
-        params.merge!("target_id" => target_id)
-        post("/ui/openwindow/information/", headers: headers, params: params)
+        params.merge!('target_id' => target_id)
+        post('/ui/openwindow/information/', headers: headers, params: params)
       end
 
       # Open the market details window for a specific typeID inside the client.
@@ -197,7 +197,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_openwindow_marketdetails
       def post_ui_openwindow_marketdetails(type_id:, headers: {}, params: {})
-        post_ui_openwindow_marketdetails_raw(type_id: type_id, headers: headers, params: params).json
+        parse_response(post_ui_openwindow_marketdetails_raw(type_id: type_id, headers: headers, params: params))
       end
 
       # Open the market details window for a specific typeID inside the client.
@@ -224,8 +224,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_openwindow_marketdetails
       def post_ui_openwindow_marketdetails_raw(type_id:, headers: {}, params: {})
-        params.merge!("type_id" => type_id)
-        post("/ui/openwindow/marketdetails/", headers: headers, params: params)
+        params.merge!('type_id' => type_id)
+        post('/ui/openwindow/marketdetails/', headers: headers, params: params)
       end
 
       # Open the New Mail window, according to settings from the request if applicable.
@@ -253,7 +253,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_openwindow_newmail
       def post_ui_openwindow_newmail(new_mail:, headers: {}, params: {})
-        post_ui_openwindow_newmail_raw(new_mail: new_mail, headers: headers, params: params).json
+        parse_response(post_ui_openwindow_newmail_raw(new_mail: new_mail, headers: headers, params: params))
       end
 
       # Open the New Mail window, according to settings from the request if applicable.
@@ -281,7 +281,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/User Interface/post_ui_openwindow_newmail
       def post_ui_openwindow_newmail_raw(new_mail:, headers: {}, params: {})
-        post("/ui/openwindow/newmail/", headers: headers, params: params, payload: new_mail)
+        post('/ui/openwindow/newmail/', headers: headers, params: params, payload: new_mail)
       end
     end
   end

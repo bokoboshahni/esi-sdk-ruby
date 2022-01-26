@@ -2,19 +2,12 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 3.0
 
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
-
-Style/StringLiteralsInInterpolation:
-  Enabled: true
-  EnforcedStyle: double_quotes
-
 Layout/LineLength:
   Max: 120
   Exclude:
     - lib/esi/client/*.rb
     - spec/lib/esi/client/*_spec.rb
+    - spec/lib/esi/client_spec.rb
     - Rakefile
 
 Metrics/BlockLength:

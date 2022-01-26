@@ -1,41 +1,43 @@
 # frozen_string_literal: true
 
-require "httpx"
-require "timeout"
+require 'typhoeus'
+require 'oj'
+require 'retriable'
+require 'timeout'
 
-require_relative "./errors"
-require_relative "./client/alliance"
-require_relative "./client/contacts"
-require_relative "./client/character"
-require_relative "./client/assets"
-require_relative "./client/skills"
-require_relative "./client/bookmarks"
-require_relative "./client/calendar"
-require_relative "./client/clones"
-require_relative "./client/contracts"
-require_relative "./client/fittings"
-require_relative "./client/fleets"
-require_relative "./client/faction_warfare"
-require_relative "./client/industry"
-require_relative "./client/killmails"
-require_relative "./client/location"
-require_relative "./client/loyalty"
-require_relative "./client/mail"
-require_relative "./client/opportunities"
-require_relative "./client/market"
-require_relative "./client/planetary_interaction"
-require_relative "./client/search"
-require_relative "./client/wallet"
-require_relative "./client/corporation"
-require_relative "./client/dogma"
-require_relative "./client/incursions"
-require_relative "./client/insurance"
-require_relative "./client/routes"
-require_relative "./client/sovereignty"
-require_relative "./client/status"
-require_relative "./client/user_interface"
-require_relative "./client/universe"
-require_relative "./client/wars"
+require_relative './errors'
+require_relative './client/alliance'
+require_relative './client/contacts'
+require_relative './client/character'
+require_relative './client/assets'
+require_relative './client/skills'
+require_relative './client/bookmarks'
+require_relative './client/calendar'
+require_relative './client/clones'
+require_relative './client/contracts'
+require_relative './client/fittings'
+require_relative './client/fleets'
+require_relative './client/faction_warfare'
+require_relative './client/industry'
+require_relative './client/killmails'
+require_relative './client/location'
+require_relative './client/loyalty'
+require_relative './client/mail'
+require_relative './client/opportunities'
+require_relative './client/market'
+require_relative './client/planetary_interaction'
+require_relative './client/search'
+require_relative './client/wallet'
+require_relative './client/corporation'
+require_relative './client/dogma'
+require_relative './client/incursions'
+require_relative './client/insurance'
+require_relative './client/routes'
+require_relative './client/sovereignty'
+require_relative './client/status'
+require_relative './client/user_interface'
+require_relative './client/universe'
+require_relative './client/wars'
 
 module ESI
   # Client for the EVE Swagger Interface (ESI) API.
@@ -73,8 +75,8 @@ module ESI
     include ESI::Client::Universe
     include ESI::Client::War
 
-    DEFAULT_BASE_URL = "https://esi.evetech.net"
-    DEFAULT_VERSION = "latest"
+    DEFAULT_BASE_URL = 'https://esi.evetech.net'
+    DEFAULT_VERSION = 'latest'
 
     ERROR_MAPPING = {
       400 => ESI::Errors::BadRequestError,
@@ -89,38 +91,26 @@ module ESI
       520 => ESI::Errors::EveServerError
     }.freeze
 
-    attr_reader :base_url, :cache, :instrumentation, :logger, :user_agent, :version
+    attr_reader :base_url, :user_agent, :version, :authorization_token, :retries
 
     # Returns a new {ESI::Client}.
-    #
-    # See the [faraday-http-cache](https://github.com/sourcelevel/faraday-http-cache) documentation for information on
-    # how to set up caching via the `cache` parameter.
     #
     # @param user_agent [String] Value of the `User-Agent` header for HTTP calls
     # @param base_url [String] The base URL of the ESI API
     # @param version [String] The version of the ESI API
-    # @param logger [Object] The logger to use
-    # @param cache [Hash] The cache configuration to use
-    # @option cache [Object] :store The cache store (e.g. `Rails.cache`)
-    # @option cache [Object] :logger The logger (e.g. `Rails.logger`)
-    # @option cache [Object] :instrumenter The instrumenter (e.g. `ActiveSupport::Notifications`)
-    # @param instrumentation [Hash] The instrumentation configuration to use
-    # @option instrumentation [String] :name The name to use for instrumentation
-    # @option instrumentation [Object] :instrumenter The instrumenter to use (e.g. `ActiveSupport::Notifications`)
-    def initialize(user_agent:, base_url: DEFAULT_BASE_URL, version: DEFAULT_VERSION, cache: {}, instrumentation: {}, logger: nil) # rubocop:disable Layout/LineLength, Metrics/ParameterLists
+    # @param retries [Integer] Number of times to try a request before raising an error.
+    def initialize(user_agent:, base_url: DEFAULT_BASE_URL, version: DEFAULT_VERSION, retries: 10)
       @base_url = base_url
-      @cache = cache
-      @instrumentation = instrumentation
       @user_agent = user_agent
       @version = version
-      @logger = logger
+      @retries = retries
     end
 
     # Set the `Authorization` header for subsequent requests.
     #
     # @param token [String] The [EVE SSO JWT token](https://docs.esi.evetech.net/docs/sso/) to use
-    def authorize(token)
-      session.authentication token
+    def authorize(_token)
+      @authorization_token = authorization_token
     end
 
     # Make a `DELETE` request to the ESI endpoint.
@@ -163,64 +153,103 @@ module ESI
 
     private
 
-    def make_request(method, path, params: {}, headers: {}, payload: nil)
-      versioned_path = "/#{version}#{path}"
-      response = session.request(method, versioned_path, params: params, headers: headers, json: payload)
-      response.raise_for_status
+    RETRIABLE_ERRORS = [
+      ESI::Errors::ErrorLimitedError,
+      ESI::Errors::InternalServerError,
+      ESI::Errors::ServiceUnavailableError,
+      ESI::Errors::GatewayTimeoutError,
+      ESI::Errors::EveServerError
+    ].freeze
 
-      return paginate(response, versioned_path, params, headers) if paginated?(response)
+    def make_request(method, path, params: {}, headers: {}, payload: nil) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      headers.merge!(Authorization: "Bearer #{authorization_token}") if authorization_token
+      versioned_path = "/#{version}#{path}"
+      url = "#{base_url}#{versioned_path}"
+      json = payload ? Oj.dump(payload) : nil
+      request = Typhoeus::Request.new(url, method: method, params: params, headers: headers, body: json)
+      request.on_complete { |response| raise_error(response) unless response.success? }
+
+      hydra.queue(request)
+
+      with_retries(on_retry: ->(*_) { hydra.queue(request) }) { hydra.run }
+
+      response = request.response
+
+      return paginate(response, url, params, headers) if paginated?(response)
 
       response
-    rescue HTTPX::Error
-      raise_error(response)
     end
 
-    def paginate(response, path, params, headers) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
-      response_headers = normalize_headers(response.headers)
-      page_count = response_headers["x-pages"].to_i
+    def paginate(orig_response, url, params, headers) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      response_headers = normalize_headers(orig_response.headers)
+      page_count = response_headers['x-pages'].to_i
+      pages = [orig_response]
 
-      requests = (2..page_count).map do |n|
-        session.build_request(:get, path, params: params.merge(page: n), headers: headers)
+      return pages if page_count == 1
+
+      pending_pages = page_count.times.to_a.map { |n| n + 1 }[1..]
+
+      with_retries do
+        while pending_pages.any?
+          pending_pages.each do |page|
+            request = Typhoeus::Request.new(url, params: params.merge(page: page), headers: headers)
+            request.on_complete do |response|
+              raise_error(response) unless response.success?
+
+              pages << response
+              pending_pages.delete(page)
+            end
+            hydra.queue(request)
+          end
+          hydra.run
+        end
       end
-      responses = requests.any? ? Array(session.request(*requests)) : []
-      responses.unshift(response)
 
-      if responses.any?(&:error)
-        raise ESI::Errors::PaginationError.new("Error paginating request", responses: responses)
-      end
+      pages.sort_by { |response| response.request.options[:params][:page].to_i }
+    end
 
-      responses
+    def parse_response(response)
+      Oj.load(response.body, bigdecimal_load: :float)
     end
 
     def paginated?(response)
       headers = normalize_headers(response.headers)
-      headers.key?("x-pages")
+      headers.key?('x-pages')
     end
 
     def concat_responses(responses)
-      responses.map(&:json).reduce([], :concat)
+      responses.map { |r| parse_response(r) }.reduce([], :concat)
     end
 
     def normalize_headers(headers)
       headers.to_h.transform_keys(&:downcase)
     end
 
-    def raise_error(res)
-      raise (ERROR_MAPPING[res.status] || ESI::Errors::ClientError).new("(#{res.status}) #{res.json["error"]}",
-                                                                        response: res)
+    def with_retries(opts = {}, &block)
+      Retriable.retriable(retry_options.merge(opts), &block)
     end
 
-    def session
-      @session ||= HTTPX.with(origin: base_url)
-                        .with_headers(default_headers)
-                        .plugin(:authentication)
-                        .plugin(:persistent)
-                        .plugin(:response_cache)
-                        .plugin(:retries)
+    def retry_options
+      { on: RETRIABLE_ERRORS, tries: retries }
+    end
+
+    def raise_error(res)
+      json = begin
+        Oj.load(res.body)
+      rescue StandardError
+        res.body
+      end
+
+      raise (ERROR_MAPPING[res.code] || ESI::Errors::ClientError).new("(#{res.code}) #{json['error']}",
+                                                                      response: res)
     end
 
     def default_headers
-      { "User-Agent": user_agent, Accept: "application/json" }
+      { 'User-Agent': user_agent, Accept: 'application/json' }
+    end
+
+    def hydra
+      @hydra ||= Typhoeus::Hydra.new
     end
   end
 end

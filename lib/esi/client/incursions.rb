@@ -23,7 +23,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Incursions/get_incursions
       def get_incursions(headers: {}, params: {})
-        get_incursions_raw(headers: headers, params: params).json
+        parse_response(get_incursions_raw(headers: headers, params: params))
       end
 
       # Return a list of current incursions.
@@ -45,7 +45,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Incursions/get_incursions
       def get_incursions_raw(headers: {}, params: {})
-        get("/incursions/", headers: headers, params: params)
+        get('/incursions/', headers: headers, params: params)
       end
     end
   end

@@ -29,7 +29,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fittings/delete_characters_character_id_fittings_fitting_id
       def delete_character_fitting(character_id:, fitting_id:, headers: {}, params: {})
-        delete_character_fitting_raw(character_id: character_id, fitting_id: fitting_id, headers: headers, params: params).json
+        parse_response(delete_character_fitting_raw(character_id: character_id, fitting_id: fitting_id, headers: headers, params: params))
       end
       alias delete_characters_character_id_fittings_fitting_id delete_character_fitting
 
@@ -86,7 +86,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fittings/get_characters_character_id_fittings
       def get_character_fittings(character_id:, headers: {}, params: {})
-        get_character_fittings_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_fittings_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_fittings get_character_fittings
 
@@ -142,7 +142,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fittings/post_characters_character_id_fittings
       def post_character_fittings(character_id:, fitting:, headers: {}, params: {})
-        post_character_fittings_raw(character_id: character_id, fitting: fitting, headers: headers, params: params).json
+        parse_response(post_character_fittings_raw(character_id: character_id, fitting: fitting, headers: headers, params: params))
       end
       alias post_characters_character_id_fittings post_character_fittings
 

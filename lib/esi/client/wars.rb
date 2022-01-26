@@ -25,7 +25,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars_war_id
       def get_war(war_id:, headers: {}, params: {})
-        get_war_raw(war_id: war_id, headers: headers, params: params).json
+        parse_response(get_war_raw(war_id: war_id, headers: headers, params: params))
       end
       alias get_wars_war_id get_war
 
@@ -122,7 +122,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars
       def get_wars(max_war_id: nil, headers: {}, params: {})
-        get_wars_raw(max_war_id: max_war_id, headers: headers, params: params).json
+        parse_response(get_wars_raw(max_war_id: max_war_id, headers: headers, params: params))
       end
 
       # Return a list of wars.
@@ -145,8 +145,8 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Wars/get_wars
       def get_wars_raw(max_war_id: nil, headers: {}, params: {})
-        params.merge!("max_war_id" => max_war_id)
-        get("/wars/", headers: headers, params: params)
+        params.merge!('max_war_id' => max_war_id)
+        get('/wars/', headers: headers, params: params)
       end
     end
   end

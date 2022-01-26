@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_characters_character_id_opportunities
       def get_character_opportunities(character_id:, headers: {}, params: {})
-        get_character_opportunities_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_opportunities_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_opportunities get_character_opportunities
 
@@ -81,7 +81,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_groups_group_id
       def get_opportunities_group(group_id:, headers: {}, params: {})
-        get_opportunities_group_raw(group_id: group_id, headers: headers, params: params).json
+        parse_response(get_opportunities_group_raw(group_id: group_id, headers: headers, params: params))
       end
       alias get_opportunities_groups_group_id get_opportunities_group
 
@@ -124,7 +124,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_tasks_task_id
       def get_opportunities_task(task_id:, headers: {}, params: {})
-        get_opportunities_task_raw(task_id: task_id, headers: headers, params: params).json
+        parse_response(get_opportunities_task_raw(task_id: task_id, headers: headers, params: params))
       end
       alias get_opportunities_tasks_task_id get_opportunities_task
 
@@ -166,7 +166,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_groups
       def get_opportunity_groups(headers: {}, params: {})
-        get_opportunity_groups_raw(headers: headers, params: params).json
+        parse_response(get_opportunity_groups_raw(headers: headers, params: params))
       end
       alias get_opportunities_groups get_opportunity_groups
 
@@ -187,7 +187,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_groups
       def get_opportunity_groups_raw(headers: {}, params: {})
-        get("/opportunities/groups/", headers: headers, params: params)
+        get('/opportunities/groups/', headers: headers, params: params)
       end
 
       # Return a list of opportunities tasks.
@@ -207,7 +207,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_tasks
       def get_opportunity_tasks(headers: {}, params: {})
-        get_opportunity_tasks_raw(headers: headers, params: params).json
+        parse_response(get_opportunity_tasks_raw(headers: headers, params: params))
       end
       alias get_opportunities_tasks get_opportunity_tasks
 
@@ -228,7 +228,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Opportunities/get_opportunities_tasks
       def get_opportunity_tasks_raw(headers: {}, params: {})
-        get("/opportunities/tasks/", headers: headers, params: params)
+        get('/opportunities/tasks/', headers: headers, params: params)
       end
     end
   end

@@ -28,7 +28,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/delete_characters_character_id_contacts
       def delete_character_contacts(character_id:, contact_ids:, headers: {}, params: {})
-        delete_character_contacts_raw(character_id: character_id, contact_ids: contact_ids, headers: headers, params: params).json
+        parse_response(delete_character_contacts_raw(character_id: character_id, contact_ids: contact_ids, headers: headers, params: params))
       end
       alias delete_characters_character_id_contacts delete_character_contacts
 
@@ -56,7 +56,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/delete_characters_character_id_contacts
       def delete_character_contacts_raw(character_id:, contact_ids:, headers: {}, params: {})
-        params.merge!("contact_ids" => contact_ids)
+        params.merge!('contact_ids' => contact_ids)
         delete("/characters/#{character_id}/contacts/", headers: headers, params: params)
       end
 
@@ -86,7 +86,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/get_alliances_alliance_id_contacts_labels
       def get_alliance_contact_labels(alliance_id:, headers: {}, params: {})
-        get_alliance_contact_labels_raw(alliance_id: alliance_id, headers: headers, params: params).json
+        parse_response(get_alliance_contact_labels_raw(alliance_id: alliance_id, headers: headers, params: params))
       end
       alias get_alliances_alliance_id_contacts_labels get_alliance_contact_labels
 
@@ -202,7 +202,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/get_characters_character_id_contacts_labels
       def get_character_contact_labels(character_id:, headers: {}, params: {})
-        get_character_contact_labels_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_contact_labels_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_contacts_labels get_character_contact_labels
 
@@ -318,7 +318,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/get_corporations_corporation_id_contacts_labels
       def get_corporation_contact_labels(corporation_id:, headers: {}, params: {})
-        get_corporation_contact_labels_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_contact_labels_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_contacts_labels get_corporation_contact_labels
 
@@ -436,7 +436,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/post_characters_character_id_contacts
       def post_character_contacts(character_id:, contact_ids:, standing:, label_ids: nil, watched: nil, headers: {}, params: {})
-        post_character_contacts_raw(character_id: character_id, contact_ids: contact_ids, label_ids: label_ids, standing: standing, watched: watched, headers: headers, params: params).json
+        parse_response(post_character_contacts_raw(character_id: character_id, contact_ids: contact_ids, label_ids: label_ids, standing: standing, watched: watched, headers: headers, params: params))
       end
       alias post_characters_character_id_contacts post_character_contacts
 
@@ -468,7 +468,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/post_characters_character_id_contacts
       def post_character_contacts_raw(character_id:, contact_ids:, standing:, label_ids: nil, watched: nil, headers: {}, params: {})
-        params.merge!("label_ids" => label_ids, "standing" => standing, "watched" => watched)
+        params.merge!('label_ids' => label_ids, 'standing' => standing, 'watched' => watched)
         post("/characters/#{character_id}/contacts/", headers: headers, params: params, payload: contact_ids)
       end
 
@@ -499,7 +499,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/put_characters_character_id_contacts
       def put_character_contacts(character_id:, contact_ids:, standing:, label_ids: nil, watched: nil, headers: {}, params: {})
-        put_character_contacts_raw(character_id: character_id, contact_ids: contact_ids, label_ids: label_ids, standing: standing, watched: watched, headers: headers, params: params).json
+        parse_response(put_character_contacts_raw(character_id: character_id, contact_ids: contact_ids, label_ids: label_ids, standing: standing, watched: watched, headers: headers, params: params))
       end
       alias put_characters_character_id_contacts put_character_contacts
 
@@ -530,7 +530,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contacts/put_characters_character_id_contacts
       def put_character_contacts_raw(character_id:, contact_ids:, standing:, label_ids: nil, watched: nil, headers: {}, params: {})
-        params.merge!("label_ids" => label_ids, "standing" => standing, "watched" => watched)
+        params.merge!('label_ids' => label_ids, 'standing' => standing, 'watched' => watched)
         put("/characters/#{character_id}/contacts/", headers: headers, params: params, payload: contact_ids)
       end
     end

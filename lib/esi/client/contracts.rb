@@ -32,7 +32,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_characters_character_id_contracts_contract_id_bids
       def get_character_contract_bids(character_id:, contract_id:, headers: {}, params: {})
-        get_character_contract_bids_raw(character_id: character_id, contract_id: contract_id, headers: headers, params: params).json
+        parse_response(get_character_contract_bids_raw(character_id: character_id, contract_id: contract_id, headers: headers, params: params))
       end
       alias get_characters_character_id_contracts_contract_id_bids get_character_contract_bids
 
@@ -95,7 +95,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_characters_character_id_contracts_contract_id_items
       def get_character_contract_items(character_id:, contract_id:, headers: {}, params: {})
-        get_character_contract_items_raw(character_id: character_id, contract_id: contract_id, headers: headers, params: params).json
+        parse_response(get_character_contract_items_raw(character_id: character_id, contract_id: contract_id, headers: headers, params: params))
       end
       alias get_characters_character_id_contracts_contract_id_items get_character_contract_items
 
@@ -432,7 +432,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Contracts/get_corporations_corporation_id_contracts_contract_id_items
       def get_corporation_contract_items(contract_id:, corporation_id:, headers: {}, params: {})
-        get_corporation_contract_items_raw(contract_id: contract_id, corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_contract_items_raw(contract_id: contract_id, corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_contracts_contract_id_items get_corporation_contract_items
 
