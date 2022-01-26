@@ -1,5 +1,26 @@
 # ESI SDK Changelog
 
+# [3.0.0](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v2.1.3...v3.0.0) (2022-01-26)
+
+
+* feat!: use typhoeus and oj for api calls ([b6b150e](https://github.com/bokoboshahni/esi-sdk-ruby/commit/b6b150eff93889415ddca98d497c437470030e09))
+
+
+### BREAKING CHANGES
+
+* Typhoeus is now used instead of HTTPX for API calls and
+oj is used for JSON parsing.
+
+The following options have been removed from `ESI::Client#initialize`:
+
+- `:cache`: Configure Typhoeus cache globally with
+  `Typhoeus::Config.cache`
+  (see https://github.com/typhoeus/typhoeus#caching)
+- `:logger`: Configure Ethon logger globally with `Ethon.logger`
+  (see https://www.rubydoc.info/github/typhoeus/ethon/Ethon/Loggable#logger=-instance_method)
+- `:instrumentation`: Instrumentation support to be re-added in a later
+  release.
+
 ## [2.1.3](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v2.1.2...v2.1.3) (2021-12-08)
 
 
