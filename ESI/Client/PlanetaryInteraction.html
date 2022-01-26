@@ -577,7 +577,7 @@
       <pre class="code"><span class="info file"># File 'lib/esi/client/planetary_interaction.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_character_planet'>get_character_planet</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>planet_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get_character_planet_raw'>get_character_planet_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>planet_id:</span> <span class='id identifier rubyid_planet_id'>planet_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='id identifier rubyid_get_character_planet_raw'>get_character_planet_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>planet_id:</span> <span class='id identifier rubyid_planet_id'>planet_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1098,7 +1098,7 @@
       <pre class="code"><span class="info file"># File 'lib/esi/client/planetary_interaction.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_character_planets'>get_character_planets</span><span class='lparen'>(</span><span class='label'>character_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get_character_planets_raw'>get_character_planets_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='id identifier rubyid_get_character_planets_raw'>get_character_planets_raw</span><span class='lparen'>(</span><span class='label'>character_id:</span> <span class='id identifier rubyid_character_id'>character_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2080,7 +2080,7 @@
       <pre class="code"><span class="info file"># File 'lib/esi/client/planetary_interaction.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_universe_schematic'>get_universe_schematic</span><span class='lparen'>(</span><span class='label'>schematic_id:</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_get_universe_schematic_raw'>get_universe_schematic_raw</span><span class='lparen'>(</span><span class='label'>schematic_id:</span> <span class='id identifier rubyid_schematic_id'>schematic_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span>
+  <span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='id identifier rubyid_get_universe_schematic_raw'>get_universe_schematic_raw</span><span class='lparen'>(</span><span class='label'>schematic_id:</span> <span class='id identifier rubyid_schematic_id'>schematic_id</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2313,7 +2313,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Dec  8 20:48:46 2021 by
+  Generated on Wed Jan 26 17:31:35 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>
