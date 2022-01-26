@@ -9,6 +9,7 @@ module ESI
       # This endpoint is cached for up to 86400 seconds.
       #
       # @esi_version dev
+      # @esi_version legacy
       # @esi_version v5
       #
       # @param character_id [Integer] An EVE character ID
@@ -24,7 +25,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id
       def get_character(character_id:, headers: {}, params: {})
-        get_character_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id get_character
 
@@ -33,6 +34,7 @@ module ESI
       # This endpoint is cached for up to 86400 seconds.
       #
       # @esi_version dev
+      # @esi_version legacy
       # @esi_version v5
       #
       # @param character_id [Integer] An EVE character ID
@@ -76,7 +78,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_agents_research
       def get_character_agents_research(character_id:, headers: {}, params: {})
-        get_character_agents_research_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_agents_research_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_agents_research get_character_agents_research
 
@@ -184,7 +186,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_corporationhistory
       def get_character_corporationhistory(character_id:, headers: {}, params: {})
-        get_character_corporationhistory_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_corporationhistory_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_character_corporation_history get_character_corporationhistory
       alias get_characters_character_id_corporationhistory get_character_corporationhistory
@@ -236,7 +238,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_fatigue
       def get_character_fatigue(character_id:, headers: {}, params: {})
-        get_character_fatigue_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_fatigue_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_fatigue get_character_fatigue
 
@@ -293,7 +295,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_medals
       def get_character_medals(character_id:, headers: {}, params: {})
-        get_character_medals_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_medals_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_medals get_character_medals
 
@@ -350,7 +352,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_notifications_contacts
       def get_character_notification_contacts(character_id:, headers: {}, params: {})
-        get_character_notification_contacts_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_notification_contacts_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_notifications_contacts get_character_notification_contacts
 
@@ -408,7 +410,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_notifications
       def get_character_notifications(character_id:, headers: {}, params: {})
-        get_character_notifications_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_notifications_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_notifications get_character_notifications
 
@@ -460,7 +462,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_portrait
       def get_character_portrait(character_id:, headers: {}, params: {})
-        get_character_portrait_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_portrait_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_portrait get_character_portrait
 
@@ -511,7 +513,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_roles
       def get_character_roles(character_id:, headers: {}, params: {})
-        get_character_roles_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_roles_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_roles get_character_roles
 
@@ -568,7 +570,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_standings
       def get_character_standings(character_id:, headers: {}, params: {})
-        get_character_standings_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_standings_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_standings get_character_standings
 
@@ -625,7 +627,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/get_characters_character_id_titles
       def get_character_titles(character_id:, headers: {}, params: {})
-        get_character_titles_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_titles_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_titles get_character_titles
 
@@ -681,7 +683,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/post_characters_character_id_cspa
       def post_character_cspa(character_id:, characters:, headers: {}, params: {})
-        post_character_cspa_raw(character_id: character_id, characters: characters, headers: headers, params: params).json
+        parse_response(post_character_cspa_raw(character_id: character_id, characters: characters, headers: headers, params: params))
       end
       alias post_characters_character_id_cspa post_character_cspa
 
@@ -731,7 +733,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/post_characters_affiliation
       def post_characters_affiliation(characters:, headers: {}, params: {})
-        post_characters_affiliation_raw(characters: characters, headers: headers, params: params).json
+        parse_response(post_characters_affiliation_raw(characters: characters, headers: headers, params: params))
       end
 
       # Bulk lookup of character IDs to corporation, alliance and faction.
@@ -753,7 +755,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Character/post_characters_affiliation
       def post_characters_affiliation_raw(characters:, headers: {}, params: {})
-        post("/characters/affiliation/", headers: headers, params: params, payload: characters)
+        post('/characters/affiliation/', headers: headers, params: params, payload: characters)
       end
     end
   end

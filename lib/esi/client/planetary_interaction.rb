@@ -29,7 +29,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Planetary Interaction/get_characters_character_id_planets_planet_id
       def get_character_planet(character_id:, planet_id:, headers: {}, params: {})
-        get_character_planet_raw(character_id: character_id, planet_id: planet_id, headers: headers, params: params).json
+        parse_response(get_character_planet_raw(character_id: character_id, planet_id: planet_id, headers: headers, params: params))
       end
       alias get_characters_character_id_planets_planet_id get_character_planet
 
@@ -87,7 +87,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Planetary Interaction/get_characters_character_id_planets
       def get_character_planets(character_id:, headers: {}, params: {})
-        get_character_planets_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_planets_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_planets get_character_planets
 
@@ -200,7 +200,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Planetary Interaction/get_universe_schematics_schematic_id
       def get_universe_schematic(schematic_id:, headers: {}, params: {})
-        get_universe_schematic_raw(schematic_id: schematic_id, headers: headers, params: params).json
+        parse_response(get_universe_schematic_raw(schematic_id: schematic_id, headers: headers, params: params))
       end
       alias get_universe_schematics_schematic_id get_universe_schematic
 

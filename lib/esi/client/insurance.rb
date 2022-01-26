@@ -23,7 +23,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Insurance/get_insurance_prices
       def get_insurance_prices(headers: {}, params: {})
-        get_insurance_prices_raw(headers: headers, params: params).json
+        parse_response(get_insurance_prices_raw(headers: headers, params: params))
       end
 
       # Return available insurance levels for all ship types.
@@ -45,7 +45,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Insurance/get_insurance_prices
       def get_insurance_prices_raw(headers: {}, params: {})
-        get("/insurance/prices/", headers: headers, params: params)
+        get('/insurance/prices/', headers: headers, params: params)
       end
     end
   end

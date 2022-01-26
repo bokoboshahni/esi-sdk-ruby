@@ -31,7 +31,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Location/get_characters_character_id_location
       def get_character_location(character_id:, headers: {}, params: {})
-        get_character_location_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_location_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_location get_character_location
 
@@ -91,7 +91,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Location/get_characters_character_id_online
       def get_character_online(character_id:, headers: {}, params: {})
-        get_character_online_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_online_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_online get_character_online
 
@@ -151,7 +151,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Location/get_characters_character_id_ship
       def get_character_ship(character_id:, headers: {}, params: {})
-        get_character_ship_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_ship_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_ship get_character_ship
 

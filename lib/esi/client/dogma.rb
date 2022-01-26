@@ -23,7 +23,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes_attribute_id
       def get_dogma_attribute(attribute_id:, headers: {}, params: {})
-        get_dogma_attribute_raw(attribute_id: attribute_id, headers: headers, params: params).json
+        parse_response(get_dogma_attribute_raw(attribute_id: attribute_id, headers: headers, params: params))
       end
       alias get_dogma_attributes_attribute_id get_dogma_attribute
 
@@ -66,7 +66,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes
       def get_dogma_attributes(headers: {}, params: {})
-        get_dogma_attributes_raw(headers: headers, params: params).json
+        parse_response(get_dogma_attributes_raw(headers: headers, params: params))
       end
 
       # Get a list of dogma attribute ids.
@@ -86,7 +86,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_attributes
       def get_dogma_attributes_raw(headers: {}, params: {})
-        get("/dogma/attributes/", headers: headers, params: params)
+        get('/dogma/attributes/', headers: headers, params: params)
       end
 
       # Returns info about a dynamic item resulting from mutation with a mutaplasmid.
@@ -109,7 +109,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_dynamic_items_type_id_item_id
       def get_dogma_dynamic_items_type_item(item_id:, type_id:, headers: {}, params: {})
-        get_dogma_dynamic_items_type_item_raw(item_id: item_id, type_id: type_id, headers: headers, params: params).json
+        parse_response(get_dogma_dynamic_items_type_item_raw(item_id: item_id, type_id: type_id, headers: headers, params: params))
       end
       alias get_dogma_dynamic_items_type_id_item_id get_dogma_dynamic_items_type_item
 
@@ -154,7 +154,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_effects_effect_id
       def get_dogma_effect(effect_id:, headers: {}, params: {})
-        get_dogma_effect_raw(effect_id: effect_id, headers: headers, params: params).json
+        parse_response(get_dogma_effect_raw(effect_id: effect_id, headers: headers, params: params))
       end
       alias get_dogma_effects_effect_id get_dogma_effect
 
@@ -196,7 +196,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_effects
       def get_dogma_effects(headers: {}, params: {})
-        get_dogma_effects_raw(headers: headers, params: params).json
+        parse_response(get_dogma_effects_raw(headers: headers, params: params))
       end
 
       # Get a list of dogma effect ids.
@@ -216,7 +216,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Dogma/get_dogma_effects
       def get_dogma_effects_raw(headers: {}, params: {})
-        get("/dogma/effects/", headers: headers, params: params)
+        get('/dogma/effects/', headers: headers, params: params)
       end
     end
   end

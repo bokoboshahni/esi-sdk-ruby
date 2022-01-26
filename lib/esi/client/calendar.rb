@@ -32,7 +32,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar
       def get_character_calendar(character_id:, from_event: nil, headers: {}, params: {})
-        get_character_calendar_raw(character_id: character_id, from_event: from_event, headers: headers, params: params).json
+        parse_response(get_character_calendar_raw(character_id: character_id, from_event: from_event, headers: headers, params: params))
       end
       alias get_characters_character_id_calendar get_character_calendar
 
@@ -64,7 +64,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar
       def get_character_calendar_raw(character_id:, from_event: nil, headers: {}, params: {})
-        params.merge!("from_event" => from_event)
+        params.merge!('from_event' => from_event)
         get("/characters/#{character_id}/calendar/", headers: headers, params: params)
       end
 
@@ -97,7 +97,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar_event_id
       def get_character_calendar_event(character_id:, event_id:, headers: {}, params: {})
-        get_character_calendar_event_raw(character_id: character_id, event_id: event_id, headers: headers, params: params).json
+        parse_response(get_character_calendar_event_raw(character_id: character_id, event_id: event_id, headers: headers, params: params))
       end
       alias get_characters_character_id_calendar_event_id get_character_calendar_event
 
@@ -162,7 +162,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Calendar/get_characters_character_id_calendar_event_id_attendees
       def get_character_calendar_event_attendees(character_id:, event_id:, headers: {}, params: {})
-        get_character_calendar_event_attendees_raw(character_id: character_id, event_id: event_id, headers: headers, params: params).json
+        parse_response(get_character_calendar_event_attendees_raw(character_id: character_id, event_id: event_id, headers: headers, params: params))
       end
       alias get_characters_character_id_calendar_event_id_attendees get_character_calendar_event_attendees
 
@@ -227,7 +227,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Calendar/put_characters_character_id_calendar_event_id
       def put_character_calendar_event(character_id:, event_id:, response:, headers: {}, params: {})
-        put_character_calendar_event_raw(character_id: character_id, event_id: event_id, response: response, headers: headers, params: params).json
+        parse_response(put_character_calendar_event_raw(character_id: character_id, event_id: event_id, response: response, headers: headers, params: params))
       end
       alias put_characters_character_id_calendar_event_id put_character_calendar_event
 

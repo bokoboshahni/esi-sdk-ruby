@@ -24,7 +24,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Status/get_status
       def get_status(headers: {}, params: {})
-        get_status_raw(headers: headers, params: params).json
+        parse_response(get_status_raw(headers: headers, params: params))
       end
 
       # EVE Server status.
@@ -47,7 +47,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Status/get_status
       def get_status_raw(headers: {}, params: {})
-        get("/status/", headers: headers, params: params)
+        get('/status/', headers: headers, params: params)
       end
     end
   end

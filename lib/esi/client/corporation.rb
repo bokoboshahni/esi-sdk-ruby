@@ -24,7 +24,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id
       def get_corporation(corporation_id:, headers: {}, params: {})
-        get_corporation_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id get_corporation
 
@@ -70,7 +70,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_alliancehistory
       def get_corporation_alliancehistory(corporation_id:, headers: {}, params: {})
-        get_corporation_alliancehistory_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_alliancehistory_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporation_alliance_history get_corporation_alliancehistory
       alias get_corporations_corporation_id_alliancehistory get_corporation_alliancehistory
@@ -236,7 +236,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_divisions
       def get_corporation_divisions(corporation_id:, headers: {}, params: {})
-        get_corporation_divisions_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_divisions_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_divisions get_corporation_divisions
 
@@ -293,7 +293,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_facilities
       def get_corporation_facilities(corporation_id:, headers: {}, params: {})
-        get_corporation_facilities_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_facilities_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_facilities get_corporation_facilities
 
@@ -345,7 +345,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_icons
       def get_corporation_icons(corporation_id:, headers: {}, params: {})
-        get_corporation_icons_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_icons_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_icons get_corporation_icons
 
@@ -511,7 +511,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_members_titles
       def get_corporation_member_titles(corporation_id:, headers: {}, params: {})
-        get_corporation_member_titles_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_member_titles_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_members_titles get_corporation_member_titles
 
@@ -568,7 +568,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_members
       def get_corporation_members(corporation_id:, headers: {}, params: {})
-        get_corporation_members_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_members_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_members get_corporation_members
 
@@ -625,7 +625,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_members_limit
       def get_corporation_members_limit(corporation_id:, headers: {}, params: {})
-        get_corporation_members_limit_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_members_limit_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_members_limit get_corporation_members_limit
 
@@ -682,7 +682,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_membertracking
       def get_corporation_membertracking(corporation_id:, headers: {}, params: {})
-        get_corporation_membertracking_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_membertracking_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_membertracking get_corporation_membertracking
 
@@ -730,7 +730,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_npccorps
       def get_corporation_npccorps(headers: {}, params: {})
-        get_corporation_npccorps_raw(headers: headers, params: params).json
+        parse_response(get_corporation_npccorps_raw(headers: headers, params: params))
       end
       alias get_corporations_npccorps get_corporation_npccorps
 
@@ -750,7 +750,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_npccorps
       def get_corporation_npccorps_raw(headers: {}, params: {})
-        get("/corporations/npccorps/", headers: headers, params: params)
+        get('/corporations/npccorps/', headers: headers, params: params)
       end
 
       # Return the roles of all members if the character has the personnel manager role or any grantable role.
@@ -778,7 +778,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_roles
       def get_corporation_roles(corporation_id:, headers: {}, params: {})
-        get_corporation_roles_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_roles_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_roles get_corporation_roles
 
@@ -1010,7 +1010,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_starbases_starbase_id
       def get_corporation_starbase(corporation_id:, starbase_id:, system_id:, headers: {}, params: {})
-        get_corporation_starbase_raw(corporation_id: corporation_id, starbase_id: starbase_id, system_id: system_id, headers: headers, params: params).json
+        parse_response(get_corporation_starbase_raw(corporation_id: corporation_id, starbase_id: starbase_id, system_id: system_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_starbases_starbase_id get_corporation_starbase
 
@@ -1041,7 +1041,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_starbases_starbase_id
       def get_corporation_starbase_raw(corporation_id:, starbase_id:, system_id:, headers: {}, params: {})
-        params.merge!("system_id" => system_id)
+        params.merge!('system_id' => system_id)
         get("/corporations/#{corporation_id}/starbases/#{starbase_id}/", headers: headers, params: params)
       end
 
@@ -1184,7 +1184,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Corporation/get_corporations_corporation_id_titles
       def get_corporation_titles(corporation_id:, headers: {}, params: {})
-        get_corporation_titles_raw(corporation_id: corporation_id, headers: headers, params: params).json
+        parse_response(get_corporation_titles_raw(corporation_id: corporation_id, headers: headers, params: params))
       end
       alias get_corporations_corporation_id_titles get_corporation_titles
 

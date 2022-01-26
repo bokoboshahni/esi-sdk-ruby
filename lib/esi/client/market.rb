@@ -29,7 +29,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_characters_character_id_orders
       def get_character_orders(character_id:, headers: {}, params: {})
-        get_character_orders_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_orders_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_orders get_character_orders
 
@@ -251,7 +251,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_groups
       def get_market_groups(headers: {}, params: {})
-        get_market_groups_raw(headers: headers, params: params).json
+        parse_response(get_market_groups_raw(headers: headers, params: params))
       end
       alias get_markets_groups get_market_groups
 
@@ -272,7 +272,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_groups
       def get_market_groups_raw(headers: {}, params: {})
-        get("/markets/groups/", headers: headers, params: params)
+        get('/markets/groups/', headers: headers, params: params)
       end
 
       # Get information on an item group.
@@ -294,7 +294,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_groups_market_group_id
       def get_market_groups_market_group(market_group_id:, headers: {}, params: {})
-        get_market_groups_market_group_raw(market_group_id: market_group_id, headers: headers, params: params).json
+        parse_response(get_market_groups_market_group_raw(market_group_id: market_group_id, headers: headers, params: params))
       end
       alias get_markets_groups_market_group_id get_market_groups_market_group
 
@@ -339,7 +339,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_prices
       def get_market_prices(headers: {}, params: {})
-        get_market_prices_raw(headers: headers, params: params).json
+        parse_response(get_market_prices_raw(headers: headers, params: params))
       end
       alias get_markets_prices get_market_prices
 
@@ -362,7 +362,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_prices
       def get_market_prices_raw(headers: {}, params: {})
-        get("/markets/prices/", headers: headers, params: params)
+        get('/markets/prices/', headers: headers, params: params)
       end
 
       # Return a list of historical market statistics for the specified type in a region.
@@ -387,7 +387,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_history
       def get_markets_region_history(region_id:, type_id:, headers: {}, params: {})
-        get_markets_region_history_raw(region_id: region_id, type_id: type_id, headers: headers, params: params).json
+        parse_response(get_markets_region_history_raw(region_id: region_id, type_id: type_id, headers: headers, params: params))
       end
       alias get_markets_region_id_history get_markets_region_history
 
@@ -413,7 +413,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_history
       def get_markets_region_history_raw(region_id:, type_id:, headers: {}, params: {})
-        params.merge!("type_id" => type_id)
+        params.merge!('type_id' => type_id)
         get("/markets/#{region_id}/history/", headers: headers, params: params)
       end
 
@@ -440,8 +440,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_orders
-      def get_markets_region_orders(region_id:, order_type: "all", type_id: nil, headers: {}, params: {})
-        params.merge!("order_type" => order_type, "type_id" => type_id)
+      def get_markets_region_orders(region_id:, order_type: 'all', type_id: nil, headers: {}, params: {})
+        params.merge!('order_type' => order_type, 'type_id' => type_id)
         concat_responses(get_markets_region_orders_raw(region_id: region_id, order_type: order_type, type_id: type_id, headers: headers, params: params))
       end
       alias get_markets_region_id_orders get_markets_region_orders
@@ -469,8 +469,8 @@ module ESI
       # @raise [ESI::Errors::GatewayTimeoutError] Gateway timeout
       #
       # @see https://esi.evetech.net/ui/#/Market/get_markets_region_id_orders
-      def get_markets_region_orders_raw(region_id:, order_type: "all", type_id: nil, headers: {}, params: {})
-        params.merge!("order_type" => order_type, "type_id" => type_id)
+      def get_markets_region_orders_raw(region_id:, order_type: 'all', type_id: nil, headers: {}, params: {})
+        params.merge!('order_type' => order_type, 'type_id' => type_id)
         get("/markets/#{region_id}/orders/", headers: headers, params: params)
       end
 

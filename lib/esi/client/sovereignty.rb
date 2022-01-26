@@ -23,7 +23,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_campaigns
       def get_sovereignty_campaigns(headers: {}, params: {})
-        get_sovereignty_campaigns_raw(headers: headers, params: params).json
+        parse_response(get_sovereignty_campaigns_raw(headers: headers, params: params))
       end
 
       # Shows sovereignty data for campaigns.
@@ -45,7 +45,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_campaigns
       def get_sovereignty_campaigns_raw(headers: {}, params: {})
-        get("/sovereignty/campaigns/", headers: headers, params: params)
+        get('/sovereignty/campaigns/', headers: headers, params: params)
       end
 
       # Shows sovereignty information for solar systems.
@@ -67,7 +67,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_map
       def get_sovereignty_map(headers: {}, params: {})
-        get_sovereignty_map_raw(headers: headers, params: params).json
+        parse_response(get_sovereignty_map_raw(headers: headers, params: params))
       end
 
       # Shows sovereignty information for solar systems.
@@ -89,7 +89,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_map
       def get_sovereignty_map_raw(headers: {}, params: {})
-        get("/sovereignty/map/", headers: headers, params: params)
+        get('/sovereignty/map/', headers: headers, params: params)
       end
 
       # Shows sovereignty data for structures.
@@ -111,7 +111,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_structures
       def get_sovereignty_structures(headers: {}, params: {})
-        get_sovereignty_structures_raw(headers: headers, params: params).json
+        parse_response(get_sovereignty_structures_raw(headers: headers, params: params))
       end
 
       # Shows sovereignty data for structures.
@@ -133,7 +133,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Sovereignty/get_sovereignty_structures
       def get_sovereignty_structures_raw(headers: {}, params: {})
-        get("/sovereignty/structures/", headers: headers, params: params)
+        get('/sovereignty/structures/', headers: headers, params: params)
       end
     end
   end

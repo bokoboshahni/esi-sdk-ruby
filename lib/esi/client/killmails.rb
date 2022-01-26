@@ -144,7 +144,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Killmails/get_killmails_killmail_id_killmail_hash
       def get_killmail_killmail_hash(killmail_hash:, killmail_id:, headers: {}, params: {})
-        get_killmail_killmail_hash_raw(killmail_hash: killmail_hash, killmail_id: killmail_id, headers: headers, params: params).json
+        parse_response(get_killmail_killmail_hash_raw(killmail_hash: killmail_hash, killmail_id: killmail_id, headers: headers, params: params))
       end
       alias get_killmail get_killmail_killmail_hash
       alias get_killmails_killmail_id_killmail_hash get_killmail_killmail_hash

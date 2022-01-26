@@ -29,7 +29,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/delete_characters_character_id_mail_mail_id
       def delete_character_mail(character_id:, mail_id:, headers: {}, params: {})
-        delete_character_mail_raw(character_id: character_id, mail_id: mail_id, headers: headers, params: params).json
+        parse_response(delete_character_mail_raw(character_id: character_id, mail_id: mail_id, headers: headers, params: params))
       end
       alias delete_characters_character_id_mail_mail_id delete_character_mail
 
@@ -87,7 +87,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/delete_characters_character_id_mail_labels_label_id
       def delete_character_mail_label(character_id:, label_id:, headers: {}, params: {})
-        delete_character_mail_label_raw(character_id: character_id, label_id: label_id, headers: headers, params: params).json
+        parse_response(delete_character_mail_label_raw(character_id: character_id, label_id: label_id, headers: headers, params: params))
       end
       alias delete_characters_character_id_mail_labels_label_id delete_character_mail_label
 
@@ -148,7 +148,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_mail_id
       def get_character_mail(character_id:, mail_id:, headers: {}, params: {})
-        get_character_mail_raw(character_id: character_id, mail_id: mail_id, headers: headers, params: params).json
+        parse_response(get_character_mail_raw(character_id: character_id, mail_id: mail_id, headers: headers, params: params))
       end
       alias get_characters_character_id_mail_mail_id get_character_mail
 
@@ -208,7 +208,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_labels
       def get_character_mail_labels(character_id:, headers: {}, params: {})
-        get_character_mail_labels_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_mail_labels_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_mail_labels get_character_mail_labels
 
@@ -266,7 +266,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/get_characters_character_id_mail_lists
       def get_character_mail_lists(character_id:, headers: {}, params: {})
-        get_character_mail_lists_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_mail_lists_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_mail_lists get_character_mail_lists
 
@@ -325,7 +325,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/post_characters_character_id_mail
       def post_character_mail(character_id:, mail:, headers: {}, params: {})
-        post_character_mail_raw(character_id: character_id, mail: mail, headers: headers, params: params).json
+        parse_response(post_character_mail_raw(character_id: character_id, mail: mail, headers: headers, params: params))
       end
       alias post_characters_character_id_mail post_character_mail
 
@@ -383,7 +383,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/post_characters_character_id_mail_labels
       def post_character_mail_labels(character_id:, label:, headers: {}, params: {})
-        post_character_mail_labels_raw(character_id: character_id, label: label, headers: headers, params: params).json
+        parse_response(post_character_mail_labels_raw(character_id: character_id, label: label, headers: headers, params: params))
       end
       alias post_characters_character_id_mail_labels post_character_mail_labels
 
@@ -441,7 +441,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Mail/put_characters_character_id_mail_mail_id
       def put_character_mail(character_id:, mail_id:, contents:, headers: {}, params: {})
-        put_character_mail_raw(character_id: character_id, mail_id: mail_id, contents: contents, headers: headers, params: params).json
+        parse_response(put_character_mail_raw(character_id: character_id, mail_id: mail_id, contents: contents, headers: headers, params: params))
       end
       alias put_characters_character_id_mail_mail_id put_character_mail
 

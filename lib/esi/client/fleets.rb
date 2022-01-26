@@ -30,7 +30,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/delete_fleets_fleet_id_members_member_id
       def delete_fleet_member(fleet_id:, member_id:, headers: {}, params: {})
-        delete_fleet_member_raw(fleet_id: fleet_id, member_id: member_id, headers: headers, params: params).json
+        parse_response(delete_fleet_member_raw(fleet_id: fleet_id, member_id: member_id, headers: headers, params: params))
       end
       alias delete_fleets_fleet_id_members_member_id delete_fleet_member
 
@@ -89,7 +89,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/delete_fleets_fleet_id_squads_squad_id
       def delete_fleet_squad(fleet_id:, squad_id:, headers: {}, params: {})
-        delete_fleet_squad_raw(fleet_id: fleet_id, squad_id: squad_id, headers: headers, params: params).json
+        parse_response(delete_fleet_squad_raw(fleet_id: fleet_id, squad_id: squad_id, headers: headers, params: params))
       end
       alias delete_fleets_fleet_id_squads_squad_id delete_fleet_squad
 
@@ -148,7 +148,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/delete_fleets_fleet_id_wings_wing_id
       def delete_fleet_wing(fleet_id:, wing_id:, headers: {}, params: {})
-        delete_fleet_wing_raw(fleet_id: fleet_id, wing_id: wing_id, headers: headers, params: params).json
+        parse_response(delete_fleet_wing_raw(fleet_id: fleet_id, wing_id: wing_id, headers: headers, params: params))
       end
       alias delete_fleets_fleet_id_wings_wing_id delete_fleet_wing
 
@@ -207,7 +207,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/get_characters_character_id_fleet
       def get_character_fleet(character_id:, headers: {}, params: {})
-        get_character_fleet_raw(character_id: character_id, headers: headers, params: params).json
+        parse_response(get_character_fleet_raw(character_id: character_id, headers: headers, params: params))
       end
       alias get_characters_character_id_fleet get_character_fleet
 
@@ -267,7 +267,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/get_fleets_fleet_id
       def get_fleet(fleet_id:, headers: {}, params: {})
-        get_fleet_raw(fleet_id: fleet_id, headers: headers, params: params).json
+        parse_response(get_fleet_raw(fleet_id: fleet_id, headers: headers, params: params))
       end
       alias get_fleets_fleet_id get_fleet
 
@@ -328,7 +328,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/get_fleets_fleet_id_members
       def get_fleet_members(fleet_id:, headers: {}, params: {})
-        get_fleet_members_raw(fleet_id: fleet_id, headers: headers, params: params).json
+        parse_response(get_fleet_members_raw(fleet_id: fleet_id, headers: headers, params: params))
       end
       alias get_fleets_fleet_id_members get_fleet_members
 
@@ -389,7 +389,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/get_fleets_fleet_id_wings
       def get_fleet_wings(fleet_id:, headers: {}, params: {})
-        get_fleet_wings_raw(fleet_id: fleet_id, headers: headers, params: params).json
+        parse_response(get_fleet_wings_raw(fleet_id: fleet_id, headers: headers, params: params))
       end
       alias get_fleets_fleet_id_wings get_fleet_wings
 
@@ -450,7 +450,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/post_fleets_fleet_id_members
       def post_fleet_members(fleet_id:, invitation:, headers: {}, params: {})
-        post_fleet_members_raw(fleet_id: fleet_id, invitation: invitation, headers: headers, params: params).json
+        parse_response(post_fleet_members_raw(fleet_id: fleet_id, invitation: invitation, headers: headers, params: params))
       end
       alias post_fleets_fleet_id_members post_fleet_members
 
@@ -510,7 +510,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/post_fleets_fleet_id_wings_wing_id_squads
       def post_fleet_wing_squads(fleet_id:, wing_id:, headers: {}, params: {})
-        post_fleet_wing_squads_raw(fleet_id: fleet_id, wing_id: wing_id, headers: headers, params: params).json
+        parse_response(post_fleet_wing_squads_raw(fleet_id: fleet_id, wing_id: wing_id, headers: headers, params: params))
       end
       alias post_fleets_fleet_id_wings_wing_id_squads post_fleet_wing_squads
 
@@ -568,7 +568,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/post_fleets_fleet_id_wings
       def post_fleet_wings(fleet_id:, headers: {}, params: {})
-        post_fleet_wings_raw(fleet_id: fleet_id, headers: headers, params: params).json
+        parse_response(post_fleet_wings_raw(fleet_id: fleet_id, headers: headers, params: params))
       end
       alias post_fleets_fleet_id_wings post_fleet_wings
 
@@ -626,7 +626,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/put_fleets_fleet_id
       def put_fleet(fleet_id:, new_settings:, headers: {}, params: {})
-        put_fleet_raw(fleet_id: fleet_id, new_settings: new_settings, headers: headers, params: params).json
+        parse_response(put_fleet_raw(fleet_id: fleet_id, new_settings: new_settings, headers: headers, params: params))
       end
       alias put_fleets_fleet_id put_fleet
 
@@ -687,7 +687,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/put_fleets_fleet_id_members_member_id
       def put_fleet_member(fleet_id:, member_id:, movement:, headers: {}, params: {})
-        put_fleet_member_raw(fleet_id: fleet_id, member_id: member_id, movement: movement, headers: headers, params: params).json
+        parse_response(put_fleet_member_raw(fleet_id: fleet_id, member_id: member_id, movement: movement, headers: headers, params: params))
       end
       alias put_fleets_fleet_id_members_member_id put_fleet_member
 
@@ -749,7 +749,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/put_fleets_fleet_id_squads_squad_id
       def put_fleet_squad(fleet_id:, squad_id:, naming:, headers: {}, params: {})
-        put_fleet_squad_raw(fleet_id: fleet_id, squad_id: squad_id, naming: naming, headers: headers, params: params).json
+        parse_response(put_fleet_squad_raw(fleet_id: fleet_id, squad_id: squad_id, naming: naming, headers: headers, params: params))
       end
       alias put_fleets_fleet_id_squads_squad_id put_fleet_squad
 
@@ -810,7 +810,7 @@ module ESI
       #
       # @see https://esi.evetech.net/ui/#/Fleets/put_fleets_fleet_id_wings_wing_id
       def put_fleet_wing(fleet_id:, wing_id:, naming:, headers: {}, params: {})
-        put_fleet_wing_raw(fleet_id: fleet_id, wing_id: wing_id, naming: naming, headers: headers, params: params).json
+        parse_response(put_fleet_wing_raw(fleet_id: fleet_id, wing_id: wing_id, naming: naming, headers: headers, params: params))
       end
       alias put_fleets_fleet_id_wings_wing_id put_fleet_wing
 
