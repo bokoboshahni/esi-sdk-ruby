@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    esi-sdk (3.0.0)
+    esi-sdk (3.0.1)
       oj (~> 3.13)
       retriable (~> 3.1)
       typhoeus (~> 1.4)

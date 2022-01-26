@@ -1,5 +1,12 @@
 # ESI SDK Changelog
 
+## [3.0.1](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v3.0.0...v3.0.1) (2022-01-26)
+
+
+### Bug Fixes
+
+* code style for version bump ([d2ea8a4](https://github.com/bokoboshahni/esi-sdk-ruby/commit/d2ea8a431ecfe9bea494ff50a760b8db18d01d6e))
+
 # [3.0.0](https://github.com/bokoboshahni/esi-sdk-ruby/compare/v2.1.3...v3.0.0) (2022-01-26)
 
 
